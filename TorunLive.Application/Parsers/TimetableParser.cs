@@ -1,8 +1,8 @@
-﻿using ConsoleDemo.Interfaces;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
+using TorunLive.Application.Interfaces;
 using TorunLive.Domain.Entities;
 
-namespace ConsoleDemo.Parsers
+namespace TorunLive.Application.Parsers
 {
     public static class Constants
     {

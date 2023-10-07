@@ -1,7 +1,7 @@
-﻿using ConsoleDemo.Interfaces;
+﻿using TorunLive.Application.Interfaces;
 using TorunLive.Domain.Enums;
 
-namespace ConsoleDemo.Services
+namespace TorunLive.Application.Services
 {
     public class FullTimetableService : IFullTimetableService
     {
@@ -21,10 +21,10 @@ namespace ConsoleDemo.Services
             var liveTimetable = await liveTimetableService.GetTimetable(sipStopId);
             var comparator = new TimetableComparator();
             var result = comparator.Compare(baseTimetable, liveTimetable);
-            foreach(var comparedLine in result)
+            foreach (var comparedLine in result)
             {
                 Console.WriteLine($"Linia: {comparedLine.Number} - {comparedLine.Name}");
-                foreach(var comparedArrival in comparedLine.Arrivals)
+                foreach (var comparedArrival in comparedLine.Arrivals)
                 {
                     var basic = DayMinuteToHourAndMinute(comparedArrival.BaseDayMinute);
                     var actual = DayMinuteToHourAndMinute(comparedArrival.ActualBaseMinute);
@@ -37,9 +37,9 @@ namespace ConsoleDemo.Services
         private static DateTime DayMinuteToHourAndMinute(int dayMinute)
         {
             var now = DateTime.Now;
-            var hour = Math.Floor((double)dayMinute / (double)60);
+            var hour = Math.Floor(dayMinute / (double)60);
             var minute = dayMinute % 60;
-            var nowDate = new DateTime(now.Year, now.Month, now.Day, (int) hour, minute, 0);
+            var nowDate = new DateTime(now.Year, now.Month, now.Day, (int)hour, minute, 0);
             return nowDate;
         }
     }

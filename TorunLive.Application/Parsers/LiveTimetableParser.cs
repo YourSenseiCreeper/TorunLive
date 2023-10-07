@@ -1,9 +1,9 @@
-﻿using ConsoleDemo.Interfaces;
-using System.Xml.Linq;
+﻿using System.Xml.Linq;
 using System.Xml.XPath;
+using TorunLive.Application.Interfaces;
 using TorunLive.Domain.Entities;
 
-namespace ConsoleDemo.Parsers
+namespace TorunLive.Application.Parsers
 {
     public class LiveTimetableParser : ILiveTimetableParser
     {
@@ -88,7 +88,7 @@ namespace ConsoleDemo.Parsers
             var document = XDocument.Parse(substring);
             var arrivals = document.XPathSelectElements("table/tbody/tr");
             var liveArrivals = new List<LiveArrival>();
-            foreach(var arrival in arrivals)
+            foreach (var arrival in arrivals)
             {
                 var cells = arrival.XPathSelectElements("td").ToList();
                 if (cells.Count != 3)

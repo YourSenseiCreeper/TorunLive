@@ -1,14 +1,14 @@
-﻿using ConsoleDemo.Interfaces;
+﻿using TorunLive.Application.Interfaces;
 using TorunLive.Domain.Entities;
 
-namespace ConsoleDemo.Services
+namespace TorunLive.Application.Services
 {
     public class TimetableComparator : ITimetableComparator
     {
         public List<CompareLine> Compare(Timetable baseTimetable, LiveTimetable liveTimetable)
         {
             var comparedLines = new List<CompareLine>();
-            foreach(var liveLine in liveTimetable.Lines)
+            foreach (var liveLine in liveTimetable.Lines)
             {
                 var comparedLine = new CompareLine
                 {

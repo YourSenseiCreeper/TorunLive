@@ -1,8 +1,8 @@
-﻿using ConsoleDemo.Interfaces;
-using ConsoleDemo.Parsers;
+﻿using TorunLive.Application.Interfaces;
+using TorunLive.Application.Parsers;
 using TorunLive.Domain.Entities;
 
-namespace ConsoleDemo.Services
+namespace TorunLive.Application.Services
 {
     public class LiveTimetableService : ILiveTimetableService
     {

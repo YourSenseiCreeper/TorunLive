@@ -1,6 +1,6 @@
 ﻿using TorunLive.Domain.Entities;
 
-namespace ConsoleDemo.Interfaces
+namespace TorunLive.Application.Interfaces
 {
     public interface ITimetableParser
     {

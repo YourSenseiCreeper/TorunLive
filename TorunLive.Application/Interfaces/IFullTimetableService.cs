@@ -1,4 +1,4 @@
-﻿namespace ConsoleDemo.Interfaces
+﻿namespace TorunLive.Application.Interfaces
 {
     public interface IFullTimetableService
     {

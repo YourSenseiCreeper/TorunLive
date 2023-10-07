@@ -1,4 +1,4 @@
-﻿namespace ConsoleDemo
+﻿namespace TorunLive.Application
 {
     public static class StopIdsMap
     {

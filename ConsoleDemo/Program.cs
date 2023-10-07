@@ -1,7 +1,4 @@
-﻿using ConsoleDemo;
-using ConsoleDemo.Parsers;
-using ConsoleDemo.Services;
-using TorunLive.Domain.Enums;
+﻿using TorunLive.Application.Services;
 
 Console.WriteLine("Hello, World!");
 var service = new TimetableService();
