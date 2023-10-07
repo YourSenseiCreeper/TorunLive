@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleDemo", "ConsoleDemo\ConsoleDemo.csproj", "{08C74E75-2246-4B22-81D8-C897FF8D848C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorunLive.Domain", "TorunLive.Domain\TorunLive.Domain.csproj", "{C39BAF83-C218-46F5-8AE3-33C68E075448}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08C74E75-2246-4B22-81D8-C897FF8D848C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08C74E75-2246-4B22-81D8-C897FF8D848C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08C74E75-2246-4B22-81D8-C897FF8D848C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08C74E75-2246-4B22-81D8-C897FF8D848C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C39BAF83-C218-46F5-8AE3-33C68E075448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C39BAF83-C218-46F5-8AE3-33C68E075448}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C39BAF83-C218-46F5-8AE3-33C68E075448}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C39BAF83-C218-46F5-8AE3-33C68E075448}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {93B5D77C-55A8-4FD3-B02E-A7782C8367E5}
+	EndGlobalSection
+EndGlobal
