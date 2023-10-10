@@ -124,6 +124,13 @@ namespace TorunLive.Application.Parsers
 
         private static int ConvertArrivalTimeToDayMinute(string minutesOrHourMinute)
         {
+            if (minutesOrHourMinute == ">>")
+            {
+                var now = DateTime.Now;
+                var dayMinute = now.Hour * 60 + now.Minute;
+                return dayMinute;
+            }
+
             if (minutesOrHourMinute.Contains("min"))
             {
                 var value = int.Parse(minutesOrHourMinute.Replace("min", ""));

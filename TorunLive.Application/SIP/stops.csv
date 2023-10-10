@@ -1,0 +1,677 @@
+101,Plac Rapackiego
+202,Plac Rapackiego
+303,Barwna
+401,Lubicz Dolny - Kolejowa n/ż
+501,Sztuki Piękne
+604,Sztuki Piękne
+702,Sztuki Piękne
+803,Sztuki Piękne
+902,Plac Skalskiego
+1001,Plac Skalskiego
+1102,Osiedle Zieleniec
+1201,Osiedle Zieleniec
+1303,Reja
+1404,Reja
+1502,Reja
+1602,Polna
+1701,Przybyszewskiego
+1801,Park Miejski
+1901,Konopnickiej
+2002,Konopnickiej
+2101,Ogród Zoobotaniczny
+2202,Ogród Zoobotaniczny
+2302,Chabrowa
+2401,Chabrowa
+2703,Dębowa Góra
+2801,Garbaty Mostek
+2901,Fort IV nż.
+3002,Fort IV nż.
+3102,Mazowiecka
+3303,Dworzec Wschodni
+3405,Dworzec Wschodni
+3504,Dworzec Wschodni
+3606,Dworzec Wschodni
+3701,Wschodnia
+3902,Wschodnia
+4003,Tofama
+4101,Tofama
+4204,Tofama
+4302,Tofama
+4401,Przychodnia
+4503,Elana A nż.
+4602,Elana A
+4701,Elana A
+4802,ELANA B
+4903,Elana B nż.
+5004,Elana B nż.
+5103,Zajezdnia Tramwajowa
+5204,Bukowa
+5301,Katarzynki nż.
+5402,Chrzanowskiego nż.
+5501,Bukowa
+5801,Manhattan
+5902,Manhattan
+6001,Przybyłów
+6102,Przybyłów
+6201,RUBINKOWO P&R
+6301,Fałata
+6402,Akademiki
+6501,Akademiki
+6602,Aula UMK
+6701,Aula UMK
+6802,Grasera
+6902,Kościuszki
+7001,Kościuszki
+7102,Kozacka
+7201,Kozacka
+7303,Polna
+7502,Legionów
+7601,CMENTARZ CENTRALNY
+7702,Plebiscytowa
+7801,Plebiscytowa
+7901,Kniaziewicza
+8002,Kniaziewicza
+8102,Brązowa
+8201,Brązowa
+8301,OKÓLNA
+8403,Świętopełka
+8504,Świętopełka
+8601,Świętopełka
+8702,Świętopełka
+8801,Szpital Miejski
+8902,Szpital Miejski
+9003,Grębocin n/ż
+9303,Kraszewskiego
+9404,Kraszewskiego
+9501,Kraszewskiego
+9602,Kraszewskiego
+9903,DWORZEC GŁÓWNY
+10101,Dworzec Główny
+10202,Plac Armii Krajowej
+10301,Plac Armii Krajowej
+10403,Lisia
+10503,Przychodnia
+10603,Ślaskiego
+10701,Wyszyńskiego
+10803,Wyszyńskiego
+10901,Ligi Polskiej
+11003,Ligi Polskiej
+11101,Kosynierów Kośc.
+11202,Kosynierów Kośc.
+11302,OLIMPIJSKA P&R
+11401,OLIMPIJSKA P&R
+11503,Kosynierów Kośc.
+11604,Kosynierów Kośc.
+11702,Ligi Polskiej
+11804,Ligi Polskiej
+11902,Wyszyńskiego
+12004,Wyszyńskiego
+12102,Ślaskiego
+12203,Kanałowa
+12301,Kociewska
+12402,Kociewska
+12502,Kanałowa
+12605,Ligi Polskiej
+12701,Witosa
+12802,Witosa
+12901,KOLANKOWSKIEGO
+13001,Legionów
+13101,Dekerta
+13202,Dekerta
+13301,Lelewela
+13402,Lelewela
+13501,Osiedle Tysiąclecia
+13602,Osiedle Tysiąclecia
+13701,KONIUCHY
+13804,KONIUCHY
+13904,Gołębia
+14002,Przychodnia
+14101,Gołębia
+14202,Poznańska nż.
+14302,Gołębia
+14401,Targowa
+14503,Targowa
+14601,Poznańska nż.
+14702,Targowa
+14802,Hubego
+14901,Nad Rzeczką nż
+15002,Nad Rzeczką nż
+15103,Poznańska-osiedle
+15201,Plac Daszyńskiego
+15303,Plac Daszyńskiego
+15402,Plac Daszyńskiego
+15503,Rydygiera
+15601,Rydygiera
+15702,Rydygiera
+15801,Leszczynowa
+15901,Przy Skarpie
+16002,Przy Skarpie
+16104,Przy Skarpie
+16203,Jamontta
+16301,Jamontta
+16404,Jamontta
+16502,Jamontta
+16601,RUBINKOWO P&R
+16702,RUBINKOWO P&R
+16801,Strzałowa
+16902,Strzałowa
+17001,Stawki
+17102,Stawki
+17201,Stawki Południowe nż.
+17302,Stawki Południowe nż.
+17401,Ceramika
+17502,Ceramika
+17602,Włocławska nż.
+17701,Solankowa nż.
+17804,Fort V nż.
+17901,Rubinkowo Centrum
+18002,Rubinkowo Centrum
+18206,Dworzec Autobusowy
+18303,Odrodzenia
+18401,Grasera
+18502,Odrodzenia
+18602,Dworzec Autobusowy
+18701,Barwna
+18802,Barwna
+18901,Szczecińska
+19002,Szczecińska
+19101,Cegielnia
+19202,Cegielnia
+19301,Bajeczna
+19402,Bajeczna
+19501,Kresowa
+19602,Kresowa
+19701,Grębocin n/ż
+19802,Grębocin n/ż
+19904,GRĘBOCIN (pętla)
+20001,Ośrodek Zdrowia n/ż
+20102,Ośrodek Zdrowia n/ż
+20201,Rogówko - Ogrodnik nż.
+20302,Rogówko - Ogrodnik nż.
+20401,Rogówko n/ż
+20504,PLAC ŚW. KATARZYNY
+20603,PLAC ŚW. KATARZYNY
+20803,Plac Armii Krajowej
+20904,Plac Armii Krajowej
+21001,Park Tysiąclecia
+21105,Dworzec Główny
+21204,Dworzec Główny
+21301,Łódzka
+21402,Łódzka
+21501,Podgórska
+21602,Podgórska
+21701,Grzybowa nż.
+21802,Grzybowa nż.
+21902,RUDAK
+22101,Bractwa Kurkowego nż.
+22201,Rolnicza
+22302,Rolnicza
+22401,Polna
+22501,Batorego nż
+22602,Batorego nż
+22801,Dębowa Góra
+22902,Dębowa Góra
+23001,Traktorowa
+23302,Parkowa
+23401,Parkowa
+23501,Kluczyki nż.
+23602,Kluczyki nż.
+23702,Polmozbyt nż.
+23801,Polmozbyt nż.
+23902,Kręta
+24001,Kręta
+24104,Gniewkowska nż.
+24203,Gniewkowska nż.
+24302,Osiedle Leśny Zakątek nż.
+24401,Osiedle Leśny Zakątek nż.
+24502,Baza Transportu nż.
+24601,Baza Transportu nż.
+24702,POZNAŃSKA
+24801,GLINKI
+24902,Przy Kaszowniku
+25001,Przy Kaszowniku
+25101,Przy Kaszowniku
+25202,Przy Kaszowniku
+25305,Reja
+25501,Reja
+25601,Szkoła nż.
+25702,Szkoła nż.
+25801,Skrzetuskiego nż.
+25902,Skrzetuskiego nż.
+26002,DZIAŁKI RUDAK
+26101,Donimirskiego
+26202,Donimirskiego
+26301,Mickiewicza
+26402,Fałata
+26501,Lniana
+26602,Lniana
+26702,Garbaty Mostek
+26801,Olbrachta nż.
+26901,MOTOARENA
+27002,Szosa Bydgoska
+27101,Szosa Bydgoska
+27204,Szosa Bydgoska nż.
+27303,Szosa Bydgoska nż.
+27402,Oczyszczalnia nż.
+27501,Oczyszczalnia nż.
+27602,Starotoruńska
+27701,Starotoruńska
+27801,PORT DRZEWNY
+27901,STROBANDA
+28202,Aleja Solidarności
+28301,Aleja Solidarności
+28402,Targowisko
+28501,Bema
+28602,Wybickiego
+28701,Wybickiego
+28802,Żwirki i Wigury
+28901,Żwirki i Wigury
+29001,Bartkiewiczówny
+29102,Bartkiewiczówny
+29201,św. Antoniego
+29302,św. Antoniego
+29401,Lisia
+29502,Lisia
+29601,Zagonowa nż.
+29702,Zagonowa nż.
+29802,WRZOSY I
+29901,Lotnisko nż.
+30002,Lotnisko nż.
+30102,Bluszczowa nż.
+30201,Dworzec Autobusowy
+30301,Plac Św. Katarzyny
+30504,Ślaskiego
+30601,Prejsa
+30701,Szpital Bielany
+30801,św. Józefa
+30902,św. Józefa
+31005,Od Nowa
+31102,Od Nowa
+31202,Dworzec Miasto
+31304,Dworzec Miasto
+31403,Dworzec Miasto
+31501,Przy Skarpie
+31601,Turystyczna nż.
+31702,Turystyczna nż.
+31801,Wieżowa nż.
+31902,Wieżowa nż.
+32101,Dożynkowa nż.
+32201,Kogucia nż.
+32302,Kogucia nż.
+32401,Drwęca nż.
+32502,DRWĘCA
+32601,Złotoria - Pomorska nż.
+32702,Złotoria - Pomorska nż.
+32802,Złotoria nż.
+33101,Wały gen. Sikorskiego
+33202,Wały gen. Sikorskiego
+33302,Meprozet nż.
+33401,Meprozet nż.
+33602,Warneńczyka
+33701,Warneńczyka
+33802,Warneńczyka
+33901,Warneńczyka
+34001,Odrodzenia
+34102,Plac Św. Katarzyny
+34201,Dworzec Miasto
+34301,Gardzielewskiego
+34504,Wschodnia
+34603,Wschodnia
+34701,Działki Rudak
+34901,WSCHODNIA (pętla)
+35006,Plac Daszyńskiego
+35105,Plac Daszyńskiego
+35201,Matysiaków
+35301,Zdrojowa nż.
+35401,Dworzec Wschodni
+35502,Dworzec Wschodni
+35601,Plac Daszyńskiego II
+35702,Plac Daszyńskiego
+35802,Szpital Bielany
+35902,Boboli
+36001,Żwirki i Wigury
+36102,Lecha
+36201,Lecha
+36301,Gniewkowska nż.
+36402,Gniewkowska nż.
+36502,Wianki
+36601,Wianki
+36701,Bliska nż.
+36802,Bliska nż.
+36901,SZUBIŃSKA
+37001,Biała
+37102,Biała
+37201,63. Pułku Piechoty
+37302,63. Pułku Piechoty
+37704,Drzymały
+37803,Drzymały
+37901,Kusocińskiego nż.
+38002,Kusocińskiego nż.
+38101,Odległa nż
+38202,Płocka nż.
+38301,Lubicz Dolny - Lipowa n/ż
+38402,Lubicz Dolny - Lipowa n/ż
+38501,Lubicz Dolny
+38602,Lubicz Dolny
+38701,Lubicz Górny
+38802,Lubicz Górny
+38901,LUBICZ GÓRNY-OSIEDLE
+39003,Rypińska
+39101,Brzeźno n/ż
+39202,Brzeźno n/ż
+39301,GRONOWO
+39401,Paderewskiego nż.
+39502,Paderewskiego nż.
+39703,Katarzynka PKP nż.
+39801,FORTECZNA
+39901,Złotoria - Toruńska nż.
+40002,Złotoria - Toruńska nż.
+40101,Złotoria - Lipowa nż.
+40202,Złotoria - Lipowa nż.
+40301,Ceramiczna
+40401,EC GRĘBOCIN
+40502,Księżycowa nż.
+40601,Elektryczna
+40702,Elektryczna
+40801,Księżycowa nż.
+40904,Targowa
+41001,Mazowiecka
+41101,Cmentarz Centr. II Brama nż.
+41301,Fabryczna nż.
+41402,Fabryczna nż.
+41501,WRZOSOWA
+41601,Jastrzębia nż.
+41701,Myśliwska nż.
+41801,Krucza nż.
+41904,Katarzynka PKP nż.
+42102,Wielki Rów
+42201,Wielki Rów
+42303,Wielki Rów
+42402,Traktorowa
+42501,Ugory nż.
+42602,Liliowa nż.
+42902,Czerniewice
+43002,Zdrojowa nż.
+43102,Matysiaków
+43201,Włocławska nż.
+43302,Zakole
+43401,Zakole
+43502,Telimeny
+43601,Telimeny
+43801,OSIEDLE LEŚNE - POLANA
+44701,Owsiana nż.
+44801,Lubicz Dolny - Urząd Gminy n/ż
+46201,Długa
+46302,Długa
+46401,Lotników
+46501,Lotników
+46802,Szosa Okrężna
+46901,Szosa Okrężna
+47002,Przychodnia
+47101,Przychodnia
+47201,Złotoria nż.
+47301,KOPANINO
+47401,BIELAWY
+47501,Wiśniowieckiego
+47602,Wiśniowieckiego
+47701,MAZOWIECKA (pętla)
+48003,Garbaty Mostek
+48101,Kanałowa
+48204,Barwna
+48301,Toruńska
+48401,Lubicz Górny - Bankowa
+48503,Żwirki i Wigury
+48604,Plac Daszyńskiego
+48703,Koniuchy
+48802,Koniuchy
+49202,Letnia
+49301,Letnia
+49402,gen. Orlicza-Dreszera nż.
+49501,gen. Orlicza-Dreszera nż.
+49701,Kolankowskiego
+49802,Kolankowskiego
+49901,Słupska nż.
+50002,Słupska nż.
+50101,Suwalska
+50202,Suwalska
+50506,Ligi Polskiej
+50603,Księżycowa nż.
+50702,Solankowa nż.
+50801,Poznańska (komisariat) nż.
+50902,Poznańska (komisariat) nż.
+51001,Kluczyki Cmentarz nż.
+51101,Forteczna nż.
+51301,Zimowa nż.
+51402,Dandelskiego
+51501,Dandelskiego
+51601,NAD STRUGĄ
+51702,Forteczna nż.
+51802,Kluczyki Cmentarz nż.
+51903,Pilska
+52004,Pilska
+52102,Ostrołęcka
+52201,Ostrołęcka
+52303,Chełmska
+52404,Chełmska
+52703,Katarzynki nż.
+52801,Na Zapleczu
+52901,Os. Pancernych
+53001,KOŁOWA
+53101,Na Zapleczu
+53302,Andersa nż.
+53402,Krynicka
+53501,Krynicka
+53601,Rudacka nż.
+53702,Rudacka nż.
+53802,Hutowo nż.
+53901,Hutowo nż.
+54002,MOTOARENA
+54103,OLIMPIJSKA P&R nż.
+54201,Młyn Wiedzy nż
+54302,Młyn Wiedzy nż
+54403,Strzałowa
+54503,Letnia
+54603,Kniaziewicza
+54701,PRZY LESIE
+54801,Orzechowa nż.
+54902,Orzechowa nż.
+55001,Bluszczowa nż.
+55102,Odległa nż
+55201,Stepowa nż.
+55302,Stepowa nż.
+55402,Drzymały
+55501,Drzymały
+55701,Towarowa
+55802,Towarowa
+55901,Mocarskiego
+56004,Rydygiera
+56101,Zaułek Dworcowy nż.
+56202,Zaułek Dworcowy nż.
+56302,Słoneczna nż.
+56401,Słoneczna nż.
+56502,Czeremchowa nż.
+56601,Czeremchowa nż.
+56701,Brzoskwiniowa nż.
+56803,Gołębia
+56903,Lniana
+57002,Centrum Handlowe-Zachód nż.
+57101,Centrum Handlowe-Zachód nż.
+57203,PLAC SKALSKIEGO
+57301,Łukasiewicza
+57501,Złotoria - Akacjowa nż.
+57602,Złotoria - Akacjowa nż.
+57701,Kopanino - Przy Dębie nż.
+57802,Kopanino - Przy Dębie nż.
+57902,Osiedle Młodych
+58003,Osiedle Młodych
+58203,Od Nowa
+58304,Od Nowa
+58403,Akademiki
+58504,Akademiki
+58603,Aula UMK
+58704,Aula UMK
+58804,Szosa Okrężna
+58903,Szosa Okrężna
+59001,UNIWERSYTET
+59104,Fałata
+59203,Fałata
+59301,Dyngusowa nż.
+59402,Dyngusowa nż.
+59502,Fantazyjna nż.
+59601,Skierki nż.
+59702,Skierki nż.
+59803,Dożynkowa nż.
+59902,os. Leśne - Polana nż.
+60004,Kusocińskiego nż.
+60103,Kusocińskiego nż.
+60201,BARBARKA
+60301,Fantazyjna nż.
+61501,KOLONIA PAPOWSKA
+61901,Krobia-Kalinowa nż.
+62002,Krobia-Kalinowa nż.
+62101,Krobia-Osiedlowa nż.
+62202,Krobia-Osiedlowa nż.
+62301,Krobia-Poligraficzna nż.
+62402,Krobia-Poligraficzna nż.
+62501,KROBIA
+62602,WAPIENNA
+62701,Chrzanowskiego nż.
+62801,Wodna nż.
+62902,Wodna nż.
+63002,Arena Toruń
+63101,Arena Toruń
+63202,Rypińska
+63301,Rypińska
+63402,Lipnowska nż.
+63501,Lipnowska nż.
+63602,Rogówko n/ż
+63703,Wybickiego
+63801,Popiela
+63902,Popiela
+64003,Sczanieckiego
+64101,Sczanieckiego
+64202,Sczanieckiego
+64301,Od Nowa
+64402,Fort V nż.
+64501,Fort V nż.
+64602,Freytaga
+64701,Freytaga
+64801,Hubego
+65004,Gen. Grota Roweckiego nż.
+65105,Gen. Grota Roweckiego nż.
+65203,Wiśniowieckiego
+65502,Bema
+65601,Otłoczyńska nż.
+65702,Kmicica nż.
+65802,GLINIECKA
+65902,Galeria Copernicus
+66001,Chrobrego nż.
+66102,Chrobrego nż.
+66204,Chrobrego nż.
+66303,Chrobrego nż.
+66402,Zimowa nż.
+66503,os. Leśne-Polana nż.
+66605,Tofama
+66704,Sczanieckiego
+66801,Urząd Celny nż.
+66902,Urząd Celny nż.
+67104,Dworzec Autobusowy
+67201,Ślaskiego
+67303,Starotoruńska
+67404,Lisia nż.
+67502,Gałczyńskiego nż.
+67602,Balladyny nż.
+67703,Drwęca nż.
+67801,Poznańska-osiedle
+67902,Poznańska-osiedle
+68101,Przysiecka nż.
+68202,Przysiecka nż.
+68301,Katarzynka PKP nż.
+68401,Rybińskiego
+68502,STROBANDA
+68603,Hallera
+68704,Hallera
+69001,Targowisko
+69105,Koniuchy
+69201,Przelot nż
+69302,Przelot nż
+69401,Gminna nż
+69503,Targowisko
+69604,Targowisko
+69703,Bema
+69804,Bema
+69905,Wybickiego
+70002,Brzozówka nż.
+70101,Brzozówka nż.
+70202,Głogowo nż.
+70301,Głogowo nż.
+70402,Dobrzejewice nż.
+70501,Dobrzejewice nż.
+70602,Zawały I nż.
+70701,Zawały I nż.
+70802,Kawęczyn nż.
+70901,Kawęczyn nż.
+71001,OBROWO
+71101,Obrowo-Osiedle nż.
+71202,Obrowo-Osiedle nż.
+71301,Kolonia Obrowska nż.
+71402,Kolonia Obrowska nż.
+71501,Sąsieczno nż.
+71602,Sąsieczno nż.
+71701,Heweliusza
+71802,Heweliusza
+71901,Osiek-Siciny II nż.
+72002,Osiek-Siciny II nż.
+72101,Osiek-Szkoła nż.
+72202,Osiek-Szkoła nż.
+72301,Osiek nż.
+72402,Osiek nż.
+72501,Dzikowo skrz. nż.
+72602,Dzikowo skrz. nż.
+72701,Dzikowo nż.
+72802,Dzikowo nż.
+72901,Silno IV nż.
+73002,Silno IV nż.
+73101,Silno III nż.
+73202,Silno III nż.
+73301,Silno II nż.
+73402,Silno II nż.
+73501,Silno I nż.
+73602,Silno I nż.
+73701,Grabowiec-Wieś nż.
+73802,Grabowiec-Wieś nż.
+73901,Grabowiec II nż.
+74002,Grabowiec II nż.
+74102,Grabowiec I nż.
+74201,Grabowiec I nż.
+74301,Złotoria I nż.
+74402,Złotoria I nż.
+74503,Złotoria - Pomorska nż.
+74604,Lubicz Górny
+76101,Przysiek n/ż
+76201,Rozgarty n/ż
+76301,Rozgarty-Kwiatowa n/ż
+76401,ROZGARTY - STARA SZKOŁA
+76501,Rozgarty-Leśna n/ż
+76601,Rozgarty-Wróblowa n/ż
+76701,Przysiek-Błotka n/ż
+76801,Przysiek-Szkoła n/ż
+76902,Przysiek n/ż
+77003,Brzozówka nż.
+77102,Brzozówka-wieś nż.
+77201,Brzozówka-wieś nż.
+77302,Brzozówka-Olszynowa nż.
+77401,Brzozówka-Olszynowa nż.
+77502,Szembekowo-Osiedlowa nż.
+77601,Szembekowo-Osiedlowa nż.
+77702,Szembekowo-OSP nż.
+77801,Szembekowo-OSP nż.
+77902,Szembekowo-skrz. nż.
+78001,Szembekowo-skrz. nż.
+78101,SZEMBEKOWO
+78202,Dobrzejewice-staw nż.
+78301,Dobrzejewice-staw nż.
+78401,Brzozówka - sklep nż.
+78502,Brzozówka - sklep nż.
+78602,Złotoria II nż.
+78701,Złotoria II nż.
