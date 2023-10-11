@@ -1,4 +1,6 @@
-﻿using System.Xml.Linq;
+﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
+using System.Xml.Linq;
 using System.Xml.XPath;
 
 namespace TorunLive.SIPTimetableScanner
@@ -30,9 +32,10 @@ namespace TorunLive.SIPTimetableScanner
                 "121", "122", "131", "N90", "N91", "N93", "N94", "N95"
             };
 
-            string fileName = "timetables.csv";
+            string fileName = "timetables.json";
             var random = new Random();
-            //var foundStops = LoadFromFile(fileName);
+            //var foundLines = LoadFromFile(fileName);
+            var allLinesAndDirections = new List<LineEntry>();
             try
             {
                 foreach (var line in lines)
@@ -40,21 +43,14 @@ namespace TorunLive.SIPTimetableScanner
                     var directions = await GetLineEntries(line);
                     foreach (var direction in directions)
                     {
-                        var rawTimetable = await GetTimetableStops(direction.DirectionName, direction.TimetableUrl);
-                        // parse
-                        // add to dictionary
-                        //result = await GetStopName(stopNumber);
-                        //if (result != null)
-                        //{
-                        //    foundStops.Add(stopNumber, result);
-                        //    Console.WriteLine($"Found {stopNumber} - {result}");
-                        //    break;
-                        //}
+                        var timetableStops = await GetTimetableStops(direction.TimetableUrl);
+                        direction.Timetable = timetableStops;
+                        allLinesAndDirections.Add(direction);
                         var innerDelay = (int)(100 * random.NextDouble());
                         await Task.Delay(innerDelay);
                     }
 
-                    //SaveToFile("stops.csv", foundStops);
+                    SaveToFile(fileName, allLinesAndDirections);
                     var delay = (int)(250 * random.NextDouble());
                     await Task.Delay(delay);
                 }
@@ -65,22 +61,21 @@ namespace TorunLive.SIPTimetableScanner
             }
             finally
             {
-                //SaveToFile(fileName, foundStops);
+                SaveToFile(fileName, allLinesAndDirections);
             }
         }
 
-        public async Task<List<TimetableEntry>> GetTimetableStops(string lineDirection, string lineUrl)
+        public async Task<List<TimetableEntry>> GetTimetableStops(string lineUrl)
         {
-            var entries = new List<TimetableEntry>();
             var response = await _httpClient.GetAsync(lineUrl);
             response.EnsureSuccessStatusCode();
 
             var rawData = await response.Content.ReadAsStringAsync();
-            var parsed = ParseTimetableData(lineDirection, rawData);
-            return entries;
+            var parsed = ParseTimetableData(rawData);
+            return parsed;
         }
 
-        public List<TimetableEntry> ParseTimetableData(string lineDirection, string lineData)
+        public List<TimetableEntry> ParseTimetableData(string lineData)
         {
             var entries = new List<TimetableEntry>();
             var start = "<div class=\"timetable-stops\">";
@@ -91,9 +86,31 @@ namespace TorunLive.SIPTimetableScanner
             substring = substring.Replace("<br>", "<br></br>").Replace("&", "&amp;");
 
             var document = XDocument.Parse(substring);
-            //var tableRows = document.XPathSelectElements("div/div/table/tr").ToList();
             var urls = document.XPathSelectElements("div/div/table/tr/td/a").ToList();
-            // trzeba manualnie dodać ostatni przystanek do listy
+            var times = document.XPathSelectElements("div/div/table/tr/td")
+                .Where(t => t.Attributes().Any(a => a.Value == "czas")).ToList();
+            foreach (var (url, time) in urls.Zip(times))
+            {
+                var lineStopUrl = url.Attributes().FirstOrDefault(a => a.Name == "href")?.Value ?? string.Empty;
+                lineStopUrl = lineStopUrl.Replace(".html", "");
+                entries.Add(new TimetableEntry
+                {
+                    Name = url.Value.Replace("&amp;", "&"),
+                    StopId = lineStopUrl,
+                    TimeElapsedFromFirstStop = int.Parse(time.Value)
+                });
+            }
+
+            // ostatnią trzeba dodać manualnie, bo nie ma linku
+            var cells = document.XPathSelectElements("div/div/table/tr/td").ToList();
+            var lastCell = cells.LastOrDefault();
+            if (lastCell != null)
+            {
+                entries.Add(new TimetableEntry
+                {
+                    Name = lastCell.Value.Replace("&amp;", "&"),
+                });
+            }
             return entries;
         }
 
@@ -142,31 +159,29 @@ namespace TorunLive.SIPTimetableScanner
             return entries;
         }
 
-        private static Dictionary<string, string> LoadFromFile(string filename)
+        private static List<LineEntry> LoadFromFile(string filename)
         {
             var currentDirectory = Directory.GetCurrentDirectory();
             var path = Path.Combine(currentDirectory, filename);
-            var lines = File.ReadAllLines(path);
-            var result = lines.Select(l =>
-            {
-                var line = l.Split(',');
-                return new { Key = line[0], Value = line[1] };
-            }).ToDictionary(kv => kv.Key, kv => kv.Value);
-            return result;
+            var serialized = File.ReadAllText(path);
+            var deserialized = JsonConvert.DeserializeObject<List<LineEntry>>(serialized);
+            return deserialized;
         }
 
-        public static void SaveToFile(string filename, Dictionary<string, string> stops)
+        public static void SaveToFile(string filename, List<LineEntry> lineEntries)
         {
             var currentDirectory = Directory.GetCurrentDirectory();
             var path = Path.Combine(currentDirectory, filename);
-            var values = stops.Select(kv => $"{kv.Key},{kv.Value}");
-            File.WriteAllLines(path, values);
+            var serialized = JsonConvert.SerializeObject(lineEntries);
+            File.WriteAllText(path, serialized);
         }
     }
 
     public class TimetableEntry
     {
-
+        public string Name { get; set; }
+        public string StopId { get; set; }
+        public int TimeElapsedFromFirstStop { get; set; }
     }
 
     public class LineEntry
@@ -174,5 +189,6 @@ namespace TorunLive.SIPTimetableScanner
         public string Name { get; set; }
         public string DirectionName { get; set; }
         public string TimetableUrl { get; set; }
+        public List<TimetableEntry> Timetable { get; set; }
     }
 }
