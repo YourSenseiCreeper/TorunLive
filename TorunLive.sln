@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TorunLive.Application", "To
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{F595AD49-0FCB-4252-8FB3-8AD99606D28D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorunLive.SIPStopScanner", "TorunLive.SIPStopScanner\TorunLive.SIPStopScanner.csproj", "{840020FD-226C-4BA7-A869-8CAEEAA71319}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TorunLive.SIPStopScanner", "TorunLive.SIPStopScanner\TorunLive.SIPStopScanner.csproj", "{840020FD-226C-4BA7-A869-8CAEEAA71319}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorunLive.SIPTimetableScanner", "TorunLive.SIPTimetableScanner\TorunLive.SIPTimetableScanner.csproj", "{282414C1-B49E-4C2C-B3DC-62E7DDB5FA67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,12 +37,17 @@ Global
 		{840020FD-226C-4BA7-A869-8CAEEAA71319}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{840020FD-226C-4BA7-A869-8CAEEAA71319}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{840020FD-226C-4BA7-A869-8CAEEAA71319}.Release|Any CPU.Build.0 = Release|Any CPU
+		{282414C1-B49E-4C2C-B3DC-62E7DDB5FA67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{282414C1-B49E-4C2C-B3DC-62E7DDB5FA67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{282414C1-B49E-4C2C-B3DC-62E7DDB5FA67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{282414C1-B49E-4C2C-B3DC-62E7DDB5FA67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{840020FD-226C-4BA7-A869-8CAEEAA71319} = {F595AD49-0FCB-4252-8FB3-8AD99606D28D}
+		{282414C1-B49E-4C2C-B3DC-62E7DDB5FA67} = {F595AD49-0FCB-4252-8FB3-8AD99606D28D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93B5D77C-55A8-4FD3-B02E-A7782C8367E5}

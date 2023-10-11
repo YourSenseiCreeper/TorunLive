@@ -3,16 +3,20 @@ using System.Xml.XPath;
 
 namespace TorunLive.SIPStopScanner
 {
-    public class LiveTimetableService
+    public class StopsScannerService
     {
         private readonly HttpClient _httpClient;
-        public LiveTimetableService()
+        public StopsScannerService()
         {
             _httpClient = new HttpClient
             {
                 BaseAddress = new Uri("http://sip.um.torun.pl:8080/default.aspx")
             };
         }
+
+        // stąd można zescrapowć wszystkie trasy wraz z ID przystanków zgodnymi z SIP
+        // przydatne przy śledzeniu na żywo autobusu na wybranej trasie
+        // https://rozklad.mzk-torun.pl/panel.html
 
         public async Task ScanStops()
         {
@@ -21,7 +25,7 @@ namespace TorunLive.SIPStopScanner
             var foundStops = LoadFromFile(fileName);
             var retries = 0;
             var lastStopAmount = 0;
-            var start = 800;
+            var start = 0;
             var lastSaved = 0;
             try
             {
