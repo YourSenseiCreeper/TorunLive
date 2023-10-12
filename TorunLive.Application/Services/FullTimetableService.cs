@@ -5,9 +5,9 @@ namespace TorunLive.Application.Services
 {
     public class FullTimetableService : IFullTimetableService
     {
-        public async Task GetFullTimetable()
+        public async Task GetFullTimetable(int sipStopId)
         {
-            var startStopId = 679;
+            var startStopId = StopIdsMap.SIPtoRozkladzik[sipStopId]; ;
             var now = DateTime.Now;
             var dayOfWeek = now.DayOfWeek.ToString();
             var polishDayOfWeek = (PolishDayOfWeek)Enum.Parse(typeof(PolishDayOfWeek), dayOfWeek);
@@ -17,7 +17,6 @@ namespace TorunLive.Application.Services
             var baseTimetable = await service.GetTimetable(startStopId, polishDayOfWeek, dayMinute);
 
             var liveTimetableService = new LiveTimetableService();
-            var sipStopId = StopIdsMap.RozkladzikToSIP[startStopId];
             var liveTimetable = await liveTimetableService.GetTimetable(sipStopId);
             var comparator = new TimetableComparator();
             var result = comparator.Compare(baseTimetable, liveTimetable);

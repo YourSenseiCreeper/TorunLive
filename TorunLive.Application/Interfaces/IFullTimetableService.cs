@@ -2,6 +2,6 @@
 {
     public interface IFullTimetableService
     {
-        public Task GetFullTimetable();
+        public Task GetFullTimetable(int sipStopId);
     }
 }
