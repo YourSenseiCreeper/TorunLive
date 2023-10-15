@@ -1,4 +1,4 @@
-﻿using TorunLive.Application.Interfaces;
+﻿using TorunLive.Application.Interfaces.Services;
 using TorunLive.Application.Parsers;
 using TorunLive.Domain.Entities;
 

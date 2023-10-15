@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using TorunLive.Application.Interfaces;
+using TorunLive.Application.Interfaces.Services;
 using TorunLive.Domain.Entities;
 
 namespace TorunLive.Application.Services

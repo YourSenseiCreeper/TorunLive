@@ -1,10 +1,29 @@
 ﻿using TorunLive.Application.Interfaces;
+using TorunLive.Application.Interfaces.Services;
 using TorunLive.Domain.Enums;
 
 namespace TorunLive.Application.Services
 {
     public class FullTimetableService : IFullTimetableService
     {
+        private readonly ITimetableService _timetableService;
+        private readonly ITimetableComparator _timetableComparator;
+        private readonly ILiveTimetableService _liveTimetableService;
+        private readonly ILineStopsService _lineStopsService;
+
+        public FullTimetableService(
+            ITimetableService timetableService,
+            ITimetableComparator timetableComparator,
+            ILiveTimetableService liveTimetableService,
+            ILineStopsService lineStopsService
+            )
+        {
+            _timetableService = timetableService;
+            _timetableComparator = timetableComparator;
+            _liveTimetableService = liveTimetableService;
+            _lineStopsService = lineStopsService;
+        }
+
         public async Task GetFullTimetable(int sipStopId)
         {
             var startStopId = StopIdsMap.SIPtoRozkladzik[sipStopId]; ;
@@ -13,13 +32,10 @@ namespace TorunLive.Application.Services
             var polishDayOfWeek = (PolishDayOfWeek)Enum.Parse(typeof(PolishDayOfWeek), dayOfWeek);
             var dayMinute = now.Hour * 60 + now.Minute;
 
-            var service = new TimetableService();
-            var baseTimetable = await service.GetTimetable(startStopId, polishDayOfWeek, dayMinute);
+            var baseTimetable = await _timetableService.GetTimetable(startStopId, polishDayOfWeek, dayMinute);
 
-            var liveTimetableService = new LiveTimetableService();
-            var liveTimetable = await liveTimetableService.GetTimetable(sipStopId);
-            var comparator = new TimetableComparator();
-            var result = comparator.Compare(baseTimetable, liveTimetable);
+            var liveTimetable = await _liveTimetableService.GetTimetable(sipStopId);
+            var result = _timetableComparator.Compare(baseTimetable, liveTimetable);
             foreach (var comparedLine in result)
             {
                 Console.WriteLine($"Linia: {comparedLine.Number} - {comparedLine.Name}");
@@ -36,13 +52,11 @@ namespace TorunLive.Application.Services
         public async Task GetLiveForLine(string lineNumber, string stopId, string direction)
         {
             string directory = Directory.GetCurrentDirectory();
-            string path = Path.Combine(directory, $"SIP\\timetables.json"); 
-            var service = new LineStopsService();
-            service.LoadFromFile(path);
+            string path = Path.Combine(directory, $"SIP\\timetables.json");  // TODO: wywalić to stąd!
+            _lineStopsService.LoadFromFile(path);
 
-            var stopsBeforeForStop = service.GetEntriesBeforeStop(lineNumber, direction, stopId, 5);
+            var stopsBeforeForStop = _lineStopsService.GetEntriesBeforeStop(lineNumber, direction, stopId, 5);
 
-            var liveTimetableService = new LiveTimetableService();
             var startingStop = stopsBeforeForStop.Last();
             var stopName = startingStop.Name;
             var timeFromLineStart = startingStop.TimeElapsedFromFirstStop;
@@ -50,7 +64,7 @@ namespace TorunLive.Application.Services
             foreach (var timetableStop in stopsBeforeForStop)
             {
                 var sipStopId = int.Parse(timetableStop.StopId);
-                var liveTimetable = await liveTimetableService.GetTimetable(sipStopId);
+                var liveTimetable = await _liveTimetableService.GetTimetable(sipStopId);
                 var liveLineEntries = liveTimetable.Lines.Where(l => l.Number == lineNumber);
                 if (liveLineEntries.Any())
                 {

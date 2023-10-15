@@ -1,6 +1,6 @@
 ﻿using System.Xml.Linq;
 using System.Xml.XPath;
-using TorunLive.Application.Interfaces;
+using TorunLive.Application.Interfaces.Parsers;
 using TorunLive.Domain.Entities;
 
 namespace TorunLive.Application.Parsers

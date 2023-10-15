@@ -1,7 +1,7 @@
 ﻿using TorunLive.Domain.Entities;
 using TorunLive.Domain.Enums;
 
-namespace TorunLive.Application.Interfaces
+namespace TorunLive.Application.Interfaces.Services
 {
     public interface ITimetableService
     {

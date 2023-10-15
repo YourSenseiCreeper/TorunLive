@@ -1,5 +1,5 @@
 ﻿using System.Text.RegularExpressions;
-using TorunLive.Application.Interfaces;
+using TorunLive.Application.Interfaces.Parsers;
 using TorunLive.Domain.Entities;
 
 namespace TorunLive.Application.Parsers
