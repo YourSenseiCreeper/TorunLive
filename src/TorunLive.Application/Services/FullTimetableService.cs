@@ -33,6 +33,43 @@ namespace TorunLive.Application.Services
             }
         }
 
+        public async Task GetLiveForLine(string lineNumber, string stopId, string direction)
+        {
+            string directory = Directory.GetCurrentDirectory();
+            string path = Path.Combine(directory, $"SIP\\timetables.json"); 
+            var service = new LineStopsService();
+            service.LoadFromFile(path);
+
+            var stopsBeforeForStop = service.GetEntriesBeforeStop(lineNumber, direction, stopId, 5);
+
+            var liveTimetableService = new LiveTimetableService();
+            var startingStop = stopsBeforeForStop.Last();
+            var stopName = startingStop.Name;
+            var timeFromLineStart = startingStop.TimeElapsedFromFirstStop;
+
+            foreach (var timetableStop in stopsBeforeForStop)
+            {
+                var sipStopId = int.Parse(timetableStop.StopId);
+                var liveTimetable = await liveTimetableService.GetTimetable(sipStopId);
+                var liveLineEntries = liveTimetable.Lines.Where(l => l.Number == lineNumber);
+                if (liveLineEntries.Any())
+                {
+                    var liveLineEntry = liveLineEntries.First();
+                    var diffTime = timeFromLineStart - timetableStop.TimeElapsedFromFirstStop;
+                    var arrival = liveLineEntry.Arrivals.FirstOrDefault();
+                    if (arrival != null)
+                    {
+                        // muszę odnosić się do rozkładu lini, nie do różnic czasów - niewykonalne będzie pokazać jakie jest opóźnienie dla danego przystanku
+                        Console.WriteLine($"{timetableStop.Name}: Planowany: {diffTime}m, Aktualny: {DayMinuteToHourAndMinute(arrival.DayMinute)}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{timetableStop.Name}: Planowany: {diffTime}m, Aktualny: brak");
+                    }
+                }
+            }
+        }
+
         private static DateTime DayMinuteToHourAndMinute(int dayMinute)
         {
             var now = DateTime.Now;

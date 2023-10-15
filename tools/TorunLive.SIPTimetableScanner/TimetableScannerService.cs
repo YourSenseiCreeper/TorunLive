@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
-using System.Text.Json.Serialization;
 using System.Xml.Linq;
 using System.Xml.XPath;
+using TorunLive.Domain.Entities;
 
 namespace TorunLive.SIPTimetableScanner
 {
@@ -15,10 +15,6 @@ namespace TorunLive.SIPTimetableScanner
                 BaseAddress = new Uri("https://rozklad.mzk-torun.pl/")
             };
         }
-
-        // stąd można zescrapowć wszystkie trasy wraz z ID przystanków zgodnymi z SIP
-        // przydatne przy śledzeniu na żywo autobusu na wybranej trasie
-        // 
 
         public async Task ScanTimetablesAndLines()
         {
@@ -34,15 +30,16 @@ namespace TorunLive.SIPTimetableScanner
 
             string fileName = "timetables.json";
             var random = new Random();
-            //var foundLines = LoadFromFile(fileName);
             var allLinesAndDirections = new List<LineEntry>();
             try
             {
                 foreach (var line in lines)
                 {
+                    Console.WriteLine($"Scanning line {line}");
                     var directions = await GetLineEntries(line);
                     foreach (var direction in directions)
                     {
+                        Console.WriteLine($"Found '{direction.DirectionName}', scanning stops...");
                         var timetableStops = await GetTimetableStops(direction.TimetableUrl);
                         direction.Timetable = timetableStops;
                         allLinesAndDirections.Add(direction);
@@ -75,7 +72,7 @@ namespace TorunLive.SIPTimetableScanner
             return parsed;
         }
 
-        public List<TimetableEntry> ParseTimetableData(string lineData)
+        public static List<TimetableEntry> ParseTimetableData(string lineData)
         {
             var entries = new List<TimetableEntry>();
             var start = "<div class=\"timetable-stops\">";
@@ -93,11 +90,16 @@ namespace TorunLive.SIPTimetableScanner
             {
                 var lineStopUrl = url.Attributes().FirstOrDefault(a => a.Name == "href")?.Value ?? string.Empty;
                 lineStopUrl = lineStopUrl.Replace(".html", "");
+                if (!int.TryParse(time.Value, out int timeElapsedFromFirstStop))
+                {
+                    Console.WriteLine($"Cannot parse timeElapsed value: '{time.Value}'");
+                    timeElapsedFromFirstStop = 0;
+                }
                 entries.Add(new TimetableEntry
                 {
                     Name = url.Value.Replace("&amp;", "&"),
                     StopId = lineStopUrl,
-                    TimeElapsedFromFirstStop = int.Parse(time.Value)
+                    TimeElapsedFromFirstStop = timeElapsedFromFirstStop
                 });
             }
 
@@ -159,15 +161,6 @@ namespace TorunLive.SIPTimetableScanner
             return entries;
         }
 
-        private static List<LineEntry> LoadFromFile(string filename)
-        {
-            var currentDirectory = Directory.GetCurrentDirectory();
-            var path = Path.Combine(currentDirectory, filename);
-            var serialized = File.ReadAllText(path);
-            var deserialized = JsonConvert.DeserializeObject<List<LineEntry>>(serialized);
-            return deserialized;
-        }
-
         public static void SaveToFile(string filename, List<LineEntry> lineEntries)
         {
             var currentDirectory = Directory.GetCurrentDirectory();
@@ -175,20 +168,5 @@ namespace TorunLive.SIPTimetableScanner
             var serialized = JsonConvert.SerializeObject(lineEntries);
             File.WriteAllText(path, serialized);
         }
-    }
-
-    public class TimetableEntry
-    {
-        public string Name { get; set; }
-        public string StopId { get; set; }
-        public int TimeElapsedFromFirstStop { get; set; }
-    }
-
-    public class LineEntry
-    {
-        public string Name { get; set; }
-        public string DirectionName { get; set; }
-        public string TimetableUrl { get; set; }
-        public List<TimetableEntry> Timetable { get; set; }
     }
 }

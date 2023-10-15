@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TorunLive.Domain\TorunLive.Domain.csproj" />
+    <ProjectReference Include="..\..\src\TorunLive.Domain\TorunLive.Domain.csproj" />
   </ItemGroup>
 
 </Project>

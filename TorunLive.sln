@@ -3,21 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleDemo", "ConsoleDemo\ConsoleDemo.csproj", "{08C74E75-2246-4B22-81D8-C897FF8D848C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TorunLive.Domain", "TorunLive.Domain\TorunLive.Domain.csproj", "{C39BAF83-C218-46F5-8AE3-33C68E075448}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TorunLive.Application", "TorunLive.Application\TorunLive.Application.csproj", "{D9CEAD16-75CC-4D51-A7E2-1B16738968DC}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{F595AD49-0FCB-4252-8FB3-8AD99606D28D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TorunLive.SIPStopScanner", "TorunLive.SIPStopScanner\TorunLive.SIPStopScanner.csproj", "{840020FD-226C-4BA7-A869-8CAEEAA71319}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TorunLive.SIPTimetableScanner", "TorunLive.SIPTimetableScanner\TorunLive.SIPTimetableScanner.csproj", "{282414C1-B49E-4C2C-B3DC-62E7DDB5FA67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TorunLive.SIPTimetableScanner", "tools\TorunLive.SIPTimetableScanner\TorunLive.SIPTimetableScanner.csproj", "{282414C1-B49E-4C2C-B3DC-62E7DDB5FA67}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{088D53CF-875A-4189-872A-C74CBEE07805}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorunLive.Application.Tests", "tests\TorunLive.Application.Tests\TorunLive.Application.Tests.csproj", "{200A252C-555F-41D7-94C2-A9F76EF0216E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TorunLive.Application.Tests", "tests\TorunLive.Application.Tests\TorunLive.Application.Tests.csproj", "{200A252C-555F-41D7-94C2-A9F76EF0216E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3ADE245F-AA5C-4385-AB80-D70089B4259B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TorunLive.Application", "src\TorunLive.Application\TorunLive.Application.csproj", "{06B8F59C-01C9-4870-A5BE-4EE7C3DF477C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TorunLive.Domain", "src\TorunLive.Domain\TorunLive.Domain.csproj", "{B7CD7D9F-3005-4A7A-970F-FF105C810862}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TorunLive.SIPStopScanner", "tools\TorunLive.SIPStopScanner\TorunLive.SIPStopScanner.csproj", "{8ED898CB-8846-4FDF-B785-03B9BDB57D17}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleDemo", "tools\ConsoleDemo\ConsoleDemo.csproj", "{3DAD9A03-34E1-43AF-B294-0B586626EEF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,22 +27,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{08C74E75-2246-4B22-81D8-C897FF8D848C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{08C74E75-2246-4B22-81D8-C897FF8D848C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{08C74E75-2246-4B22-81D8-C897FF8D848C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{08C74E75-2246-4B22-81D8-C897FF8D848C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C39BAF83-C218-46F5-8AE3-33C68E075448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C39BAF83-C218-46F5-8AE3-33C68E075448}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C39BAF83-C218-46F5-8AE3-33C68E075448}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C39BAF83-C218-46F5-8AE3-33C68E075448}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D9CEAD16-75CC-4D51-A7E2-1B16738968DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D9CEAD16-75CC-4D51-A7E2-1B16738968DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D9CEAD16-75CC-4D51-A7E2-1B16738968DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D9CEAD16-75CC-4D51-A7E2-1B16738968DC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{840020FD-226C-4BA7-A869-8CAEEAA71319}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{840020FD-226C-4BA7-A869-8CAEEAA71319}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{840020FD-226C-4BA7-A869-8CAEEAA71319}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{840020FD-226C-4BA7-A869-8CAEEAA71319}.Release|Any CPU.Build.0 = Release|Any CPU
 		{282414C1-B49E-4C2C-B3DC-62E7DDB5FA67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{282414C1-B49E-4C2C-B3DC-62E7DDB5FA67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{282414C1-B49E-4C2C-B3DC-62E7DDB5FA67}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -49,14 +35,33 @@ Global
 		{200A252C-555F-41D7-94C2-A9F76EF0216E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{200A252C-555F-41D7-94C2-A9F76EF0216E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{200A252C-555F-41D7-94C2-A9F76EF0216E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06B8F59C-01C9-4870-A5BE-4EE7C3DF477C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06B8F59C-01C9-4870-A5BE-4EE7C3DF477C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06B8F59C-01C9-4870-A5BE-4EE7C3DF477C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06B8F59C-01C9-4870-A5BE-4EE7C3DF477C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7CD7D9F-3005-4A7A-970F-FF105C810862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7CD7D9F-3005-4A7A-970F-FF105C810862}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7CD7D9F-3005-4A7A-970F-FF105C810862}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7CD7D9F-3005-4A7A-970F-FF105C810862}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ED898CB-8846-4FDF-B785-03B9BDB57D17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ED898CB-8846-4FDF-B785-03B9BDB57D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ED898CB-8846-4FDF-B785-03B9BDB57D17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ED898CB-8846-4FDF-B785-03B9BDB57D17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DAD9A03-34E1-43AF-B294-0B586626EEF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DAD9A03-34E1-43AF-B294-0B586626EEF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DAD9A03-34E1-43AF-B294-0B586626EEF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DAD9A03-34E1-43AF-B294-0B586626EEF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{840020FD-226C-4BA7-A869-8CAEEAA71319} = {F595AD49-0FCB-4252-8FB3-8AD99606D28D}
 		{282414C1-B49E-4C2C-B3DC-62E7DDB5FA67} = {F595AD49-0FCB-4252-8FB3-8AD99606D28D}
 		{200A252C-555F-41D7-94C2-A9F76EF0216E} = {088D53CF-875A-4189-872A-C74CBEE07805}
+		{06B8F59C-01C9-4870-A5BE-4EE7C3DF477C} = {3ADE245F-AA5C-4385-AB80-D70089B4259B}
+		{B7CD7D9F-3005-4A7A-970F-FF105C810862} = {3ADE245F-AA5C-4385-AB80-D70089B4259B}
+		{8ED898CB-8846-4FDF-B785-03B9BDB57D17} = {F595AD49-0FCB-4252-8FB3-8AD99606D28D}
+		{3DAD9A03-34E1-43AF-B294-0B586626EEF9} = {F595AD49-0FCB-4252-8FB3-8AD99606D28D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93B5D77C-55A8-4FD3-B02E-A7782C8367E5}

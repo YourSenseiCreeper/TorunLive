@@ -1,6 +1,5 @@
 ﻿using TorunLive.Application.Services;
 
-Console.WriteLine("Hello, World!");
 //var startStopId = 679;
 //var dayOfWeek = PolishDayOfWeek.Friday;
 //var dayMinute = 1352;
@@ -11,7 +10,8 @@ Console.WriteLine("Hello, World!");
 //liveTimetableParser.Parse("");
 //var liveTimetableService =  new LiveTimetableService();
 //liveTimetableService.GetTimetable(64301).GetAwaiter().GetResult();
-Console.WriteLine("Podaj id przystanku z systemu SIP: ");
-var sipStopId = int.Parse(Console.ReadLine());
+//Console.WriteLine("Podaj id przystanku z systemu SIP: ");
+//var sipStopId = int.Parse(Console.ReadLine());
 var fullService = new FullTimetableService();
-fullService.GetFullTimetable(sipStopId).GetAwaiter().GetResult();
+//fullService.GetFullTimetable(sipStopId).GetAwaiter().GetResult();
+fullService.GetLiveForLine("N90", "64301", "UNIWERSYTET").GetAwaiter().GetResult();
