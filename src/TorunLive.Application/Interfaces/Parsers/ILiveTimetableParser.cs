@@ -2,8 +2,7 @@
 
 namespace TorunLive.Application.Interfaces.Parsers
 {
-    public interface ILiveTimetableParser
+    public interface ILiveTimetableParser : IParser<LiveTimetable>
     {
-        public LiveTimetable Parse(string data);
     }
 }

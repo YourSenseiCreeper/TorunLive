@@ -10,7 +10,9 @@ namespace TorunLive.WebApi.Controllers
         private readonly ILogger<TimetableController> _logger;
         private readonly IFullTimetableService _fullTimetableService;
 
-        public TimetableController(ILogger<TimetableController> logger, IFullTimetableService fullTimetableService)
+        public TimetableController(
+            ILogger<TimetableController> logger,
+            IFullTimetableService fullTimetableService)
         {
             _logger = logger;
             _fullTimetableService = fullTimetableService;

@@ -7,6 +7,6 @@
         public int UnknownOne { get; set; }
         public int UnknownTwo { get; set; }
         public List<Arrival> Arrivals { get; set; }
-        public string Message { get; set; }
+        public string? Message { get; set; }
     }
 }

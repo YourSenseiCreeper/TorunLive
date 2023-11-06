@@ -7,8 +7,6 @@ namespace TorunLive.Application.Parsers
 {
     public class LiveTimetableParser : ILiveTimetableParser
     {
-        // update content
-        private static string Example = @"";
         public LiveTimetable Parse(string data)
         {
             //data = Example;

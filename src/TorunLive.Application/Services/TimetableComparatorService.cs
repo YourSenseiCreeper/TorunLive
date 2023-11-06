@@ -1,9 +1,9 @@
-﻿using TorunLive.Application.Interfaces;
+﻿using TorunLive.Application.Interfaces.Services;
 using TorunLive.Domain.Entities;
 
 namespace TorunLive.Application.Services
 {
-    public class TimetableComparator : ITimetableComparator
+    public class TimetableComparatorService : ITimetableComparatorService
     {
         public List<CompareLine> Compare(Timetable baseTimetable, LiveTimetable liveTimetable)
         {

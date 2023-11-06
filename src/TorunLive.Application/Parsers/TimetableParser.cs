@@ -42,7 +42,7 @@ namespace TorunLive.Application.Parsers
                 }
 
                 var messageMatch = messageRegex.Match(course);
-                string message = null;
+                string? message = null;
                 if (messageMatch.Success)
                 {
                     var symbol = messageMatch.Groups[1].Value; // S - skrócona trasa, R - (rozszerzona?) dłuższa trasa niż zazwyczaj
