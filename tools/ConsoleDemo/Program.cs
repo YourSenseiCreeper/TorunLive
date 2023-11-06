@@ -1,18 +1,11 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using ConsoleTables;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using TorunLive.Application;
 using TorunLive.Application.Interfaces.Services;
-
-//var startStopId = 679;
-//var dayOfWeek = PolishDayOfWeek.Friday;
-//var dayMinute = 1352;
-//service.GetTimetable(startStopId, dayOfWeek, dayMinute).GetAwaiter().GetResult();
-//Console.WriteLine("Podaj id przystanku z systemu SIP: ");
-//var sipStopId = int.Parse(Console.ReadLine());
-
-//fullService.GetFullTimetable(sipStopId).GetAwaiter().GetResult();
+using TorunLive.Application.Extensions;
 
 namespace ConsoleDemo
 {
@@ -35,15 +28,30 @@ namespace ConsoleDemo
             var defaultDirectionName = "UNIWERSYTET";
             var lineName = AskForString($"Podaj nazwę lini ({defaultLineName}): ") ?? defaultLineName;
             var startStopId = AskForInt($"Id przystanku startowego ({defaultStartStopId}): ") ?? defaultStartStopId;
-            var directionName = AskForString($"Podaj nazwę kierunku dla lini $({defaultDirectionName}): ") ?? defaultDirectionName;
-            fullService.GetLiveForLine("N90", "64301", "UNIWERSYTET").GetAwaiter().GetResult();
+            var directionName = AskForString($"Podaj nazwę kierunku dla lini ({defaultDirectionName}): ") ?? defaultDirectionName;
+            var result = fullService.GetLiveForLine(lineName, startStopId.ToString(), directionName).GetAwaiter().GetResult();
+
+            var table = new ConsoleTable("Przystanek", "Planowy", "Aktualny", "Opóźnienie");
+            foreach(var arrival in result.Arrivals)
+            {
+                table.Rows.Add(new object[]
+                {
+                    arrival.StopName,
+                    arrival.BaseDayMinute.GetDateTimeFromDayMinute(),
+                    arrival.ActualBaseMinute.HasValue ? arrival.ActualBaseMinute.Value.GetDateTimeFromDayMinute() : "brak",
+                    arrival.Delay.HasValue ? arrival.Delay : "-"
+                });
+            }
+
+            table.Write();
         }
+
 
         private static string? AskForString(string message)
         {
             Console.Write(message);
             var response = Console.ReadLine();
-            return response;
+            return string.IsNullOrEmpty(response) ? null : response;
         }
 
         private static int? AskForInt(string message)

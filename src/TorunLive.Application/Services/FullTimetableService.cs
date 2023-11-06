@@ -1,5 +1,7 @@
-﻿using TorunLive.Application.Extensions;
+﻿using System.Collections.Concurrent;
+using TorunLive.Application.Extensions;
 using TorunLive.Application.Interfaces.Services;
+using TorunLive.Domain.Entities;
 using TorunLive.Domain.Enums;
 
 namespace TorunLive.Application.Services
@@ -24,7 +26,7 @@ namespace TorunLive.Application.Services
             _lineStopsService = lineStopsService;
         }
 
-        public async Task GetFullTimetable(int sipStopId)
+        public async Task<List<CompareLine>> GetFullTimetable(int sipStopId)
         {
             var startStopId = StopIdsMap.SIPtoRozkladzik[sipStopId];
             var now = DateTime.Now;
@@ -34,28 +36,34 @@ namespace TorunLive.Application.Services
 
             var liveTimetable = await _liveTimetableService.GetTimetable(sipStopId);
             var result = _timetableComparator.Compare(baseTimetable, liveTimetable);
-            foreach (var comparedLine in result)
-            {
-                Console.WriteLine($"Linia: {comparedLine.Number} - {comparedLine.Name}");
-                foreach (var comparedArrival in comparedLine.Arrivals)
-                {
-                    var basic = comparedArrival.BaseDayMinute.GetDateTimeFromDayMinute();
-                    var actual = comparedArrival.ActualBaseMinute.GetDateTimeFromDayMinute();
-                    Console.WriteLine($"Planowy: {basic:hh:mm}, Aktualny: {actual:hh:mm}");
-                }
-                Console.WriteLine("-------------");
-            }
+            //foreach (var comparedLine in result)
+            //{
+            //    Console.WriteLine($"Linia: {comparedLine.Number} - {comparedLine.Name}");
+            //    foreach (var comparedArrival in comparedLine.Arrivals)
+            //    {
+            //        var basic = comparedArrival.BaseDayMinute.GetDateTimeFromDayMinute();
+            //        var actual = comparedArrival.ActualBaseMinute?.GetDateTimeFromDayMinute();
+            //        Console.WriteLine($"Planowy: {basic:hh:mm}, Aktualny: {actual:hh:mm}");
+            //    }
+            //    Console.WriteLine("-------------");
+            //}
+
+            return result;
         }
 
-        public async Task GetLiveForLine(string lineNumber, string stopId, string direction)
+        public async Task<CompareLine> GetLiveForLine(string lineNumber, string stopId, string direction)
         {
             var stopsBeforeForStop = _lineStopsService.GetEntriesBeforeStop(lineNumber, direction, stopId, 5);
-
+            //stopsBeforeForStop.Reverse();
+            for (int i = 0; i < stopsBeforeForStop.Count; i++)
+                stopsBeforeForStop[i].Order = i;
+            
             var startingStop = stopsBeforeForStop.Last();
             var stopName = startingStop.Name;
             var timeFromLineStart = startingStop.TimeElapsedFromFirstStop;
 
-            foreach (var timetableStop in stopsBeforeForStop)
+            var arrivals = new ConcurrentBag<CompareArrival>();
+            await Parallel.ForEachAsync(stopsBeforeForStop, async (timetableStop, cancellationToken) =>
             {
                 var sipStopId = int.Parse(timetableStop.StopId);
                 var liveTimetable = await _liveTimetableService.GetTimetable(sipStopId);
@@ -64,18 +72,27 @@ namespace TorunLive.Application.Services
                 {
                     var liveLineEntry = liveLineEntries.First();
                     var diffTime = timeFromLineStart - timetableStop.TimeElapsedFromFirstStop;
+                    // pobieramy pierwsze, aby uniknąć pomylenia kolejnego przejazdu z przejazdem opóźnionym
                     var arrival = liveLineEntry.Arrivals.FirstOrDefault();
-                    if (arrival != null)
+                    arrivals.Add(new CompareArrival
                     {
-                        // muszę odnosić się do rozkładu lini, nie do różnic czasów - niewykonalne będzie pokazać jakie jest opóźnienie dla danego przystanku
-                        Console.WriteLine($"{timetableStop.Name}: Planowany: {diffTime}m, Aktualny: {arrival.DayMinute.GetDateTimeFromDayMinute()}");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"{timetableStop.Name}: Planowany: {diffTime}m, Aktualny: brak");
-                    }
+                        Order = timetableStop.Order,
+                        StopId = sipStopId,
+                        BaseDayMinute = diffTime,
+                        StopName = timetableStop.Name,
+                        ActualBaseMinute = arrival?.DayMinute
+                    });
                 }
-            }
+            });
+
+            var result = new CompareLine
+            {
+                Name = lineNumber,
+                Direction = direction,
+                Arrivals = arrivals.OrderBy(x => x.Order).ToList()
+            };
+
+            return result;
         }
     }
 }

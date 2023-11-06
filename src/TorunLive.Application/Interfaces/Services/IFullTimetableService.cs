@@ -1,8 +1,10 @@
-﻿namespace TorunLive.Application.Interfaces.Services
+﻿using TorunLive.Domain.Entities;
+
+namespace TorunLive.Application.Interfaces.Services
 {
     public interface IFullTimetableService
     {
-        public Task GetFullTimetable(int sipStopId);
-        public Task GetLiveForLine(string lineNumber, string stopId, string direction);
+        public Task<List<CompareLine>> GetFullTimetable(int sipStopId);
+        public Task<CompareLine> GetLiveForLine(string lineNumber, string stopId, string direction);
     }
 }

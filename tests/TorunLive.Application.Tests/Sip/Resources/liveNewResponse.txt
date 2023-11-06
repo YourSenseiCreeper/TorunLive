@@ -1,0 +1,595 @@
+﻿
+<!doctype html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie"><![endif]-->
+<!--[if (gt IE 8)|!(IE)]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head id="ctl00_ctl00_headMaster"><meta charset="UTF-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><title>
+	TORUŃ Serwis transport publiczny
+</title><meta name="description" content="GMV Public transport service" /><meta name="keywords" content="GMV Public transport service" /><meta name="author" content="GMV" /><link href="../../css/reset.css" rel="stylesheet" type="text/css" /><link href="../../css/common.css" rel="stylesheet" type="text/css" /><link href="../../css/form.css" rel="stylesheet" type="text/css" /><link href="../../css/standard.css" rel="stylesheet" type="text/css" /><link id="ctl00_ctl00_cssNoEmbeddedPage" href="../../css/noEmbeddedPage.css" rel="stylesheet" type="text/css" /><link href="../../css/960.gs.css" rel="stylesheet" type="text/css" /><link href="../../css/table.css" rel="stylesheet" type="text/css" /><link href="../../css/tablePanel.css" rel="stylesheet" type="text/css" /><link href="../../css/site.css" rel="stylesheet" type="text/css" /><link id="ctl00_ctl00_cssCustomStyle" rel="stylesheet" type="text/css" href="../../css/customStyle.aspx?tmp=18c07dfd-8a59-46d1-8e19-7ffb5fdce2ae" /><link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" /><link rel="icon" type="image/png" href="../../favicon-large.png" />
+    
+
+<link href="/WebResource.axd?d=HOV3-GBUFUoxvtUmMkiMqeX3378f6o-z0q_PzaqrZEviXlpR1O-6LoIDiM9hgKWwAumxHrgQZ6WBoI3qC30mlwecFC144hFzduCS_XEyw9Kefp9Iu9GBJAREyczM0SC3uZwcyEi-fyjEazjpSsNFGQ2&amp;t=637671369524631631" type="text/css" rel="stylesheet" /></head>
+<body>
+    <form name="aspnetForm" method="post" action="./default.aspx?stop=64301" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'ctl00_ctl00_btnSearch')" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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DxUBAjI2ZAIBDxUBBTIyOjE1ZAICDxUBBTIyOjQwZAIDDxUBC1VOSVdFUlNZVEVUZAIEDxUBDGRpc3BsYXk6bm9uZWQCBg8VAQUyMjo0MGQCBw8VAQUyMjo0MGQCCQ8VAQBkAgUPZBYEAgEPFgIfAWhkAhEPFgIfAWhkAgYPZBYGAgMPFgIfAWhkAgUPEA8WAh8BaGRkFgBkAgkPEA8WAh4LXyFEYXRhQm91bmRnZGRkZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WDgUQY3RsMDAkY3RsMDAkaWJGMQUQY3RsMDAkY3RsMDAkaWJGMgUQY3RsMDAkY3RsMDAkaWJGMwUQY3RsMDAkY3RsMDAkaWJGNAUWY3RsMDAkY3RsMDAkaWJFc3F1ZW1hMQUWY3RsMDAkY3RsMDAkaWJFc3F1ZW1hMgUWY3RsMDAkY3RsMDAkaWJFc3F1ZW1hMwUWY3RsMDAkY3RsMDAkaWJFc3F1ZW1hNAUQY3RsMDAkY3RsMDAkaWJQbAUQY3RsMDAkY3RsMDAkaWJEZQUQY3RsMDAkY3RsMDAkaWJFbgUQY3RsMDAkY3RsMDAkaWRFcwUwY3RsMDAkY3RsMDAkTG9naW5WaWV3MSRMb2dpblN0YXR1c05vTG9nZ2VkJGN0bDAxBTBjdGwwMCRjdGwwMCRMb2dpblZpZXcxJExvZ2luU3RhdHVzTm9Mb2dnZWQkY3RsMDNrkMP+cb4s72StnJKNIwlPAJzwB1lXtcA46mnOO2C4Jg==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=-OK9wm-nKzNlPuQNa_ZJje7OoYVQUCFRfDCwJMxZtBrGrh4obzdVeqeNRn9lgvlEPL-yqCoH4UF6ZmZte0jB5RE1Qh5JTOlA5gfaLM1NJCc1&amp;t=637103382965614113" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+var __cultureInfo = {"name":"pl-PL","numberFormat":{"CurrencyDecimalDigits":2,"CurrencyDecimalSeparator":",","IsReadOnly":false,"CurrencyGroupSizes":[3],"NumberGroupSizes":[3],"PercentGroupSizes":[3],"CurrencyGroupSeparator":" ","CurrencySymbol":"zł","NaNSymbol":"NaN","CurrencyNegativePattern":8,"NumberNegativePattern":1,"PercentPositivePattern":1,"PercentNegativePattern":1,"NegativeInfinitySymbol":"-∞","NegativeSign":"-","NumberDecimalDigits":2,"NumberDecimalSeparator":",","NumberGroupSeparator":" ","CurrencyPositivePattern":3,"PositiveInfinitySymbol":"∞","PositiveSign":"+","PercentDecimalDigits":2,"PercentDecimalSeparator":",","PercentGroupSeparator":" ","PercentSymbol":"%","PerMilleSymbol":"‰","NativeDigits":["0","1","2","3","4","5","6","7","8","9"],"DigitSubstitution":1},"dateTimeFormat":{"AMDesignator":"AM","Calendar":{"MinSupportedDateTime":"\/Date(-62135596800000)\/","MaxSupportedDateTime":"\/Date(253402297199999)\/","AlgorithmType":1,"CalendarType":1,"Eras":[1],"TwoDigitYearMax":2029,"IsReadOnly":false},"DateSeparator":".","FirstDayOfWeek":1,"CalendarWeekRule":2,"FullDateTimePattern":"dddd, d MMMM yyyy HH:mm:ss","LongDatePattern":"dddd, d MMMM yyyy","LongTimePattern":"HH:mm:ss","MonthDayPattern":"d MMMM","PMDesignator":"PM","RFC1123Pattern":"ddd, dd MMM yyyy HH\u0027:\u0027mm\u0027:\u0027ss \u0027GMT\u0027","ShortDatePattern":"dd.MM.yyyy","ShortTimePattern":"HH:mm","SortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd\u0027T\u0027HH\u0027:\u0027mm\u0027:\u0027ss","TimeSeparator":":","UniversalSortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd HH\u0027:\u0027mm\u0027:\u0027ss\u0027Z\u0027","YearMonthPattern":"MMMM yyyy","AbbreviatedDayNames":["niedz.","pon.","wt.","śr.","czw.","pt.","sob."],"ShortestDayNames":["niedz.","pon.","wt.","śr.","czw.","pt.","sob."],"DayNames":["niedziela","poniedziałek","wtorek","środa","czwartek","piątek","sobota"],"AbbreviatedMonthNames":["sty","lut","mar","kwi","maj","cze","lip","sie","wrz","paź","lis","gru",""],"MonthNames":["styczeń","luty","marzec","kwiecień","maj","czerwiec","lipiec","sierpień","wrzesień","październik","listopad","grudzień",""],"IsReadOnly":false,"NativeCalendarName":"kalendarz gregoriański","AbbreviatedMonthGenitiveNames":["sty","lut","mar","kwi","maj","cze","lip","sie","wrz","paź","lis","gru",""],"MonthGenitiveNames":["stycznia","lutego","marca","kwietnia","maja","czerwca","lipca","sierpnia","września","października","listopada","grudnia",""]},"eras":[1,"n.e.",null,0]};//]]>
+</script>
+
+<script src="/ScriptResource.axd?d=LigPgTQltO1_NuCYVgFVR9oC9lB8m_-7lnRtSHQJVQzl8i8DUofSX29RnEyQFvdUTtJ-J61hbxqamg2WJfZMfogw4NRB04xwIC0U4E8lfJrkKulMxfhqNshHjZBdOGwTBbwbV5MaU2c95vFnW-d7Qg2&amp;t=ffffffffdd783992" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="/ScriptResource.axd?d=2yoIDvpmX7LU09cKywQvxjE1hOSW06nbLKP6P-jHe23prdC4-8T0KFfkpKDzUVIIBtzKYFPS3Ytvz4bx9ftb8oItI-yYGY-COLP4nQiwyGqhBZvQdeBy5BE07I51vklPxMlx2XPSx6h6RdcP5I3eJg2&amp;t=ffffffffdd783992" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=T6TTuRLKdDMKBv0GGcFm9OQ4X9_gdCFouzlo_SRFV8k21yd_wOw1JpScbcPIhqJmSY8Wv0EpcGf8OaqZq2IjakstLZdV2f4N2aPoMsLNwaplpQMf9oi_ORknyz7-1LB5qWMXcOrzh5rEeT3uvcF6uQ2&amp;t=ffffffffdd783992" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=JgOIYBTywqou6rq1wtyzzBDI85glF0m_Efb7RLYpbE_bGhmz6TyxqdW1nH3DQv24P08FKJkqujXk6mJDhgKKnvQ3Bx-swda5B5-e--tqKvMT0TxGL03_j95v2XqQubO62md2kQzJXkJBrOX025rgYA2&amp;t=ffffffffdd783992" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=1Rs2-1l5t1u-TGGkLRr9ZdeupZnZwd3nSI0L124TIpOOyP2iR1Ml5GvUzjT-okrKXzJxToB1-q7x05bMK8sMqLFlpbVM7UUOazB-1iAOXxgJAcMamFVdVOHaih1RZwo9DoqBNcds_svALeoJUoGAbQ2&amp;t=ffffffffdd783992" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=CwfHqLhukpBS1mKWaf4h1HHmfO82HEwFoaFFXNIndBaIionlJnX11hIBtGfCAVFLWlRU5Dg47PlbWspPE8q-ZXWHOmLcGBkzzqN8fCN199n4lZIvevhaIEZuAZ21apaqmiw8X0kqAGwH3d0fsXYgBQ2&amp;t=ffffffffdd783992" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=TnXJqAZ5KgFIU4ApLOabF3ssTgQRDxgdgJNl7qehemN_6UY19tu5N6FOHQziRFa1D4rj_g61IKLN0eq5aMBP5PZU3xvIzesnBH7UlA3AGWsthqKhXn19CCN3CeVd0J2NHA3sM9Z6-cSfmKh5mTXsrQ2&amp;t=ffffffffdd783992" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=g9e9Fv75R5R4S-nLCwB14IqXLDMuI2fiaFiVTq_oos3H1qQ9QO59_Te4FF3mB-CMmCWMWtSoHjvv3i6gGPEIFeQrgFUphCOtRbm4NhNK29IA2JFl065dg4OWj4Xk1l6xG6iJfGlmQqqQdq37eJ3v3sjZDQsSU-VMhiHEfD9JpEQ1&amp;t=ffffffffdd783992" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=ROi1oq7DoKMkpw0fGtUT8plmrQc_AaHFy1PsPJyz1Zjwv0UXm-ZFDYoIIUItGdNF6fyNpBDzHIaFDkIFlM09KhlHcgtHf7xi-SHe3wTCF2udBOL1lCIUs0-KCVMYDO89UpFXICTHhWNx_bWH20jjZBMP6IS5VpGEdZVE_0EDBG01&amp;t=ffffffffdd783992" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=T-9Qqpex1SBhV58LhCJH8jgrATtXDlKSxqj87g16AJNtvDzZCpkKBHpWYRRcw_Z-uU6Bxj6SdOJGUmMHQwNIocaBAS85pNKXPaaOdKLaKtPWwQ1bK9UQl5X7TcIlEWcCN2DaoCE95YcEhXJJs-3JV_T-l_sUcz8zynmZZGvnU-01&amp;t=ffffffffdd783992" type="text/javascript"></script>
+<script src="/WebResource.axd?d=H4qFOiaXTxT48PYZrjFMZIF4uZm7ZVI23xfFdY6oN2DZnWGIet0vIRBPRXyEfhoIB1hhb35ZKRnp0yL7DlO1ABtbDinVG4nsSrk6trZTbh41&amp;t=637103382965614113" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="D63B2DD0" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdADMLBGa2qx2n4cx+bqxKBrCipUfIgJTaaE5eDeJIhdE43cbkZjuiGz/vt49v3/cW3Fs5W5m5MuiYAQ1Bi59M+gIWLqzW5asF56HY6tvh2wyXzMFjun8zPB4NHIoqVXKuDWF+jbXTEaQYuR901vC1LWU9vOfCeAh9cLGujitnWLzS+Xp1cFZ96aFDV31v/lR0DTcdXJoU9Fe8Ki8vwmNfujZIM7bNQrOtHR5j2tfEfGSlGwry9h01c998YLPpsMmF07uSzzmb8ORwTwWtlrPqCzZnJ7b5hjpo7d8U7cN79p8y7PRuIiixk5oY52j+/LV7gxFkqbVkeDqYH2QUwlijdwIPiDrpeXmpM4FUaf10HQ0FCHLHUB4CGymuCEyiprY+sWuzJcwRvOQ+dKAxac21FSKFvIESizuLtHdekza0Q6gzAzrDH0E05FFmWhYkOOtFiSIwhkzqhWMtOZIHLOYmuK4l2MNzs8AOA56LoYVIZKNdMTIiYNtfMk6caZoLQeTQZqPE8qNZj865EvpdfZLVb4nBbSSeH/j8gAJMLlOllKJX54vwYq8RI1lwdQ8/N6htrAzdRr9GaCb9DUWKbKnFDN5c9WuXhZgKFsYJUwMK2pGQziLoFlyf09sVBOgQks3u4R+x6okZGP8BZEfbCufXQYe6QAtP+STVETWlk1kFt2r8kiCjDm/Iwv+CIyga5ys/Jz+kwRG+1VIA1tuh9chMaqp9jc5q3ED279RnyfczIfsTTFla01bjjw/q3MQFe+yhXEf4WIOiEeZBdrXvv5KGFDx9QBWmSq5RLdl4/1TlFwVLYJtUqElaVK21BYU+qssvDH320eRpAFB38ybCPIw6uPn/Y1LL7Lhggei4dZVNhb03NM+zW7yoYiyJ7PBI7AqTwbAJ0nkswIJNS9AfrYQlW0eHfnVvoEMAzLSF/k6ny2080ByLN2EhxbnvfHGT1xFL5PQw381NV3kazMxS4JeN/wn8Cb6MGHJR5hdGw5S2din/HHN7qrDJ2cYLj7tHGKg7kXv8pUMOBrMeCahzT6VU/cTk90av6k7lit3gUMkU2U+LHSyYQ1KVll2Hec7v7E8/mvb1OAHg83iGuetTJCpggO3RdDTcG8x08BHGi75sUzqmiQ==" />
+</div>
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ctl00$ScriptManagerMaster', 'aspnetForm', ['tctl00$ctl00$ContentPlaceHolderContenido$UpdatePanelTime','','tctl00$ctl00$ContentPlaceHolderContenido$UpdatePanel1',''], ['ctl00$ctl00$ContentPlaceHolderContenido$Timer1',''], [], 90, 'ctl00$ctl00');
+//]]>
+</script>
+
+    <div id="ctl00_ctl00_pnlHeader">
+	
+    <header>
+        <div class="container_12">
+            
+            <div class="info">
+                <div style="padding-top: 1px;">
+                    <input type="image" name="ctl00$ctl00$ibPl" id="ctl00_ctl00_ibPl" title="Polski" src="../../images/icons/flags/pl.png" alt="Polski" style="border-width:0px;" />
+                    <input type="image" name="ctl00$ctl00$ibDe" id="ctl00_ctl00_ibDe" title="Niemiecki" src="../../images/icons/flags/de.png" alt="Niemiecki" style="border-width:0px;" />
+                    <input type="image" name="ctl00$ctl00$ibEn" id="ctl00_ctl00_ibEn" title="Angielski" src="../../images/icons/flags/en.png" alt="Angielski" style="border-width:0px;" />
+                    <input type="image" name="ctl00$ctl00$idEs" id="ctl00_ctl00_idEs" title="Hiszpański" src="../../images/icons/flags/es.png" alt="Hiszpański" style="border-width:0px;" />
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+            
+        </div>
+    </header>
+    <div id="header-bg">
+        <div class="container_12">
+            <div style="font-size: 4em;">                
+                    <a href='/default.aspx'>
+                        <img src="../../images/logo.png" style="height:75px;width:830px;border-width:0px;" />
+                    </a>
+            </div>
+        </div>
+    </div>
+    <div id="sub-nav">
+        <div class="container_12">
+                <p id="site-name">
+                    <small>
+                        <a id="ctl00_ctl00_HyperLink2" href="../../default.aspx">TORUŃ Serwis transport publiczny Strona Główna</a>
+                        
+                        by <a href="http://www.gmv.com">GMV</a>
+                        
+                        &nbsp;&nbsp;&nbsp;
+                        
+                    </small>
+                </p>
+                
+                    <a id="ctl00_ctl00_LoginView1_hyplnkRegistr" class="button red" href="../../register.aspx">Zarejestruj</a>
+                    <a id="ctl00_ctl00_LoginView1_LoginStatusNoLogged" class="button red" href="javascript:__doPostBack(&#39;ctl00$ctl00$LoginView1$LoginStatusNoLogged$ctl02&#39;,&#39;&#39;)">Login</a>
+                
+        </div>
+    </div>
+    <div id="header-shadow">
+    </div>
+    
+</div>
+    <article class="container_12">      
+        <section class="grid_3">
+         
+            <h1 class="customText">
+               Szukaj
+            </h1>
+            <div class="form">
+                <p id="ctl00_ctl00_pBusStopName">
+                    <label for="txtBusStop" class="customText">
+                        Nazwa przystanku:
+                    </label>
+                    <input name="ctl00$ctl00$txtBusStopName" type="text" value="Od Nowa" id="ctl00_ctl00_txtBusStopName" class="full-width" />
+                    
+                    
+                </p>
+                <p id="ctl00_ctl00_pBusStopNumber">
+                    <label for="txtBusStopNumber"  class="customText">
+                        Numer przystanku:
+                    </label>
+                    <input name="ctl00$ctl00$txtBusStopNumber" type="text" id="ctl00_ctl00_txtBusStopNumber" class="full-width" />
+                </p>
+                
+                <p id="ctl00_ctl00_pLine">
+                    <label for="txtLine"  class="customText">
+                        Linia:
+                    </label>
+                    <input name="ctl00$ctl00$txtLineNumber" type="text" id="ctl00_ctl00_txtLineNumber" class="full-width" />
+                    
+                </p>
+              
+                <div style="clear: both;">
+                    <br />
+                </div>
+                <p style="text-align: right;">                
+                    <input type="submit" name="ctl00$ctl00$btnSearch" value="Szukaj" id="ctl00_ctl00_btnSearch" class="big-button" />                    
+                                        
+                </p>
+                <p>
+                
+                </p>
+                
+            </div>
+            <div>
+                <br />
+                <br />
+                <br />
+            </div>
+            <div id="ctl00_ctl00_pnlFavourites">
+	
+            <div class="block-border">
+                <div class="block-content form">
+                    <h1>
+                        Ulubione
+                    </h1>
+                    <div class="form">
+                        <select name="ctl00$ctl00$ddlFavourites" id="ctl00_ctl00_ddlFavourites" style="width:100%;">
+		<option value="-1">Wybierz ulubione</option>
+
+	</select>
+                        <div style="margin: 10px 0; text-align: center; width: 100%;">
+                            <input type="submit" name="ctl00$ctl00$btnFavouriteGo" value="Szukaj" id="ctl00_ctl00_btnFavouriteGo" class="big-button" />
+                            <input type="submit" name="ctl00$ctl00$btnFavouriteDelete" value="Usunąć" id="ctl00_ctl00_btnFavouriteDelete" class="big-button" />
+                        </div>
+                        <ul class="message no-margin">
+                            <li>
+                                0
+                                ulubione na twojej liście
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+</div>
+        </section>
+        <section class="grid_9">
+            
+    
+    <div class="block-border">
+        <div class="block-content form">
+            <h1>
+                64301 - Od Nowa
+            </h1>
+            <h1 style="margin-left: 87%">
+                <div id="ctl00_ctl00_ContentPlaceHolderContenido_UpdatePanelTime">
+	
+                        21:13
+                    
+</div>
+            </h1>
+            <div class="panelBackground">
+                <span id="ctl00_ctl00_ContentPlaceHolderContenido_Timer1" style="visibility:hidden;display:none;"></span>
+                <div id="ctl00_ctl00_ContentPlaceHolderContenido_UpdatePanel1">
+	
+                        
+    
+            <table class="tablePanel" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 50px;">
+                            Linia
+                        </th>
+                        
+                        <th scope="col">
+                            Kierunek
+                        </th>
+                        
+                        <th scope="col" style="width: 60px;">
+                            Odjazd
+                        </th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+        
+            <tr>
+                <td id="ctl00_ctl00_ContentPlaceHolderContenido_ContentPlaceHolderContenido_RepeaterLCDEntries_ctl01_tdsLinea" style="text-align:center;background-color:#F2942F;color:#000000;">
+                    34
+                </td>
+	
+                
+                <td>
+                    UNIWERSYTET
+                
+                        <span style="float:right;"><img src="../../images/wheelchair-24.png" alt="Wheelchair" style="height:16px;border-width:0px;display:block;" /></span>         
+                
+                </td>
+                
+                <td style="text-align: center">
+                    13min
+                </td>
+                
+            </tr>
+        
+            <tr>
+                <td id="ctl00_ctl00_ContentPlaceHolderContenido_ContentPlaceHolderContenido_RepeaterLCDEntries_ctl02_tdsLinea" style="text-align:center;background-color:#F79646;color:#000000;">
+                    131
+                </td>
+	
+                
+                <td>
+                    PORT DRZEWNY
+                
+                        <span style="float:right;"><img src="../../images/wheelchair-24.png" alt="Wheelchair" style="height:16px;border-width:0px;display:block;" /></span>         
+                
+                </td>
+                
+                <td style="text-align: center">
+                    30min
+                </td>
+                
+            </tr>
+        
+            <tr>
+                <td id="ctl00_ctl00_ContentPlaceHolderContenido_ContentPlaceHolderContenido_RepeaterLCDEntries_ctl03_tdsLinea" style="text-align:center;background-color:#39C508;color:#000000;">
+                    40
+                </td>
+	
+                
+                <td>
+                    PORT DRZEWNY
+                
+                        <span style="float:right;"><img src="../../images/wheelchair-24.png" alt="Wheelchair" style="height:16px;border-width:0px;display:block;" /></span>         
+                
+                </td>
+                
+                <td style="text-align: center">
+                    31min
+                </td>
+                
+            </tr>
+        
+            <tr>
+                <td id="ctl00_ctl00_ContentPlaceHolderContenido_ContentPlaceHolderContenido_RepeaterLCDEntries_ctl04_tdsLinea" style="text-align:center;background-color:#3A92ED;color:#FFFFFF;">
+                    26
+                </td>
+	
+                
+                <td>
+                    UNIWERSYTET
+                
+                        <span style="float:right;"><img src="../../images/wheelchair-24.png" alt="Wheelchair" style="height:16px;border-width:0px;display:block;" /></span>         
+                
+                </td>
+                
+                <td style="text-align: center">
+                    48min
+                </td>
+                
+            </tr>
+        
+            <tr>
+                <td id="ctl00_ctl00_ContentPlaceHolderContenido_ContentPlaceHolderContenido_RepeaterLCDEntries_ctl05_tdsLinea" style="text-align:center;background-color:#F2942F;color:#000000;">
+                    34
+                </td>
+	
+                
+                <td>
+                    UNIWERSYTET
+                
+                        <span style="float:right;display:none"><img src="../../images/wheelchair-24.png" alt="Wheelchair" style="height:16px;border-width:0px;display:block;" /></span>         
+                
+                </td>
+                
+                <td style="text-align: center">
+                    22:07
+                </td>
+                
+            </tr>
+        
+            <tr>
+                <td id="ctl00_ctl00_ContentPlaceHolderContenido_ContentPlaceHolderContenido_RepeaterLCDEntries_ctl06_tdsLinea" style="text-align:center;background-color:#F79646;color:#000000;">
+                    131
+                </td>
+	
+                
+                <td>
+                    PORT DRZEWNY
+                
+                        <span style="float:right;display:none"><img src="../../images/wheelchair-24.png" alt="Wheelchair" style="height:16px;border-width:0px;display:block;" /></span>         
+                
+                </td>
+                
+                <td style="text-align: center">
+                    22:11
+                </td>
+                
+            </tr>
+        
+            <tr>
+                <td id="ctl00_ctl00_ContentPlaceHolderContenido_ContentPlaceHolderContenido_RepeaterLCDEntries_ctl07_tdsLinea" style="text-align:center;background-color:#39C508;color:#000000;">
+                    40
+                </td>
+	
+                
+                <td>
+                    PLAC SKALSKIEGO
+                
+                        <span style="float:right;display:none"><img src="../../images/wheelchair-24.png" alt="Wheelchair" style="height:16px;border-width:0px;display:block;" /></span>         
+                
+                </td>
+                
+                <td style="text-align: center">
+                    22:21
+                </td>
+                
+            </tr>
+        
+            <tr>
+                <td id="ctl00_ctl00_ContentPlaceHolderContenido_ContentPlaceHolderContenido_RepeaterLCDEntries_ctl08_tdsLinea" style="text-align:center;background-color:#3A92ED;color:#FFFFFF;">
+                    26
+                </td>
+	
+                
+                <td>
+                    UNIWERSYTET
+                
+                        <span style="float:right;display:none"><img src="../../images/wheelchair-24.png" alt="Wheelchair" style="height:16px;border-width:0px;display:block;" /></span>         
+                
+                </td>
+                
+                <td style="text-align: center">
+                    22:40
+                </td>
+                
+            </tr>
+        
+            </tbody> </table>
+        
+
+                    
+</div>
+                
+            </div>
+            <div id="ctl00_ctl00_ContentPlaceHolderContenido_selectDate" style="clear: both; margin-top: 3em;">
+                <div style="text-align: right; margin-right: 250px">
+                    
+                    Godzina odjazdu:
+                </div>
+                <p style="color: red">
+                    
+                </p>
+                <div style="float: right; clear: both; margin-top: -5px;">
+                    <select name="ctl00$ctl00$ContentPlaceHolderContenido$ddlHour" id="ctl00_ctl00_ContentPlaceHolderContenido_ddlHour" style="width:3.7em;">
+	<option value="00">00</option>
+	<option value="01">01</option>
+	<option value="02">02</option>
+	<option value="03">03</option>
+	<option value="04">04</option>
+	<option value="05">05</option>
+	<option value="06">06</option>
+	<option value="07">07</option>
+	<option value="08">08</option>
+	<option value="09">09</option>
+	<option value="10">10</option>
+	<option value="11">11</option>
+	<option value="12">12</option>
+	<option value="13">13</option>
+	<option value="14">14</option>
+	<option value="15">15</option>
+	<option value="16">16</option>
+	<option value="17">17</option>
+	<option value="18">18</option>
+	<option value="19">19</option>
+	<option value="20">20</option>
+	<option value="21">21</option>
+	<option value="22">22</option>
+	<option value="23">23</option>
+
+</select>
+                    <span class="customText">
+                        h
+                    </span>
+                    <select name="ctl00$ctl00$ContentPlaceHolderContenido$ddlMinute" id="ctl00_ctl00_ContentPlaceHolderContenido_ddlMinute" style="width:3.7em;">
+	<option value="00">00</option>
+	<option value="05">05</option>
+	<option value="10">10</option>
+	<option value="15">15</option>
+	<option value="20">20</option>
+	<option value="25">25</option>
+	<option value="30">30</option>
+	<option value="35">35</option>
+	<option value="40">40</option>
+	<option value="45">45</option>
+	<option value="50">50</option>
+	<option value="55">55</option>
+
+</select>
+                    <span class="customText">
+                        m
+                    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="ctl00$ctl00$ContentPlaceHolderContenido$btnSearch" value="Szukaj" id="ctl00_ctl00_ContentPlaceHolderContenido_btnSearch" class="big-button" />                    
+                </div>
+                
+            </div>        
+            <div style="margin-top:50px;">
+                <!-- Se modifica en codigo -->
+                <input type="submit" name="ctl00$ctl00$ContentPlaceHolderContenido$btnAddToFavourites" value="Dodaj do ulubionych" id="ctl00_ctl00_ContentPlaceHolderContenido_btnAddToFavourites" class="big-button" />              
+                
+            </div>
+        </div>
+    </div>
+
+        </section>
+        <div id="ctl00_ctl00_pnlFooter">
+	
+        <div class="grid_12">
+            <div class="message grid_12" style="background-image: none; padding-top: 1.2em; width:95%;">
+            <div style="float: right;padding-top:0.6em ">
+                <a href="http://www.gmv.com">
+                    <img src="../../images/logo_gmv.png" alt="GMV" style="border-width:0px;" />
+                </a>
+            </div>
+            <div style="float: right; padding-top:0.5em;padding-right:10px">
+                Usługa dostarczona przez
+            </div>
+            <div style="float: left; padding-top:0.5em"> &copy; 2016 v1.27886 </div>
+            </div>
+        </div>
+        
+</div>
+    </article>
+    <script type="text/javascript" src='/js/libs/jquery-1.6.3.min.js'></script>
+    <script type="text/javascript" src='/js/old-browsers.js'></script>
+    <script type="text/javascript" src='/js/libs/jquery.hashchange.js'></script>
+    <script type="text/javascript" src='/js/common.js'></script>
+    <script type="text/javascript" src='/js/standard.js'></script>
+    <!--[if lte IE 8]><script src="js/standard.ie.js"></script><![endif]-->
+    <script type="text/javascript" src='/js/jquery.tip.js'></script>
+    <script type="text/javascript" src='/js/list.js'></script>
+    <script type="text/javascript" src='/js/libs/jquery.dataTables.min.js'></script>
+    <script type="text/javascript" src='/js/libs/jquery.datepick/jquery.datepick.min.js'></script>
+    <script type="text/javascript" src='/js/libs/modernizr.custom.min.js'></script>
+    
+    
+
+
+    <script>
+        $(document).ready(function () {
+            $.fn.dataTableExt.oStdClasses.sWrapper = 'no-margin last-child';
+            $.fn.dataTableExt.oStdClasses.sInfo = 'message no-margin';
+            $.fn.dataTableExt.oStdClasses.sLength = 'float-left';
+            $.fn.dataTableExt.oStdClasses.sFilter = 'float-right';
+            $.fn.dataTableExt.oStdClasses.sPaging = 'sub-hover paging_';
+            $.fn.dataTableExt.oStdClasses.sPagePrevEnabled = 'control-prev';
+            $.fn.dataTableExt.oStdClasses.sPagePrevDisabled = 'control-prev disabled';
+            $.fn.dataTableExt.oStdClasses.sPageNextEnabled = 'control-next';
+            $.fn.dataTableExt.oStdClasses.sPageNextDisabled = 'control-next disabled';
+            $.fn.dataTableExt.oStdClasses.sPageFirst = 'control-first';
+            $.fn.dataTableExt.oStdClasses.sPagePrevious = 'control-prev';
+            $.fn.dataTableExt.oStdClasses.sPageNext = 'control-next';
+            $.fn.dataTableExt.oStdClasses.sPageLast = 'control-last';
+
+
+
+
+            $('.sortable').each(function (i) {
+                var table = $(this),
+					oTable = table.dataTable({
+                        "aaSorting": [],
+
+					    aoColumns: [
+							{ sType: 'numeric' },
+							{ sType: 'string' },
+							{ bSortable: false },
+                            { bSortable: false }
+						],
+					    "oLanguage": {
+					        "sUrl": "lang/pl-PL.txt"
+					    },
+
+					    sDom: '<"block-controls"<"controls-buttons"p>>rti<"block-footer clearfix"lf>',
+
+					    fnDrawCallback: function () {
+					        this.parent().applyTemplateSetup();
+					    },
+					    fnInitComplete: function () {
+					        this.parent().applyTemplateSetup();
+					    },
+					    iDisplayLength: 10
+					});
+
+                table.find('thead .sort-up').click(function (event) {
+                    event.preventDefault();
+                    var column = $(this).closest('th'),
+						columnIndex = column.parent().children().index(column.get(0));
+                    oTable.fnSort([[columnIndex, 'asc']]);
+                    return false;
+                });
+
+                table.find('thead .sort-down').click(function (event) {
+                    event.preventDefault();
+                    var column = $(this).closest('th'),
+						columnIndex = column.parent().children().index(column.get(0));
+                    oTable.fnSort([[columnIndex, 'desc']]);
+                    return false;
+                });
+            });  
+            
+          
+
+        });
+
+        function toggleDate() {
+            if (document.getElementById("ctl00_chkNow").checked == true) {
+                document.getElementById("selectDate").style.display = 'block';
+            }
+            else {
+                document.getElementById("selectDate").style.display = 'none';
+            }
+        }
+    </script>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+WebForm_AutoFocus('btnSearch');Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.AutoCompleteBehavior, {"delimiterCharacters":"","id":"ctl00_ctl00_AutoCompleteExtenderTxtBusStop","minimumPrefixLength":2,"serviceMethod":"busStopListByName","servicePath":"../../busStopList.asmx"}, null, null, $get("ctl00_ctl00_txtBusStopName"));
+});
+Sys.Application.add_init(function() {
+    $create(Sys.UI._Timer, {"enabled":true,"interval":20000,"uniqueID":"ctl00$ctl00$ContentPlaceHolderContenido$Timer1"}, null, null, $get("ctl00_ctl00_ContentPlaceHolderContenido_Timer1"));
+});
+//]]>
+</script>
+</form>
+</body>
+</html>

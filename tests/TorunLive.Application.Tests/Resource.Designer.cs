@@ -61,6 +61,24 @@ namespace TorunLive.Application.Tests {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 
+        ///&lt;!doctype html&gt;
+        ///&lt;!--[if lt IE 8 ]&gt;&lt;html class=&quot;no-js ie ie7&quot;&gt;&lt;![endif]--&gt;
+        ///&lt;!--[if IE 8 ]&gt;&lt;html class=&quot;no-js ie&quot;&gt;&lt;![endif]--&gt;
+        ///&lt;!--[if (gt IE 8)|!(IE)]&gt;&lt;!--&gt;
+        ///&lt;html class=&quot;no-js&quot;&gt;
+        ///&lt;!--&lt;![endif]--&gt;
+        ///&lt;head id=&quot;ctl00_ctl00_headMaster&quot;&gt;&lt;meta charset=&quot;UTF-8&quot; /&gt;&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt;&lt;title&gt;
+        ///	TORUŃ Serwis transport publiczny
+        ///&lt;/title&gt;&lt;meta name=&quot;description&quot; content=&quot;GMV Public transport service&quot; /&gt;&lt;meta name=&quot;keywords&quot; content=&quot;GMV Public transport service&quot; /&gt;&lt;meta n [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string liveNewResponse {
+            get {
+                return ResourceManager.GetString("liveNewResponse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 1|#||4|53|updatePanel|ctl00_ctl00_ContentPlaceHolderContenido_UpdatePanelTime|
         ///                        00:11
         ///                    |2236|updatePanel|ctl00_ctl00_ContentPlaceHolderContenido_UpdatePanel1|

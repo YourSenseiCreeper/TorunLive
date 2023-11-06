@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -15,10 +15,16 @@
     <PackageReference Include="NUnit3TestAdapter" Version="4.4.2" />
     <PackageReference Include="NUnit.Analyzers" Version="3.6.1" />
     <PackageReference Include="coverlet.collector" Version="3.2.0" />
+    <PackageReference Include="Shouldly" Version="4.2.1" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Sip\Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\TorunLive.Application\TorunLive.Application.csproj" />
+    <ProjectReference Include="..\..\src\TorunLive.Domain\TorunLive.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
