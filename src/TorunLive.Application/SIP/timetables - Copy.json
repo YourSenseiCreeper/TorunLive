@@ -6,7 +6,7 @@
         "Timetable": [
             {
                 "Name": "UNIWERSYTET 01",
-                "StopId": 0,
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -121,7 +121,7 @@
             },
             {
                 "Name": "OLIMPIJSKA P&R 02",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -133,7 +133,7 @@
         "Timetable": [
             {
                 "Name": "OLIMPIJSKA P&R 02",
-                "StopId": 0,
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -258,7 +258,7 @@
             },
             {
                 "Name": "UNIWERSYTET 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -270,7 +270,7 @@
         "Timetable": [
             {
                 "Name": "MOTOARENA 01",
-                "StopId": 0,
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -365,7 +365,7 @@
             },
             {
                 "Name": "ELANA B 02",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -377,7 +377,7 @@
         "Timetable": [
             {
                 "Name": "ELANA B 02",
-                "StopId": 0,
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -472,7 +472,7 @@
             },
             {
                 "Name": "MOTOARENA 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -484,7 +484,7 @@
         "Timetable": [
             {
                 "Name": "Heweliusza 01",
-                "StopId": 0,
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -599,7 +599,7 @@
             },
             {
                 "Name": "MOTOARENA 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -611,7 +611,7 @@
         "Timetable": [
             {
                 "Name": "MOTOARENA 01",
-                "StopId": 0,
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -736,7 +736,7 @@
             },
             {
                 "Name": "Heweliusza 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -748,7 +748,7 @@
         "Timetable": [
             {
                 "Name": "UNIWERSYTET 01",
-                "StopId": 0,
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -848,7 +848,7 @@
             },
             {
                 "Name": "ELANA B 02",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -860,7 +860,7 @@
         "Timetable": [
             {
                 "Name": "ELANA B 02",
-                "StopId": 0,
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -960,7 +960,7 @@
             },
             {
                 "Name": "UNIWERSYTET 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -972,7 +972,7 @@
         "Timetable": [
             {
                 "Name": "MOTOARENA 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -1092,7 +1092,7 @@
             },
             {
                 "Name": "OLIMPIJSKA P&R 02",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -1104,7 +1104,7 @@
         "Timetable": [
             {
                 "Name": "OLIMPIJSKA P&R 02",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -1224,7 +1224,7 @@
             },
             {
                 "Name": "MOTOARENA 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -1236,7 +1236,7 @@
         "Timetable": [
             {
                 "Name": "Heweliusza 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -1366,7 +1366,7 @@
             },
             {
                 "Name": "OLIMPIJSKA P&R 02",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -1378,7 +1378,7 @@
         "Timetable": [
             {
                 "Name": "OLIMPIJSKA P&R 02",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -1518,7 +1518,7 @@
             },
             {
                 "Name": "Heweliusza 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -1545,7 +1545,7 @@
             },
             {
                 "Name": "MOTOARENA 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -1685,7 +1685,7 @@
             },
             {
                 "Name": "UNIWERSYTET 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -1697,7 +1697,7 @@
         "Timetable": [
             {
                 "Name": "Plac Rapackiego 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -1747,7 +1747,7 @@
             },
             {
                 "Name": "UNIWERSYTET 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -1759,7 +1759,7 @@
         "Timetable": [
             {
                 "Name": "SZUBIŃSKA 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -1864,7 +1864,7 @@
             },
             {
                 "Name": "Szpital Bielany 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -1876,7 +1876,7 @@
         "Timetable": [
             {
                 "Name": "FORTECZNA 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -2006,7 +2006,7 @@
             },
             {
                 "Name": "SZUBIŃSKA 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -2018,7 +2018,7 @@
         "Timetable": [
             {
                 "Name": "Czerniewice 02",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -2128,7 +2128,7 @@
             },
             {
                 "Name": "KONIUCHY 04",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -2140,7 +2140,7 @@
         "Timetable": [
             {
                 "Name": "KONIUCHY 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -2255,7 +2255,7 @@
             },
             {
                 "Name": "SPACEROWA 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -2267,7 +2267,7 @@
         "Timetable": [
             {
                 "Name": "RUDAK 02",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -2377,7 +2377,7 @@
             },
             {
                 "Name": "WRZOSY I 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -2389,7 +2389,7 @@
         "Timetable": [
             {
                 "Name": "WRZOSY I 02",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -2494,7 +2494,7 @@
             },
             {
                 "Name": "RUDAK 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -2506,7 +2506,7 @@
         "Timetable": [
             {
                 "Name": "GLINIECKA 02",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -2566,7 +2566,7 @@
             },
             {
                 "Name": "Plac Św. Katarzyny 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -2578,7 +2578,7 @@
         "Timetable": [
             {
                 "Name": "PLAC ŚW. KATARZYNY 03",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -2638,7 +2638,7 @@
             },
             {
                 "Name": "GLINIECKA 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -2650,7 +2650,7 @@
         "Timetable": [
             {
                 "Name": "OKÓLNA 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -2765,7 +2765,7 @@
             },
             {
                 "Name": "CMENTARZ CENTRALNY 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -2777,7 +2777,7 @@
         "Timetable": [
             {
                 "Name": "CMENTARZ CENTRALNY 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -2887,7 +2887,7 @@
             },
             {
                 "Name": "OKÓLNA 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -2899,7 +2899,7 @@
         "Timetable": [
             {
                 "Name": "PRZY LESIE 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -2994,7 +2994,7 @@
             },
             {
                 "Name": "RUBINKOWO P&R 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -3006,7 +3006,7 @@
         "Timetable": [
             {
                 "Name": "RUBINKOWO P&R 03",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -3111,7 +3111,7 @@
             },
             {
                 "Name": "PRZY LESIE 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -3123,7 +3123,7 @@
         "Timetable": [
             {
                 "Name": "WRZOSY I 02",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -3243,7 +3243,7 @@
             },
             {
                 "Name": "OLIMPIJSKA P&R 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -3255,7 +3255,7 @@
         "Timetable": [
             {
                 "Name": "OLIMPIJSKA P&R 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -3385,7 +3385,7 @@
             },
             {
                 "Name": "WRZOSY I 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -3397,7 +3397,7 @@
         "Timetable": [
             {
                 "Name": "UNIWERSYTET 02",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -3497,7 +3497,7 @@
             },
             {
                 "Name": "CMENTARZ CENTRALNY 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -3509,7 +3509,7 @@
         "Timetable": [
             {
                 "Name": "CMENTARZ CENTRALNY 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -3609,7 +3609,7 @@
             },
             {
                 "Name": "UNIWERSYTET 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -3621,7 +3621,7 @@
         "Timetable": [
             {
                 "Name": "UNIWERSYTET 02",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -3776,7 +3776,7 @@
             },
             {
                 "Name": "KOLANKOWSKIEGO 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -3788,7 +3788,7 @@
         "Timetable": [
             {
                 "Name": "KOLANKOWSKIEGO 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -3943,7 +3943,7 @@
             },
             {
                 "Name": "UNIWERSYTET 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -3955,7 +3955,7 @@
         "Timetable": [
             {
                 "Name": "Czerniewice 02",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -4010,7 +4010,7 @@
             },
             {
                 "Name": "PLAC ŚW. KATARZYNY 04",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -4022,7 +4022,7 @@
         "Timetable": [
             {
                 "Name": "PLAC ŚW. KATARZYNY 03",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -4082,7 +4082,7 @@
             },
             {
                 "Name": "Czerniewice 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -4094,7 +4094,7 @@
         "Timetable": [
             {
                 "Name": "GLINKI 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -4249,7 +4249,7 @@
             },
             {
                 "Name": "FORTECZNA 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -4261,7 +4261,7 @@
         "Timetable": [
             {
                 "Name": "FORTECZNA 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -4421,7 +4421,7 @@
             },
             {
                 "Name": "GLINKI 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -4433,7 +4433,7 @@
         "Timetable": [
             {
                 "Name": "FORTECZNA 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -4488,7 +4488,7 @@
             },
             {
                 "Name": "DWORZEC WSCHODNI 08",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -4500,7 +4500,7 @@
         "Timetable": [
             {
                 "Name": "DWORZEC WSCHODNI 08",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -4550,7 +4550,7 @@
             },
             {
                 "Name": "FORTECZNA 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -4562,7 +4562,7 @@
         "Timetable": [
             {
                 "Name": "UNIWERSYTET 02",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -4677,7 +4677,7 @@
             },
             {
                 "Name": "KOLANKOWSKIEGO 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -4689,7 +4689,7 @@
         "Timetable": [
             {
                 "Name": "KOLANKOWSKIEGO 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -4799,7 +4799,7 @@
             },
             {
                 "Name": "UNIWERSYTET 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -4811,7 +4811,7 @@
         "Timetable": [
             {
                 "Name": "PLAC SKALSKIEGO 03",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -4916,7 +4916,7 @@
             },
             {
                 "Name": "RUBINKOWO P&R 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -4928,7 +4928,7 @@
         "Timetable": [
             {
                 "Name": "RUBINKOWO P&R 03",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -5038,7 +5038,7 @@
             },
             {
                 "Name": "PLAC SKALSKIEGO 03",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -5050,7 +5050,7 @@
         "Timetable": [
             {
                 "Name": "DWORZEC GŁÓWNY 03",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -5140,7 +5140,7 @@
             },
             {
                 "Name": "OSIEDLE LEŚNE-POLANA 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -5152,7 +5152,7 @@
         "Timetable": [
             {
                 "Name": "OSIEDLE LEŚNE - POLANA 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -5227,7 +5227,7 @@
             },
             {
                 "Name": "DWORZEC GŁÓWNY 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -5239,7 +5239,7 @@
         "Timetable": [
             {
                 "Name": "UNIWERSYTET 02",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -5329,7 +5329,7 @@
             },
             {
                 "Name": "MAZOWIECKA (pętla) 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -5341,7 +5341,7 @@
         "Timetable": [
             {
                 "Name": "MAZOWIECKA (pętla) 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -5431,7 +5431,7 @@
             },
             {
                 "Name": "UNIWERSYTET 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -5443,7 +5443,7 @@
         "Timetable": [
             {
                 "Name": "SZUBIŃSKA 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -5643,7 +5643,7 @@
             },
             {
                 "Name": "KOLANKOWSKIEGO 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -5655,7 +5655,7 @@
         "Timetable": [
             {
                 "Name": "KOLANKOWSKIEGO 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -5850,7 +5850,7 @@
             },
             {
                 "Name": "SZUBIŃSKA 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -5862,7 +5862,7 @@
         "Timetable": [
             {
                 "Name": "PLAC ŚW. KATARZYNY 03",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -5952,7 +5952,7 @@
             },
             {
                 "Name": "NAD STRUGĄ 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -5964,7 +5964,7 @@
         "Timetable": [
             {
                 "Name": "NAD STRUGĄ 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -6064,7 +6064,7 @@
             },
             {
                 "Name": "PLAC ŚW. KATARZYNY 04",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -6076,7 +6076,7 @@
         "Timetable": [
             {
                 "Name": "BARBARKA 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -6221,7 +6221,7 @@
             },
             {
                 "Name": "KOLANKOWSKIEGO 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -6233,7 +6233,7 @@
         "Timetable": [
             {
                 "Name": "KOLANKOWSKIEGO 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -6383,7 +6383,7 @@
             },
             {
                 "Name": "BARBARKA 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -6395,7 +6395,7 @@
         "Timetable": [
             {
                 "Name": "Letnia 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -6490,7 +6490,7 @@
             },
             {
                 "Name": "WRZOSY I 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -6502,7 +6502,7 @@
         "Timetable": [
             {
                 "Name": "WRZOSY I 02",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -6582,7 +6582,7 @@
             },
             {
                 "Name": "gen. Orlicza-Dreszera nż. 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -6594,7 +6594,7 @@
         "Timetable": [
             {
                 "Name": "MAZOWIECKA (pętla) 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -6689,7 +6689,7 @@
             },
             {
                 "Name": "OLIMPIJSKA P&R 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -6701,7 +6701,7 @@
         "Timetable": [
             {
                 "Name": "OLIMPIJSKA P&R 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -6791,7 +6791,7 @@
             },
             {
                 "Name": "MAZOWIECKA (pętla) 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -6803,7 +6803,7 @@
         "Timetable": [
             {
                 "Name": "PLAC SKALSKIEGO 03",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -6933,7 +6933,7 @@
             },
             {
                 "Name": "OLIMPIJSKA P&R 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -6945,7 +6945,7 @@
         "Timetable": [
             {
                 "Name": "OLIMPIJSKA P&R 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -7070,7 +7070,7 @@
             },
             {
                 "Name": "UNIWERSYTET 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -7082,7 +7082,7 @@
         "Timetable": [
             {
                 "Name": "PLAC ŚW. KATARZYNY 03",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -7122,7 +7122,7 @@
             },
             {
                 "Name": "św. Antoniego 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -7149,7 +7149,7 @@
             },
             {
                 "Name": "WRZOSOWA 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -7204,7 +7204,7 @@
             },
             {
                 "Name": "PLAC ŚW. KATARZYNY 09",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -7216,7 +7216,7 @@
         "Timetable": [
             {
                 "Name": "RUBINKOWO P&R 05",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -7266,7 +7266,7 @@
             },
             {
                 "Name": "NAD STRUGĄ 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -7278,7 +7278,7 @@
         "Timetable": [
             {
                 "Name": "NAD STRUGĄ 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -7323,7 +7323,7 @@
             },
             {
                 "Name": "RUBINKOWO P&R 04",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -7335,7 +7335,7 @@
         "Timetable": [
             {
                 "Name": "PORT DRZEWNY 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -7470,7 +7470,7 @@
             },
             {
                 "Name": "BIELAWY 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -7482,7 +7482,7 @@
         "Timetable": [
             {
                 "Name": "BIELAWY 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -7622,7 +7622,7 @@
             },
             {
                 "Name": "PORT DRZEWNY 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -7634,7 +7634,7 @@
         "Timetable": [
             {
                 "Name": "DWORZEC WSCHODNI 08",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -7689,7 +7689,7 @@
             },
             {
                 "Name": "KOŁOWA 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -7701,7 +7701,7 @@
         "Timetable": [
             {
                 "Name": "KOŁOWA 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -7756,7 +7756,7 @@
             },
             {
                 "Name": "DWORZEC WSCHODNI 08",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -7768,7 +7768,7 @@
         "Timetable": [
             {
                 "Name": "MAZOWIECKA (pętla) 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -7858,7 +7858,7 @@
             },
             {
                 "Name": "OLIMPIJSKA P&R 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -7870,7 +7870,7 @@
         "Timetable": [
             {
                 "Name": "OLIMPIJSKA P&R 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -7960,7 +7960,7 @@
             },
             {
                 "Name": "MAZOWIECKA (pętla) 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -7972,7 +7972,7 @@
         "Timetable": [
             {
                 "Name": "POZNAŃSKA 02",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -8177,7 +8177,7 @@
             },
             {
                 "Name": "WAPIENNA 02",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -8189,7 +8189,7 @@
         "Timetable": [
             {
                 "Name": "NAD STRUGĄ 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -8394,7 +8394,7 @@
             },
             {
                 "Name": "POZNAŃSKA 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -8406,7 +8406,7 @@
         "Timetable": [
             {
                 "Name": "PLAC ŚW. KATARZYNY 03",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -8551,7 +8551,7 @@
             },
             {
                 "Name": "GRONOWO 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -8563,7 +8563,7 @@
         "Timetable": [
             {
                 "Name": "GRONOWO 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -8703,7 +8703,7 @@
             },
             {
                 "Name": "PLAC ŚW. KATARZYNY 04",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -8715,7 +8715,7 @@
         "Timetable": [
             {
                 "Name": "PLAC ŚW. KATARZYNY 03",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -8855,7 +8855,7 @@
             },
             {
                 "Name": "GRONOWO 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -8952,7 +8952,7 @@
             },
             {
                 "Name": "Barwna 03",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -9007,7 +9007,7 @@
             },
             {
                 "Name": "PLAC ŚW. KATARZYNY 04",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -9019,7 +9019,7 @@
         "Timetable": [
             {
                 "Name": "PLAC ŚW. KATARZYNY 03",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -9129,7 +9129,7 @@
             },
             {
                 "Name": "KOPANINO 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -9141,7 +9141,7 @@
         "Timetable": [
             {
                 "Name": "KOPANINO 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -9256,7 +9256,7 @@
             },
             {
                 "Name": "PLAC ŚW. KATARZYNY 04",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -9268,7 +9268,7 @@
         "Timetable": [
             {
                 "Name": "PLAC ŚW. KATARZYNY 03",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -9403,7 +9403,7 @@
             },
             {
                 "Name": "KROBIA 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -9415,7 +9415,7 @@
         "Timetable": [
             {
                 "Name": "KROBIA 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -9550,7 +9550,7 @@
             },
             {
                 "Name": "PLAC ŚW. KATARZYNY 04",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -9562,7 +9562,7 @@
         "Timetable": [
             {
                 "Name": "RUBINKOWO P&R 05",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -9672,7 +9672,7 @@
             },
             {
                 "Name": "OBROWO 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -9684,7 +9684,7 @@
         "Timetable": [
             {
                 "Name": "OBROWO 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -9794,7 +9794,7 @@
             },
             {
                 "Name": "RUBINKOWO P&R 04",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -9806,7 +9806,7 @@
         "Timetable": [
             {
                 "Name": "RUBINKOWO P&R 05",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -9936,7 +9936,7 @@
             },
             {
                 "Name": "OBROWO 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -9948,7 +9948,7 @@
         "Timetable": [
             {
                 "Name": "OBROWO 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -10073,7 +10073,7 @@
             },
             {
                 "Name": "RUBINKOWO P&R 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -10085,7 +10085,7 @@
         "Timetable": [
             {
                 "Name": "SZUBIŃSKA 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -10260,7 +10260,7 @@
             },
             {
                 "Name": "ROZGARTY - STARA SZKOŁA 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -10272,7 +10272,7 @@
         "Timetable": [
             {
                 "Name": "ROZGARTY - STARA SZKOŁA 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -10452,7 +10452,7 @@
             },
             {
                 "Name": "SZUBIŃSKA 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -10469,7 +10469,7 @@
             },
             {
                 "Name": "UNIWERSYTET 02",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -10584,7 +10584,7 @@
             },
             {
                 "Name": "OLIMPIJSKA P&R 01",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -10596,7 +10596,7 @@
         "Timetable": [
             {
                 "Name": "OLIMPIJSKA P&R 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -10721,7 +10721,7 @@
             },
             {
                 "Name": "MOTOARENA 02",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -10733,7 +10733,7 @@
         "Timetable": [
             {
                 "Name": "POZNAŃSKA 02",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -10918,7 +10918,7 @@
             },
             {
                 "Name": "NAD STRUGĄ 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -10930,7 +10930,7 @@
         "Timetable": [
             {
                 "Name": "NAD STRUGĄ 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -11110,7 +11110,7 @@
             },
             {
                 "Name": "POZNAŃSKA 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -11122,7 +11122,7 @@
         "Timetable": [
             {
                 "Name": "Czerniewice 02",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -11282,7 +11282,7 @@
             },
             {
                 "Name": "WRZOSY I 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -11294,7 +11294,7 @@
         "Timetable": [
             {
                 "Name": "WRZOSY I 02",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -11459,7 +11459,7 @@
             },
             {
                 "Name": "Czerniewice 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -11471,7 +11471,7 @@
         "Timetable": [
             {
                 "Name": "Aleja Solidarności 02",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -11521,7 +11521,7 @@
             },
             {
                 "Name": "RUBINKOWO P&R 04",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -11533,7 +11533,7 @@
         "Timetable": [
             {
                 "Name": "RUBINKOWO P&R 03",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -11588,7 +11588,7 @@
             },
             {
                 "Name": "Aleja Solidarności 02",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -11600,7 +11600,7 @@
         "Timetable": [
             {
                 "Name": "MOTOARENA 02",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -11765,7 +11765,7 @@
             },
             {
                 "Name": "NAD STRUGĄ 00",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]
@@ -11777,7 +11777,7 @@
         "Timetable": [
             {
                 "Name": "NAD STRUGĄ 01",
-                "StopId": "0",
+                "StopId": "",
                 "TimeElapsedFromFirstStop": 0
             },
             {
@@ -11947,7 +11947,7 @@
             },
             {
                 "Name": "MOTOARENA 02",
-                "StopId": "0",
+                "StopId": null,
                 "TimeElapsedFromFirstStop": 0
             }
         ]

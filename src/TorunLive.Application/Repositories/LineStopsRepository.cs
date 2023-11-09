@@ -19,8 +19,20 @@ namespace TorunLive.Application.Repositories
 
         public LineEntry? GetForLineAndDirection(string lineName, string lineDirection)
         {
-            return _lineEntries.Where(l => l.Name == lineName)
-                .FirstOrDefault(l => l.DirectionName == lineDirection);
+            var lines = _lineEntries.Where(l => l.Name == lineName);
+            return lines.FirstOrDefault(l => l.DirectionName == lineDirection);
+        }
+
+        public List<LineDirection> GetLineDirectionsForStop(int stopId)
+        {
+            return _lineEntries
+                .Where(l => l.TimetableUrl.Contains(stopId.ToString()))
+                .GroupBy(l => l.Name)
+                .Select(le => new LineDirection
+                {
+                    LineName = le.Key,
+                    Directions = le.Select(x => x.DirectionName).ToList()
+                }).ToList();
         }
     }
 }

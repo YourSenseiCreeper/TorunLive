@@ -1,28 +1,43 @@
 using Microsoft.AspNetCore.Mvc;
 using TorunLive.Application.Interfaces.Services;
+using TorunLive.Domain.Entities;
 
 namespace TorunLive.WebApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     public class TimetableController : ControllerBase
     {
         private readonly ILogger<TimetableController> _logger;
         private readonly IFullTimetableService _fullTimetableService;
+        private readonly ILineStopsService _lineStopsService;
 
         public TimetableController(
             ILogger<TimetableController> logger,
-            IFullTimetableService fullTimetableService)
+            IFullTimetableService fullTimetableService,
+            ILineStopsService lineStopsService)
         {
             _logger = logger;
             _fullTimetableService = fullTimetableService;
+            _lineStopsService = lineStopsService;
         }
 
-        [HttpGet(Name = "GetDelays")]
-        public async Task<IEnumerable<string>> GetDelays(int sipStopId)
+        [HttpGet]
+        public async Task<List<CompareLine>> GetTimetable(int sipStopId)
         {
-            await _fullTimetableService.GetFullTimetable(sipStopId);
-            return Array.Empty<string>();
+            return await _fullTimetableService.GetFullTimetable(sipStopId);
+        }
+
+        [HttpGet]
+        public async Task<CompareLine> GetDelay(string lineNumber, int sipStopId, string direction)
+        {
+            return await _fullTimetableService.GetLiveForLine(lineNumber, sipStopId, direction);
+        }
+
+        [HttpGet]
+        public List<LineDirection> GetLineDirections(int sipStopId)
+        {
+            return _lineStopsService.GetLineDirectionsForStop(sipStopId);
         }
     }
 }

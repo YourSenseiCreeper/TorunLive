@@ -51,7 +51,7 @@ namespace TorunLive.Application.Services
             return result;
         }
 
-        public async Task<CompareLine> GetLiveForLine(string lineNumber, string stopId, string direction)
+        public async Task<CompareLine> GetLiveForLine(string lineNumber, int stopId, string direction)
         {
             var stopsBeforeForStop = _lineStopsService.GetEntriesBeforeStop(lineNumber, direction, stopId, 5);
             //stopsBeforeForStop.Reverse();
@@ -65,8 +65,7 @@ namespace TorunLive.Application.Services
             var arrivals = new ConcurrentBag<CompareArrival>();
             await Parallel.ForEachAsync(stopsBeforeForStop, async (timetableStop, cancellationToken) =>
             {
-                var sipStopId = int.Parse(timetableStop.StopId);
-                var liveTimetable = await _liveTimetableService.GetTimetable(sipStopId);
+                var liveTimetable = await _liveTimetableService.GetTimetable(timetableStop.StopId);
                 var liveLineEntries = liveTimetable.Lines.Where(l => l.Number == lineNumber);
                 if (liveLineEntries.Any())
                 {
@@ -77,7 +76,7 @@ namespace TorunLive.Application.Services
                     arrivals.Add(new CompareArrival
                     {
                         Order = timetableStop.Order,
-                        StopId = sipStopId,
+                        StopId = timetableStop.StopId,
                         BaseDayMinute = diffTime,
                         StopName = timetableStop.Name,
                         ActualBaseMinute = arrival?.DayMinute

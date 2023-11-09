@@ -33,8 +33,14 @@ namespace TorunLive.WebApi
             app.UseAuthorization();
 
             app.MapControllers();
-
-            app.Run();
+            try
+            {
+                app.Run();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
     }
 }

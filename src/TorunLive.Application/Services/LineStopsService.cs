@@ -18,7 +18,7 @@ namespace TorunLive.Application.Services
             _lineStopsRepository = lineStopsRepository;
         }
 
-        public List<TimetableEntry> GetEntriesBeforeStop(string lineName, string direction, string stopId, int amountStopsBefore)
+        public List<TimetableEntry> GetEntriesBeforeStop(string lineName, string direction, int stopId, int amountStopsBefore)
         {
             var line = _lineStopsRepository.GetForLineAndDirection(lineName, direction);
             if (line == null)
@@ -31,6 +31,11 @@ namespace TorunLive.Application.Services
             stopInLine -= Math.Min(stopInLine, amountStopsBefore) - 1;
             var selectedStops = line.Timetable.Skip(stopInLine).Take(amountStopsBefore).ToList();
             return selectedStops;
+        }
+
+        public List<LineDirection> GetLineDirectionsForStop(int stopId)
+        {
+            return _lineStopsRepository.GetLineDirectionsForStop(stopId);
         }
     }
 }
