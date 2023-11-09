@@ -90,6 +90,7 @@ namespace TorunLive.SIPTimetableScanner
             {
                 var lineStopUrl = url.Attributes().FirstOrDefault(a => a.Name == "href")?.Value ?? string.Empty;
                 lineStopUrl = lineStopUrl.Replace(".html", "");
+                int stopId = string.IsNullOrEmpty(lineStopUrl) ? 0 : int.Parse(lineStopUrl);
                 if (!int.TryParse(time.Value, out int timeElapsedFromFirstStop))
                 {
                     Console.WriteLine($"Cannot parse timeElapsed value: '{time.Value}'");
@@ -98,7 +99,7 @@ namespace TorunLive.SIPTimetableScanner
                 entries.Add(new TimetableEntry
                 {
                     Name = url.Value.Replace("&amp;", "&"),
-                    StopId = lineStopUrl,
+                    StopId = stopId,
                     TimeElapsedFromFirstStop = timeElapsedFromFirstStop
                 });
             }

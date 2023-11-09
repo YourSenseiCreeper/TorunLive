@@ -4,7 +4,7 @@
     {
         public int Order { get; set; }
         public string Name { get; set; }
-        public string StopId { get; set; }
+        public int StopId { get; set; }
         public int TimeElapsedFromFirstStop { get; set; }
     }
 }

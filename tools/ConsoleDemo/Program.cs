@@ -29,7 +29,7 @@ namespace ConsoleDemo
             var lineName = AskForString($"Podaj nazwę lini ({defaultLineName}): ") ?? defaultLineName;
             var startStopId = AskForInt($"Id przystanku startowego ({defaultStartStopId}): ") ?? defaultStartStopId;
             var directionName = AskForString($"Podaj nazwę kierunku dla lini ({defaultDirectionName}): ") ?? defaultDirectionName;
-            var result = fullService.GetLiveForLine(lineName, startStopId.ToString(), directionName).GetAwaiter().GetResult();
+            var result = fullService.GetLiveForLine(lineName, startStopId, directionName).GetAwaiter().GetResult();
 
             var table = new ConsoleTable("Przystanek", "Planowy", "Aktualny", "Opóźnienie");
             foreach(var arrival in result.Arrivals)
