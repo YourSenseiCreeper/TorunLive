@@ -7,7 +7,8 @@
         public int DayMinute { get; set; }
         public bool IsWeekday { get; set; }
         public bool IsWinterHoliday { get; set; }
-        public bool IsSaturdaySundayHoliday { get; set; }
+        public bool IsSaturdaySundays { get; set; }
+        public bool IsHolidays { get; set; }
 
         public LineStop LineStop { get; set; }
     }

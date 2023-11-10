@@ -12,6 +12,7 @@
 
         public Line Line { get; set; }
         public Stop Stop { get; set; }
+        public Direction Direction { get; set; }
 
         public ICollection<LineStopTime> LineStopTimes { get; set; }
     }

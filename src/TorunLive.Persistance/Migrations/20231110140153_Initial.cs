@@ -11,19 +11,6 @@ namespace TorunLive.Persistance.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Directions",
-                columns: table => new
-                {
-                    LineId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    DirectionId = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Directions", x => new { x.LineId, x.DirectionId });
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Lines",
                 columns: table => new
                 {
@@ -48,6 +35,25 @@ namespace TorunLive.Persistance.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Directions",
+                columns: table => new
+                {
+                    LineId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    DirectionId = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Directions", x => new { x.LineId, x.DirectionId });
+                    table.ForeignKey(
+                        name: "FK_Directions_Lines_LineId",
+                        column: x => x.LineId,
+                        principalTable: "Lines",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "LineStops",
                 columns: table => new
                 {
@@ -58,23 +64,31 @@ namespace TorunLive.Persistance.Migrations
                     StopId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     StopOrder = table.Column<int>(type: "int", nullable: false),
                     IsOnDemand = table.Column<bool>(type: "bit", nullable: false),
-                    TimeToNextStop = table.Column<int>(type: "int", nullable: true)
+                    TimeToNextStop = table.Column<int>(type: "int", nullable: true),
+                    DirectionLineId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    DirectionId1 = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_LineStops", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_LineStops_Directions_DirectionLineId_DirectionId1",
+                        columns: x => new { x.DirectionLineId, x.DirectionId1 },
+                        principalTable: "Directions",
+                        principalColumns: new[] { "LineId", "DirectionId" },
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
                         name: "FK_LineStops_Lines_LineId",
                         column: x => x.LineId,
                         principalTable: "Lines",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_LineStops_Stops_StopId",
                         column: x => x.StopId,
                         principalTable: "Stops",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -87,7 +101,8 @@ namespace TorunLive.Persistance.Migrations
                     DayMinute = table.Column<int>(type: "int", nullable: false),
                     IsWeekday = table.Column<bool>(type: "bit", nullable: false),
                     IsWinterHoliday = table.Column<bool>(type: "bit", nullable: false),
-                    IsSaturdaySundayHoliday = table.Column<bool>(type: "bit", nullable: false)
+                    IsSaturdaySundays = table.Column<bool>(type: "bit", nullable: false),
+                    IsHolidays = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -104,6 +119,11 @@ namespace TorunLive.Persistance.Migrations
                 name: "IX_LineStop_LineStop",
                 table: "LineStops",
                 column: "Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LineStops_DirectionLineId_DirectionId1",
+                table: "LineStops",
+                columns: new[] { "DirectionLineId", "DirectionId1" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_LineStops_LineId_DirectionId_StopId",
@@ -125,19 +145,19 @@ namespace TorunLive.Persistance.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Directions");
-
-            migrationBuilder.DropTable(
                 name: "LineStopTimes");
 
             migrationBuilder.DropTable(
                 name: "LineStops");
 
             migrationBuilder.DropTable(
-                name: "Lines");
+                name: "Directions");
 
             migrationBuilder.DropTable(
                 name: "Stops");
+
+            migrationBuilder.DropTable(
+                name: "Lines");
         }
     }
 }

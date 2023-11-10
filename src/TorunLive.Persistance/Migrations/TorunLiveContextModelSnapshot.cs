@@ -63,6 +63,13 @@ namespace TorunLive.Persistance.Migrations
                     b.Property<int>("DirectionId")
                         .HasColumnType("int");
 
+                    b.Property<int>("DirectionId1")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DirectionLineId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<bool>("IsOnDemand")
                         .HasColumnType("bit");
 
@@ -84,6 +91,8 @@ namespace TorunLive.Persistance.Migrations
 
                     b.HasIndex("StopId");
 
+                    b.HasIndex("DirectionLineId", "DirectionId1");
+
                     b.HasIndex("LineId", "DirectionId", "StopId");
 
                     b.HasIndex(new[] { "Id" }, "IX_LineStop_LineStop");
@@ -102,7 +111,10 @@ namespace TorunLive.Persistance.Migrations
                     b.Property<int>("DayMinute")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsSaturdaySundayHoliday")
+                    b.Property<bool>("IsHolidays")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsSaturdaySundays")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsWeekday")
@@ -135,19 +147,36 @@ namespace TorunLive.Persistance.Migrations
                     b.ToTable("Stops");
                 });
 
+            modelBuilder.Entity("TorunLive.Domain.EntitiesV2.Direction", b =>
+                {
+                    b.HasOne("TorunLive.Domain.EntitiesV2.Line", null)
+                        .WithMany("Directions")
+                        .HasForeignKey("LineId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("TorunLive.Domain.EntitiesV2.LineStop", b =>
                 {
                     b.HasOne("TorunLive.Domain.EntitiesV2.Line", "Line")
-                        .WithMany()
+                        .WithMany("LineStops")
                         .HasForeignKey("LineId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("TorunLive.Domain.EntitiesV2.Stop", "Stop")
-                        .WithMany()
+                        .WithMany("LineStops")
                         .HasForeignKey("StopId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("TorunLive.Domain.EntitiesV2.Direction", "Direction")
+                        .WithMany()
+                        .HasForeignKey("DirectionLineId", "DirectionId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Direction");
 
                     b.Navigation("Line");
 
@@ -157,12 +186,29 @@ namespace TorunLive.Persistance.Migrations
             modelBuilder.Entity("TorunLive.Domain.EntitiesV2.LineStopTime", b =>
                 {
                     b.HasOne("TorunLive.Domain.EntitiesV2.LineStop", "LineStop")
-                        .WithMany()
+                        .WithMany("LineStopTimes")
                         .HasForeignKey("LineStopId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("LineStop");
+                });
+
+            modelBuilder.Entity("TorunLive.Domain.EntitiesV2.Line", b =>
+                {
+                    b.Navigation("Directions");
+
+                    b.Navigation("LineStops");
+                });
+
+            modelBuilder.Entity("TorunLive.Domain.EntitiesV2.LineStop", b =>
+                {
+                    b.Navigation("LineStopTimes");
+                });
+
+            modelBuilder.Entity("TorunLive.Domain.EntitiesV2.Stop", b =>
+                {
+                    b.Navigation("LineStops");
                 });
 #pragma warning restore 612, 618
         }
