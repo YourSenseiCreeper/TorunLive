@@ -1,6 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-using TorunLive.Persistance;
-using TorunLive.SIPTimetableScanner;
+﻿using TorunLive.Persistance;
+using TorunLive.SIPTimetableScanner.Services;
 
 Console.WriteLine("Hello, World!");
 
