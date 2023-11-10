@@ -12,7 +12,7 @@
         {
             var startIndex = text.IndexOf(start);
             var endIndex = text.IndexOf(end);
-            var substring = text.Substring(startIndex, endIndex - startIndex);
+            var substring = text.Substring(startIndex, endIndex + end.Length - startIndex);
             foreach (var replacement in elementsToReplace)
             {
                 substring = substring.Replace(replacement.Key, replacement.Value);

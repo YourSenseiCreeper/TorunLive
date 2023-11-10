@@ -49,7 +49,7 @@ namespace TorunLive.SIPTimetableScanner.Services
 
         public IEnumerable<(string, string)> ParseTimetablesUrls(string lineData)
         {
-            var substring = Common.GetTextBetweenAndClean(lineData, "<div class=\"timetable-stops\">", "<div class=\"timetable\">", Common.XmlEscapeReplacements);
+            var substring = Common.GetTextBetweenAndClean(lineData, "<div class=\"timetable-stops\">", "</table></div></div>", Common.XmlEscapeReplacements);
 
             var document = XDocument.Parse(substring);
             var urls = document.XPathSelectElements("div/div/table/tr/td/a").ToList();
