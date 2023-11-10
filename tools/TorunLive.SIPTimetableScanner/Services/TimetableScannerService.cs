@@ -3,7 +3,7 @@ using TorunLive.SIPTimetableScanner.Interfaces;
 
 namespace TorunLive.SIPTimetableScanner.Services
 {
-    public class TimetableScannerService
+    public class TimetableScannerService : ITimetableScannerService
     {
         private readonly ILogger _logger;
         private readonly ITimetableService _timetableService;

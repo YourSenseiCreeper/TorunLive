@@ -5,7 +5,7 @@ namespace TorunLive.Persistance
 {
     public class TorunLiveContext : DbContext
     {
-        public TorunLiveContext() : base()
+        public TorunLiveContext(DbContextOptions<TorunLiveContext> options) : base(options)
         {
         }
 
@@ -15,11 +15,11 @@ namespace TorunLive.Persistance
         public DbSet<LineStop> LineStops { get; set; }
         public DbSet<LineStopTime> LineStopTimes { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            var connectionString = "Server=LAPTOP-IJH0V32L\\SQLEXPRESS;Database=TorunLive;Trusted_Connection=True;Encrypt=False";
-            optionsBuilder.UseSqlServer(connectionString);
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    var connectionString = "Server=LAPTOP-IJH0V32L\\SQLEXPRESS;Database=TorunLive;Trusted_Connection=True;Encrypt=False";
+        //    optionsBuilder.UseSqlServer(connectionString);
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

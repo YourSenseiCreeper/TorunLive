@@ -8,7 +8,6 @@ namespace TorunLive.SIPTimetableScanner.Services
     public class TimetableService : ITimetableService
     {
         private readonly TorunLiveContext _dbContext;
-        private readonly HttpClient _httpClient;
         private readonly ILogger _logger;
         private readonly ITimetableParserService _timetableParserService;
         private readonly IDelayService _delayService;
@@ -16,14 +15,12 @@ namespace TorunLive.SIPTimetableScanner.Services
 
         public TimetableService(
             ILogger<TimetableService> logger,
-            HttpClient httpClient,
             TorunLiveContext dbContext,
             ITimetableParserService timetableParserService,
             IDelayService delayService,
             IRequestService requestService)
         {
             _logger = logger;
-            _httpClient = httpClient;
             _dbContext = dbContext;
             _timetableParserService = timetableParserService;
             _delayService = delayService;
@@ -71,14 +68,10 @@ namespace TorunLive.SIPTimetableScanner.Services
                 }).Entity;
                 _dbContext.SaveChanges();
 
-                var timetableUrl = $"{lineId}/{directionId}/{stopId}.html";
-                var response = await _httpClient.GetAsync(timetableUrl);
-                response.EnsureSuccessStatusCode();
-                var rawData = await response.Content.ReadAsStringAsync();
-
+                var httpString = await _requestService.GetTimetable(lineId, directionId, stopId);
                 await _delayService.Delay();
 
-                var lineStopTimes = _timetableParserService.ParseArrivals(lineStop.Id, rawData);
+                var lineStopTimes = _timetableParserService.ParseArrivals(lineStop.Id, httpString);
                 _dbContext.LineStopTimes.AddRange(lineStopTimes);
                 _dbContext.SaveChanges();
             }
