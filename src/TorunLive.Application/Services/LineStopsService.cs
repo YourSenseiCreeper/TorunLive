@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using System.Text.RegularExpressions;
 using TorunLive.Application.Interfaces.Repositories;
 using TorunLive.Application.Interfaces.Services;
 using TorunLive.Domain.Entities;
@@ -33,8 +34,15 @@ namespace TorunLive.Application.Services
             return selectedStops;
         }
 
-        public List<LineDirection> GetLineDirectionsForStop(int stopId)
+        public Task<List<LineDirection>> GetLineDirectionsForStop(string stopId)
         {
+            var validationRegex = new Regex("^[0-9]{5}$");
+            var match = validationRegex.Match(stopId);
+            if (!match.Success)
+            {
+                _logger.LogError($"Not valid stopId: '{stopId}'");
+                throw new ArgumentException($"Not valid stopId: '{stopId}'");
+            }
             return _lineStopsRepository.GetLineDirectionsForStop(stopId);
         }
     }

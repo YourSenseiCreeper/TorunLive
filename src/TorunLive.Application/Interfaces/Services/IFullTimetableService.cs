@@ -4,7 +4,7 @@ namespace TorunLive.Application.Interfaces.Services
 {
     public interface IFullTimetableService
     {
-        public Task<List<CompareLine>> GetFullTimetable(int sipStopId);
+        public Task<IEnumerable<CompareLine>> GetFullTimetable(string sipStopId);
         public Task<CompareLine> GetLiveForLine(string lineNumber, int stopId, string direction);
     }
 }

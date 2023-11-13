@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TorunLive.Domain\TorunLive.Domain.csproj" />
+    <ProjectReference Include="..\TorunLive.Persistance\TorunLive.Persistance.csproj" />
   </ItemGroup>
 
   <ItemGroup>

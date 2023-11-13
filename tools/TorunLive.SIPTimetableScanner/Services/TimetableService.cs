@@ -38,6 +38,14 @@ namespace TorunLive.SIPTimetableScanner.Services
             var lineId = urlData[0];
             var directionId = int.Parse(urlData[1]);
 
+            if (!_dbContext.Lines.Any(s => s.Id == lineId))
+            {
+                _dbContext.Lines.Add(new Line
+                {
+                    Id = lineId,
+                });
+            }
+
             if (!_dbContext.Directions.Any(s => s.LineId == lineId && s.DirectionId == directionId))
             {
                 _dbContext.Directions.Add(new Direction

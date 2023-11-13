@@ -28,9 +28,9 @@ namespace TorunLive.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<List<CompareLine>> GetTimetable(int sipStopId)
+        public async Task<ActionResult> GetTimetable(string sipStopId)
         {
-            return await _fullTimetableService.GetFullTimetable(sipStopId);
+            return new OkObjectResult(await _fullTimetableService.GetFullTimetable(sipStopId));
         }
 
         [HttpGet]
@@ -40,9 +40,9 @@ namespace TorunLive.WebApi.Controllers
         }
 
         [HttpGet]
-        public List<LineDirection> GetLineDirections(int sipStopId)
+        public async Task<List<LineDirection>> GetLineDirections(string sipStopId)
         {
-            return _lineStopsService.GetLineDirectionsForStop(sipStopId);
+            return await _lineStopsService.GetLineDirectionsForStop(sipStopId);
         }
 
         [HttpGet]

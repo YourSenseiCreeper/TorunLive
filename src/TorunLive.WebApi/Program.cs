@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using TorunLive.Application;
 using TorunLive.Persistance;
 
@@ -17,7 +18,9 @@ namespace TorunLive.WebApi
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddPersistance();
+            builder.Services.AddDbContext<TorunLiveContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("TorunLive"))
+            );
             builder.Services.AddRepositories();
             builder.Services.AddServices();
 
@@ -31,18 +34,9 @@ namespace TorunLive.WebApi
             }
 
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
-
             app.MapControllers();
-            try
-            {
-                app.Run();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
+            app.Run();
         }
     }
 }

@@ -5,9 +5,8 @@ namespace TorunLive.Application.Services
 {
     public class TimetableComparatorService : ITimetableComparatorService
     {
-        public List<CompareLine> Compare(Timetable baseTimetable, LiveTimetable liveTimetable)
+        public IEnumerable<CompareLine> Compare(Timetable baseTimetable, LiveTimetable liveTimetable)
         {
-            var comparedLines = new List<CompareLine>();
             foreach (var liveLine in liveTimetable.Lines)
             {
                 var comparedLine = new CompareLine
@@ -19,7 +18,7 @@ namespace TorunLive.Application.Services
                 var baseLine = baseTimetable.Lines.SingleOrDefault(l => l.Number == liveLine.Number);
                 if (baseLine == null)
                 {
-                    Console.WriteLine($"ERR: Nie znaleziono lini '{liveLine.Name}' na liście linini z rozkładu");
+                    comparedLine.Error = $"ERR: Nie znaleziono lini '{liveLine.Name}' na liście linini z rozkładu";
                     continue;
                 }
 
@@ -37,9 +36,8 @@ namespace TorunLive.Application.Services
                     };
                     comparedLine.Arrivals.Add(compareArrival);
                 }
-                comparedLines.Add(comparedLine);
+                yield return comparedLine;
             }
-            return comparedLines;
         }
     }
 }

@@ -26,27 +26,18 @@ namespace TorunLive.Application.Services
             _lineStopsService = lineStopsService;
         }
 
-        public async Task<List<CompareLine>> GetFullTimetable(int sipStopId)
+        public async Task<IEnumerable<CompareLine>> GetFullTimetable(string sipStopId)
         {
-            var startStopId = StopIdsMap.SIPtoRozkladzik[sipStopId];
+            var stopId = int.Parse(sipStopId);
+            var startStopId = StopIdsMap.SIPtoRozkladzik[stopId];
             var now = DateTime.Now;
             var polishDayOfWeek = (PolishDayOfWeek)Enum.Parse(typeof(PolishDayOfWeek), now.DayOfWeek.ToString());
 
+            // todo: replace with database search
             var baseTimetable = await _timetableService.GetTimetable(startStopId, polishDayOfWeek, now.ToDayMinute());
 
-            var liveTimetable = await _liveTimetableService.GetTimetable(sipStopId);
+            var liveTimetable = await _liveTimetableService.GetTimetable(stopId);
             var result = _timetableComparator.Compare(baseTimetable, liveTimetable);
-            //foreach (var comparedLine in result)
-            //{
-            //    Console.WriteLine($"Linia: {comparedLine.Number} - {comparedLine.Name}");
-            //    foreach (var comparedArrival in comparedLine.Arrivals)
-            //    {
-            //        var basic = comparedArrival.BaseDayMinute.GetDateTimeFromDayMinute();
-            //        var actual = comparedArrival.ActualBaseMinute?.GetDateTimeFromDayMinute();
-            //        Console.WriteLine($"Planowy: {basic:hh:mm}, Aktualny: {actual:hh:mm}");
-            //    }
-            //    Console.WriteLine("-------------");
-            //}
 
             return result;
         }
