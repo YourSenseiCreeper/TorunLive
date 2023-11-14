@@ -10,6 +10,7 @@ HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
 builder.Configuration.AddJsonFile("appsettings.json");
 builder.Services.AddSingleton<IRequestService, RequestService>();
 builder.Services.AddSingleton<ITimetableParserService, TimetableParserService>();
+builder.Services.AddSingleton<ILineDirectionsParserService, LineDirectionsParserService>();
 builder.Services.AddSingleton<IDelayService, DelayService>();
 builder.Services.AddScoped<ILineDirectionsService, LineDirectionsService>();
 builder.Services.AddScoped<ITimetableService, TimetableService>();
@@ -17,7 +18,6 @@ builder.Services.AddScoped<ITimetableScannerService, TimetableScannerService>();
 builder.Services.AddDbContext<TorunLiveContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("TorunLive"))
 );
-
 
 using IHost host = builder.Build();
 using IServiceScope serviceScope = host.Services.CreateScope();
