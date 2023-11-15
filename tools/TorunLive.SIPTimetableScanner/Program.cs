@@ -19,7 +19,7 @@ builder.Services.AddScoped<ILineDirectionsService, LineDirectionsService>();
 builder.Services.AddScoped<ITimetableService, TimetableService>();
 builder.Services.AddScoped<ITimetableScannerService, TimetableScannerService>();
 builder.Services.AddDbContext<TorunLiveContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString(Configuration.ConnectionString))
+    options.UseSqlServer(builder.Configuration.GetConnectionString(ConfigurationKeys.ConnectionString))
 );
 
 using IHost host = builder.Build();

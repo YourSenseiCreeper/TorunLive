@@ -41,7 +41,7 @@ namespace TorunLive.Tools.SIPTimetableScannerTests.Services
             var services = new ServiceCollection();
             var logger = new Mock<ILogger<TimetableService>>();
             var configuration = new Mock<IConfiguration>();
-            configuration.Setup(c => c[Configuration.RequestDelayBaseInMiliseconds]).Returns("0");
+            configuration.Setup(c => c[ConfigurationKeys.RequestDelayBaseInMiliseconds]).Returns("0");
             services.AddSingleton(configuration.Object);
 
             var requestMock = new Mock<IRequestService>();

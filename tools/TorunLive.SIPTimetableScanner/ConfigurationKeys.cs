@@ -1,6 +1,6 @@
 ﻿namespace TorunLive.SIPTimetableScanner
 {
-    public class Configuration
+    public class ConfigurationKeys
     {
         public const string RequestDelayBaseInMiliseconds = "RequestDelayBaseInMiliseconds";
         public const string ConnectionString = "TorunLive";

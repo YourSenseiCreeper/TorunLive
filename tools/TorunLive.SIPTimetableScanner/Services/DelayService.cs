@@ -8,7 +8,7 @@ namespace TorunLive.SIPTimetableScanner.Services
         private readonly int _requestDelayBaseInMiliseconds;
         public DelayService(IConfiguration configuration)
         {
-            var delayString = configuration[Configuration.RequestDelayBaseInMiliseconds];
+            var delayString = configuration[ConfigurationKeys.RequestDelayBaseInMiliseconds];
             _requestDelayBaseInMiliseconds = string.IsNullOrEmpty(delayString) ? 0 : int.Parse(delayString);
         }
 

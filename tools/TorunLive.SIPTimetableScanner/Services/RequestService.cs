@@ -8,7 +8,7 @@ namespace TorunLive.SIPTimetableScanner.Services
         private readonly HttpClient _httpClient;
         public RequestService(IConfiguration configuration)
         {
-            var url = configuration[Configuration.ServiceUrl] ?? throw new ArgumentException("Missing service url in configuration");
+            var url = configuration[ConfigurationKeys.ServiceUrl] ?? throw new ArgumentException("Missing service url in configuration");
             _httpClient = new HttpClient
             {
                 BaseAddress = new Uri(url)
