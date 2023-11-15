@@ -1,17 +1,18 @@
 using NUnit.Framework;
 using Shouldly;
 using System.Linq;
-using TorunLive.SIPTimetableScanner.Services;
+using TorunLive.SIPTimetableScanner.Adapters;
 using TorunLive.Tools.SIPTimetableScannerTests.Resources;
 
-namespace TorunLive.Tools.SIPTimetableScannerTests
+namespace TorunLive.Tools.SIPTimetableScannerTests.Adapters
 {
-    public class Tests
+    [TestFixture]
+    public class TimetableAdapterServiceTests
     {
         [Test]
         public void ParseArrivals_Success()
         {
-            var service = new TimetableParserService();
+            var service = new TimetableAdapterService();
             var lineStopId = 1;
             var firstArrivalDayMinute = 281;
             var result = service.ParseArrivals(lineStopId, Resource.Response_ParseArrivals_Success).ToList();

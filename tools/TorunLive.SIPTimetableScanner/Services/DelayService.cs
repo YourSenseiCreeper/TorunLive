@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
-using TorunLive.SIPTimetableScanner.Interfaces;
+using TorunLive.SIPTimetableScanner.Interfaces.Services;
 
 namespace TorunLive.SIPTimetableScanner.Services
 {
@@ -8,7 +8,8 @@ namespace TorunLive.SIPTimetableScanner.Services
         private readonly int _requestDelayBaseInMiliseconds;
         public DelayService(IConfiguration configuration)
         {
-            _requestDelayBaseInMiliseconds = configuration.GetValue<int>("RequestDelayBaseInMiliseconds");
+            var delayString = configuration[Configuration.RequestDelayBaseInMiliseconds];
+            _requestDelayBaseInMiliseconds = string.IsNullOrEmpty(delayString) ? 0 : int.Parse(delayString);
         }
 
         public async Task Delay()

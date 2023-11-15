@@ -1,11 +1,11 @@
 ﻿using System.Xml.Linq;
 using System.Xml.XPath;
 using TorunLive.SIPTimetableScanner.Entities;
-using TorunLive.SIPTimetableScanner.Interfaces;
+using TorunLive.SIPTimetableScanner.Interfaces.Adapters;
 
-namespace TorunLive.SIPTimetableScanner.Services
+namespace TorunLive.SIPTimetableScanner.Adapters
 {
-    public class LineDirectionsParserService : ILineDirectionsParserService
+    public class LineDirectionsAdapterService : ILineDirectionsAdapterService
     {
         private static readonly string[] _ignoreUrls = new[]
         {

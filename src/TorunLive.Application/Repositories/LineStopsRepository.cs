@@ -11,9 +11,9 @@ namespace TorunLive.Application.Repositories
     {
         private readonly List<LineEntry> _lineEntries;
         private readonly TorunLiveContext _dbContext;
-        public LineStopsRepository(TorunLiveContext dbContext)
+        public LineStopsRepository()
         {
-            _dbContext = dbContext;
+            //_dbContext = dbContext;
             //var filename = configuration.GetRequiredSection(Constants.TimetablePath).Value ?? string.Empty;
             //var path = Path.Combine(Directory.GetCurrentDirectory(), filename);
             //var serialized = File.ReadAllText(path);

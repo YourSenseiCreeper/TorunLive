@@ -1,15 +1,16 @@
-﻿using TorunLive.SIPTimetableScanner.Interfaces;
+﻿using TorunLive.SIPTimetableScanner.Interfaces.Adapters;
+using TorunLive.SIPTimetableScanner.Interfaces.Services;
 
 namespace TorunLive.SIPTimetableScanner.Services
 {
     public class LineDirectionsService : ILineDirectionsService
     {
         private readonly IRequestService _requestService;
-        private readonly ILineDirectionsParserService _parserService;
+        private readonly ILineDirectionsAdapterService _parserService;
 
         public LineDirectionsService(
             IRequestService requestService,
-            ILineDirectionsParserService parserService
+            ILineDirectionsAdapterService parserService
             )
         {
             _requestService = requestService;

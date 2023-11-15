@@ -17,14 +17,14 @@ namespace TorunLive.Persistance
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Direction>()
-                .HasKey(nameof(Direction.LineId), nameof(Direction.DirectionId));
+            //modelBuilder.Entity<Direction>()
+            //    .HasKey(t => new { t.LineId, t.DirectionId });
 
-            modelBuilder.Entity<LineStop>()
-                .HasIndex(new string[] { nameof(LineStop.Id), }, "IX_LineStop_LineStop");
+            //modelBuilder.Entity<LineStop>()
+            //    .HasIndex(t => new { t.Id }, "IX_LineStop_LineStop");
 
-            modelBuilder.Entity<LineStop>()
-                .HasIndex(new string[] { nameof(LineStop.LineId), nameof(LineStop.DirectionId), nameof(LineStop.StopId) });
+            //modelBuilder.Entity<LineStop>()
+            //    .HasIndex(t => new { t.DirectionLineId, t.DirectionId, t.StopId });
 
             base.OnModelCreating(modelBuilder);
         }

@@ -1,4 +1,4 @@
-﻿using TorunLive.SIPTimetableScanner.Interfaces;
+﻿using TorunLive.SIPTimetableScanner.Interfaces.Services;
 
 namespace TorunLive.SIPTimetableScanner.Services
 {

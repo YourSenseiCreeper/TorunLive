@@ -1,10 +1,9 @@
 ﻿using TorunLive.SIPTimetableScanner.Entities;
 
-namespace TorunLive.SIPTimetableScanner.Interfaces
+namespace TorunLive.SIPTimetableScanner.Interfaces.Services
 {
     public interface ITimetableService
     {
-        Task<List<(string, string)>> GetLineStopsUrls(string targetLineUrl);
         Task ScanLineDirectionStopAndStopTimes(LineDirection direction, List<string> lineUrls);
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace TorunLive.SIPTimetableScanner.Interfaces
+﻿namespace TorunLive.SIPTimetableScanner.Interfaces.Services
 {
     public interface IDelayService
     {

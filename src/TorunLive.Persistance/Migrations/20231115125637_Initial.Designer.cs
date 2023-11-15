@@ -12,7 +12,7 @@ using TorunLive.Persistance;
 namespace TorunLive.Persistance.Migrations
 {
     [DbContext(typeof(TorunLiveContext))]
-    [Migration("20231110140153_Initial")]
+    [Migration("20231115125637_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -20,24 +20,30 @@ namespace TorunLive.Persistance.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.13")
+                .HasAnnotation("ProductVersion", "7.0.14")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("TorunLive.Domain.EntitiesV2.Direction", b =>
                 {
-                    b.Property<string>("LineId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int>("DirectionId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DirectionId"));
+
+                    b.Property<string>("LineId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("LineId", "DirectionId");
+                    b.HasKey("DirectionId");
+
+                    b.HasIndex("LineId");
 
                     b.ToTable("Directions");
                 });
@@ -66,12 +72,9 @@ namespace TorunLive.Persistance.Migrations
                     b.Property<int>("DirectionId")
                         .HasColumnType("int");
 
-                    b.Property<int>("DirectionId1")
-                        .HasColumnType("int");
-
                     b.Property<string>("DirectionLineId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsOnDemand")
                         .HasColumnType("bit");
@@ -92,13 +95,11 @@ namespace TorunLive.Persistance.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("DirectionId");
+
+                    b.HasIndex("LineId");
+
                     b.HasIndex("StopId");
-
-                    b.HasIndex("DirectionLineId", "DirectionId1");
-
-                    b.HasIndex("LineId", "DirectionId", "StopId");
-
-                    b.HasIndex(new[] { "Id" }, "IX_LineStop_LineStop");
 
                     b.ToTable("LineStops");
                 });
@@ -161,6 +162,12 @@ namespace TorunLive.Persistance.Migrations
 
             modelBuilder.Entity("TorunLive.Domain.EntitiesV2.LineStop", b =>
                 {
+                    b.HasOne("TorunLive.Domain.EntitiesV2.Direction", "Direction")
+                        .WithMany()
+                        .HasForeignKey("DirectionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("TorunLive.Domain.EntitiesV2.Line", "Line")
                         .WithMany("LineStops")
                         .HasForeignKey("LineId")
@@ -170,12 +177,6 @@ namespace TorunLive.Persistance.Migrations
                     b.HasOne("TorunLive.Domain.EntitiesV2.Stop", "Stop")
                         .WithMany("LineStops")
                         .HasForeignKey("StopId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("TorunLive.Domain.EntitiesV2.Direction", "Direction")
-                        .WithMany()
-                        .HasForeignKey("DirectionLineId", "DirectionId1")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

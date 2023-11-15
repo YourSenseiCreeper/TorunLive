@@ -1,6 +1,6 @@
 ﻿using TorunLive.SIPTimetableScanner.Entities;
 
-namespace TorunLive.SIPTimetableScanner.Interfaces
+namespace TorunLive.SIPTimetableScanner.Interfaces.Services
 {
     public interface ILineDirectionsService
     {

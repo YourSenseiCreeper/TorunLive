@@ -1,8 +1,8 @@
 ﻿using TorunLive.SIPTimetableScanner.Entities;
 
-namespace TorunLive.SIPTimetableScanner.Interfaces
+namespace TorunLive.SIPTimetableScanner.Interfaces.Adapters
 {
-    public interface ILineDirectionsParserService
+    public interface ILineDirectionsAdapterService
     {
         IEnumerable<LineDirection> ParseLineDirections(string lineName, string htmlString);
     }

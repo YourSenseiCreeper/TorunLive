@@ -1,13 +1,14 @@
 ﻿using System.Xml.Linq;
 using System.Xml.XPath;
 using TorunLive.Domain.EntitiesV2;
-using TorunLive.SIPTimetableScanner.Interfaces;
+using TorunLive.SIPTimetableScanner.Entities;
+using TorunLive.SIPTimetableScanner.Interfaces.Adapters;
 
-namespace TorunLive.SIPTimetableScanner.Services
+namespace TorunLive.SIPTimetableScanner.Adapters
 {
-    public class TimetableParserService : ITimetableParserService
+    public class TimetableAdapterService : ITimetableAdapterService
     {
-        public TimetableParserService() { }
+        public TimetableAdapterService() { }
 
         public IEnumerable<LineStopTime> ParseArrivals(int lineStopId, string lineData)
         {
@@ -47,7 +48,7 @@ namespace TorunLive.SIPTimetableScanner.Services
             return lineStopTimesToAdd;
         }
 
-        public IEnumerable<(string, string)> ParseTimetablesUrls(string lineData)
+        public IEnumerable<LineStopUrl> ParseTimetablesUrls(string lineData)
         {
             var substring = Common.GetTextBetweenAndClean(lineData, "<div class=\"timetable-stops\">", "</table></div></div>", Common.XmlEscapeReplacements);
 
@@ -59,7 +60,7 @@ namespace TorunLive.SIPTimetableScanner.Services
             foreach (var (url, time) in urls.Zip(times))
             {
                 var lineStopUrl = url.Attributes().FirstOrDefault(a => a.Name == "href")?.Value ?? string.Empty;
-                yield return (lineStopUrl, url.Value);
+                yield return new LineStopUrl { Url = lineStopUrl, StopName = url.Value };
             }
         }
 

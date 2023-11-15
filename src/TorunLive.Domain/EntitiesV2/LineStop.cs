@@ -3,8 +3,9 @@
     public class LineStop
     {
         public int Id { get; set; }
-        public string LineId { get; set; }
+        public string DirectionLineId { get; set; }
         public int DirectionId { get; set; }
+        public string LineId { get; set; }
         public string StopId { get; set; }
         public int StopOrder {  get; set; }
         public bool IsOnDemand { get; set; }

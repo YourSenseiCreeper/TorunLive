@@ -38,13 +38,14 @@ namespace TorunLive.Persistance.Migrations
                 name: "Directions",
                 columns: table => new
                 {
+                    DirectionId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     LineId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    DirectionId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Directions", x => new { x.LineId, x.DirectionId });
+                    table.PrimaryKey("PK_Directions", x => x.DirectionId);
                     table.ForeignKey(
                         name: "FK_Directions_Lines_LineId",
                         column: x => x.LineId,
@@ -59,23 +60,22 @@ namespace TorunLive.Persistance.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    LineId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    DirectionLineId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DirectionId = table.Column<int>(type: "int", nullable: false),
                     StopId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     StopOrder = table.Column<int>(type: "int", nullable: false),
                     IsOnDemand = table.Column<bool>(type: "bit", nullable: false),
                     TimeToNextStop = table.Column<int>(type: "int", nullable: true),
-                    DirectionLineId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    DirectionId1 = table.Column<int>(type: "int", nullable: false)
+                    LineId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_LineStops", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_LineStops_Directions_DirectionLineId_DirectionId1",
-                        columns: x => new { x.DirectionLineId, x.DirectionId1 },
+                        name: "FK_LineStops_Directions_DirectionId",
+                        column: x => x.DirectionId,
                         principalTable: "Directions",
-                        principalColumns: new[] { "LineId", "DirectionId" },
+                        principalColumn: "DirectionId",
                         onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_LineStops_Lines_LineId",
@@ -116,19 +116,19 @@ namespace TorunLive.Persistance.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_LineStop_LineStop",
-                table: "LineStops",
-                column: "Id");
+                name: "IX_Directions_LineId",
+                table: "Directions",
+                column: "LineId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_LineStops_DirectionLineId_DirectionId1",
+                name: "IX_LineStops_DirectionId",
                 table: "LineStops",
-                columns: new[] { "DirectionLineId", "DirectionId1" });
+                column: "DirectionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_LineStops_LineId_DirectionId_StopId",
+                name: "IX_LineStops_LineId",
                 table: "LineStops",
-                columns: new[] { "LineId", "DirectionId", "StopId" });
+                column: "LineId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_LineStops_StopId",
