@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TorunLive.WebApi", "src\Tor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TorunLive.Persistance", "src\TorunLive.Persistance\TorunLive.Persistance.csproj", "{5921B6AE-A78E-44CC-A7BB-B8B5C3501D3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorunLive.Tools.SIPTimetableScannerTests", "tests\TorunLive.Tools.SIPTimetableScannerTests\TorunLive.Tools.SIPTimetableScannerTests.csproj", "{11F59698-305F-4507-B31E-AEF0AA303F7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TorunLive.Tools.SIPTimetableScannerTests", "tests\TorunLive.Tools.SIPTimetableScannerTests\TorunLive.Tools.SIPTimetableScannerTests.csproj", "{11F59698-305F-4507-B31E-AEF0AA303F7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorunLive.Common", "src\TorunLive.Common\TorunLive.Common.csproj", "{0303D0C9-F137-4679-8A1F-4530635B05DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{11F59698-305F-4507-B31E-AEF0AA303F7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11F59698-305F-4507-B31E-AEF0AA303F7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11F59698-305F-4507-B31E-AEF0AA303F7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0303D0C9-F137-4679-8A1F-4530635B05DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0303D0C9-F137-4679-8A1F-4530635B05DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0303D0C9-F137-4679-8A1F-4530635B05DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0303D0C9-F137-4679-8A1F-4530635B05DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +89,7 @@ Global
 		{7C39252E-5342-425E-B7E1-9D1371569032} = {3ADE245F-AA5C-4385-AB80-D70089B4259B}
 		{5921B6AE-A78E-44CC-A7BB-B8B5C3501D3D} = {3ADE245F-AA5C-4385-AB80-D70089B4259B}
 		{11F59698-305F-4507-B31E-AEF0AA303F7F} = {088D53CF-875A-4189-872A-C74CBEE07805}
+		{0303D0C9-F137-4679-8A1F-4530635B05DE} = {3ADE245F-AA5C-4385-AB80-D70089B4259B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93B5D77C-55A8-4FD3-B02E-A7782C8367E5}

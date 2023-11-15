@@ -1,5 +1,6 @@
 ﻿using System.Xml.Linq;
 using System.Xml.XPath;
+using TorunLive.Common;
 using TorunLive.SIPTimetableScanner.Entities;
 using TorunLive.SIPTimetableScanner.Interfaces.Adapters;
 
@@ -14,7 +15,7 @@ namespace TorunLive.SIPTimetableScanner.Adapters
 
         public IEnumerable<LineDirection> ParseLineDirections(string lineName, string htmlString)
         {
-            var substring = Common.GetTextBetweenAndClean(htmlString, "<center><p>", "</a></center>", Common.XmlEscapeReplacements);
+            var substring = HtmlStringExctractor.GetTextBetweenAndClean(htmlString, "<center><p>", "</a></center>");
             var document = XDocument.Parse(substring);
             var urls = document.XPathSelectElements("center/a").ToList();
             foreach (var url in urls)

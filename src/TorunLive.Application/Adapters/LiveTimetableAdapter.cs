@@ -1,23 +1,24 @@
-﻿using System.Xml.Linq;
+﻿using Microsoft.Extensions.Logging;
+using System.Xml.Linq;
 using System.Xml.XPath;
 using TorunLive.Application.Interfaces.Adapters;
+using TorunLive.Common;
 using TorunLive.Domain.Entities;
 
 namespace TorunLive.Application.Adapters
 {
     public class LiveTimetableAdapter : ILiveTimetableAdapter
     {
+        private readonly ILogger<LiveTimetableAdapter> _logger;
+
+        public LiveTimetableAdapter(ILogger<LiveTimetableAdapter> logger)
+        {
+            _logger = logger;
+        }
+
         public LiveTimetable Adapt(string data)
         {
-            //data = Example;
-            //var panelName = "ctl00_ctl00_ContentPlaceHolderContenido_UpdatePanel1|";
-            //var endMarker = "|0|hiddenField";
-            var panelName = "<table class=\"tablePanel\"";
-            var startIndex = data.IndexOf(panelName);
-            var endMarker = "</table>";
-            var endIndex = data.IndexOf(endMarker);
-            var substring = data.Substring(startIndex, endIndex + endMarker.Length - startIndex);
-
+            var substring = HtmlStringExctractor.GetTextBetweenAndClean(data, "<table class=\"tablePanel\"", "</table>");
             var document = XDocument.Parse(substring);
             var arrivals = document.XPathSelectElements("table/tbody/tr");
             var liveArrivals = new List<LiveArrival>();
@@ -26,8 +27,10 @@ namespace TorunLive.Application.Adapters
                 var cells = arrival.XPathSelectElements("td").ToList();
                 if (cells.Count != 3)
                 {
-                    Console.WriteLine("Cell count is not 3!");
+                    _logger.LogWarning("Cell count is not 3! Found {count}", cells.Count);
+                    continue;
                 }
+
                 var lineNumber = cells[0].Value.Trim();
                 var lineName = cells[1].Value.Trim();
                 var time = cells[2].Value.Trim();

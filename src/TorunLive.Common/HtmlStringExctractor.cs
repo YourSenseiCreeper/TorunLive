@@ -1,12 +1,17 @@
-﻿namespace TorunLive.SIPTimetableScanner
+﻿namespace TorunLive.Common
 {
-    public static class Common
+    public static class HtmlStringExctractor
     {
-        public static readonly Dictionary<string, string> XmlEscapeReplacements = new()
+        private static readonly Dictionary<string, string> XmlEscapeReplacements = new()
         {
             { "<br>", "<br></br>" },
             { "&", "&amp;" }
         };
+
+        public static string GetTextBetweenAndClean(string text, string start, string end)
+        {
+            return GetTextBetweenAndClean(text, start, end, XmlEscapeReplacements);
+        }
 
         public static string GetTextBetweenAndClean(string text, string start, string end, Dictionary<string, string> elementsToReplace)
         {

@@ -1,5 +1,6 @@
 ﻿using System.Xml.Linq;
 using System.Xml.XPath;
+using TorunLive.Common;
 using TorunLive.Domain.EntitiesV2;
 using TorunLive.SIPTimetableScanner.Entities;
 using TorunLive.SIPTimetableScanner.Interfaces.Adapters;
@@ -12,11 +13,10 @@ namespace TorunLive.SIPTimetableScanner.Adapters
 
         public IEnumerable<LineStopTime> ParseArrivals(int lineStopId, string lineData)
         {
-            var substring = Common.GetTextBetweenAndClean(
+            var substring = HtmlStringExctractor.GetTextBetweenAndClean(
                 lineData,
                 "<table cellspacing=\"0\" cellpadding=\"0\" id=\"tab_roz_godz\" style=\"\">",
                 "</div></div><div class=\"timetable-footer\">"
-                , Common.XmlEscapeReplacements
             );
             var document = XDocument.Parse(substring);
             var tableRows = document.XPathSelectElements("table/tbody/tr").ToList();
@@ -50,7 +50,7 @@ namespace TorunLive.SIPTimetableScanner.Adapters
 
         public IEnumerable<LineStopUrl> ParseTimetablesUrls(string lineData)
         {
-            var substring = Common.GetTextBetweenAndClean(lineData, "<div class=\"timetable-stops\">", "</table></div></div>", Common.XmlEscapeReplacements);
+            var substring = HtmlStringExctractor.GetTextBetweenAndClean(lineData, "<div class=\"timetable-stops\">", "</table></div></div>");
 
             var document = XDocument.Parse(substring);
             var urls = document.XPathSelectElements("div/div/table/tr/td/a").ToList();
