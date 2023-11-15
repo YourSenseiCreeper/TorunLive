@@ -4,7 +4,7 @@
     {
         public int Order { get; set; }
         public string StopName { get; set; } = string.Empty;
-        public int StopId { get; set; }
+        public string StopId { get; set; } = string.Empty;
         public int BaseDayMinute { get; set; }
         public int? ActualBaseMinute { get; set; }
         public int? Delay { get; set; }

@@ -10,10 +10,7 @@ namespace TorunLive.WebApi
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-
             builder.Configuration.AddJsonFile("appsettings.json");
-
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
@@ -21,7 +18,6 @@ namespace TorunLive.WebApi
             builder.Services.AddDbContext<TorunLiveContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("TorunLive"))
             );
-            builder.Services.AddRepositories();
             builder.Services.AddServices();
 
             var app = builder.Build();

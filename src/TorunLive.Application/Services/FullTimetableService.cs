@@ -1,79 +1,88 @@
-﻿using System.Collections.Concurrent;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Concurrent;
 using TorunLive.Application.Extensions;
+using TorunLive.Application.Interfaces.Adapters;
 using TorunLive.Application.Interfaces.Services;
 using TorunLive.Domain.Entities;
+using TorunLive.Domain.EntitiesV2;
 using TorunLive.Domain.Enums;
+using TorunLive.Persistance;
 
 namespace TorunLive.Application.Services
 {
     public class FullTimetableService : IFullTimetableService
     {
-        private readonly ITimetableService _timetableService;
+        private readonly TorunLiveContext _dbContext;
         private readonly ITimetableComparatorService _timetableComparator;
-        private readonly ILiveTimetableService _liveTimetableService;
-        private readonly ILineStopsService _lineStopsService;
+        private readonly ILiveRequestService _liveRequestService;
+        private readonly ILiveTimetableAdapter _liveTimetableAdapter;
 
         public FullTimetableService(
-            ITimetableService timetableService,
+            TorunLiveContext dbContext,
             ITimetableComparatorService timetableComparator,
-            ILiveTimetableService liveTimetableService,
-            ILineStopsService lineStopsService
+            ILiveRequestService liveRequestService,
+            ILiveTimetableAdapter liveTimetableAdapter
             )
         {
-            _timetableService = timetableService;
+            _dbContext = dbContext;
             _timetableComparator = timetableComparator;
-            _liveTimetableService = liveTimetableService;
-            _lineStopsService = lineStopsService;
+            _liveRequestService = liveRequestService;
+            _liveTimetableAdapter = liveTimetableAdapter;
         }
 
         public async Task<IEnumerable<CompareLine>> GetFullTimetable(string sipStopId)
         {
             var stopId = int.Parse(sipStopId);
-            var startStopId = StopIdsMap.SIPtoRozkladzik[stopId];
             var now = DateTime.Now;
             var polishDayOfWeek = (PolishDayOfWeek)Enum.Parse(typeof(PolishDayOfWeek), now.DayOfWeek.ToString());
+            bool isWeekday = now.DayOfWeek <= DayOfWeek.Friday;
+            bool isSaturdaySunday = now.DayOfWeek >= DayOfWeek.Saturday;
+            bool isHolidays = false;
 
-            // todo: replace with database search
-            var baseTimetable = await _timetableService.GetTimetable(startStopId, polishDayOfWeek, now.ToDayMinute());
+            var lineStopsForStop = _dbContext.LineStops.Where(ls => ls.StopId == sipStopId).ToList();
+            // lista lini
+            var currentDayMinute = now.ToDayMinute();
+            var timeTreshold = currentDayMinute + 60;
+            foreach(var lineStop in lineStopsForStop)
+            {
+                var lineStopTimeForStops = _dbContext.LineStopTimes.Where(lst => 
+                    lst.LineStopId == lineStop.Id && 
+                    lst.DayMinute >= currentDayMinute && lst.DayMinute <= timeTreshold &&
+                    lst.IsWeekday == isWeekday && lst.IsSaturdaySundays == isSaturdaySunday && lst.IsHolidays == isHolidays)
+                    .ToList();
+            }
 
-            var liveTimetable = await _liveTimetableService.GetTimetable(stopId);
-            var result = _timetableComparator.Compare(baseTimetable, liveTimetable);
+            var liveTimetableResponse = await _liveRequestService.GetTimetable(sipStopId);
+            var liveTimetable = _liveTimetableAdapter.Adapt(liveTimetableResponse);
+
+            var result = _timetableComparator.Compare(new Timetable(), liveTimetable);
 
             return result;
         }
 
-        public async Task<CompareLine> GetLiveForLine(string lineNumber, int stopId, string direction)
+        public async Task<CompareLine> GetLiveForLine(string lineNumber, string stopId, string direction)
         {
-            var stopsBeforeForStop = _lineStopsService.GetEntriesBeforeStop(lineNumber, direction, stopId, 5);
-            //stopsBeforeForStop.Reverse();
-            for (int i = 0; i < stopsBeforeForStop.Count; i++)
-                stopsBeforeForStop[i].Order = i;
+            // tymczasowo niech directionId będzie z palca
+            var directionId = 1;
+            var lastNStops = 5;
+            //var directionId = _dbContext.Directions.Single(d => d.LineId == lineNumber && )
+            var stopsBefore = _dbContext.LineStops.Where(ls =>
+                ls.LineId == lineNumber &&
+                ls.StopId == stopId &&
+                ls.DirectionId == directionId)
+                .OrderBy(ls => ls.StopOrder)
+                .Take(lastNStops)
+                .Include(ls => ls.Stop)
+                //.Include(ls => ls.LineStopTimes.Where(lst => lst.DayMinute)) // todo: use lineStopTimes to tell if line is delayed
+                .ToList();
             
-            var startingStop = stopsBeforeForStop.Last();
-            var stopName = startingStop.Name;
-            var timeFromLineStart = startingStop.TimeElapsedFromFirstStop;
+            var startingStop = stopsBefore.Last();
+            var stopName = startingStop.Stop.Name;
+            var timeFromLineStart = startingStop.TimeToNextStop ?? 0; // todo: not working right now
 
             var arrivals = new ConcurrentBag<CompareArrival>();
-            await Parallel.ForEachAsync(stopsBeforeForStop, async (timetableStop, cancellationToken) =>
-            {
-                var liveTimetable = await _liveTimetableService.GetTimetable(timetableStop.StopId);
-                var liveLineEntries = liveTimetable.Lines.Where(l => l.Number == lineNumber);
-                if (liveLineEntries.Any())
-                {
-                    var liveLineEntry = liveLineEntries.First();
-                    var diffTime = timeFromLineStart - timetableStop.TimeElapsedFromFirstStop;
-                    // pobieramy pierwsze, aby uniknąć pomylenia kolejnego przejazdu z przejazdem opóźnionym
-                    var arrival = liveLineEntry.Arrivals.FirstOrDefault();
-                    arrivals.Add(new CompareArrival
-                    {
-                        Order = timetableStop.Order,
-                        StopId = timetableStop.StopId,
-                        BaseDayMinute = diffTime,
-                        StopName = timetableStop.Name,
-                        ActualBaseMinute = arrival?.DayMinute
-                    });
-                }
-            });
+            await Parallel.ForEachAsync(stopsBefore, async (stop, cancellationToken)
+                => await ProcessStop(arrivals, stop));
 
             var result = new CompareLine
             {
@@ -83,6 +92,29 @@ namespace TorunLive.Application.Services
             };
 
             return result;
+        }
+
+        private async Task ProcessStop(ConcurrentBag<CompareArrival> arrivals, LineStop stop)
+        {
+            var liveTimetableResponse = await _liveRequestService.GetTimetable(stop.StopId.ToString());
+            var liveTimetable = _liveTimetableAdapter.Adapt(liveTimetableResponse);
+
+            var liveLineEntries = liveTimetable.Lines.Where(l => l.Number == stop.LineId);
+            if (!liveLineEntries.Any())
+                return;
+
+            var liveLineEntry = liveLineEntries.First();
+            var diffTime = stop.TimeToNextStop ?? 0; // todo: not working right now;
+                                                                         // pobieramy pierwsze, aby uniknąć pomylenia kolejnego przejazdu z przejazdem opóźnionym
+            var arrival = liveLineEntry.Arrivals.FirstOrDefault();
+            arrivals.Add(new CompareArrival
+            {
+                Order = stop.StopOrder,
+                StopId = stop.StopId,
+                BaseDayMinute = diffTime,
+                StopName = stop.Stop.Name,
+                ActualBaseMinute = arrival?.DayMinute
+            });
         }
     }
 }

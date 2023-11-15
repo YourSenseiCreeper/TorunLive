@@ -6,7 +6,7 @@ using TorunLive.Domain.Entities;
 
 namespace TorunLive.Application.Services
 {
-    public class LineStopsService : ILineStopsService
+    public class LineStopsService
     {
         private readonly ILineStopsRepository _lineStopsRepository;
         private readonly ILogger _logger;

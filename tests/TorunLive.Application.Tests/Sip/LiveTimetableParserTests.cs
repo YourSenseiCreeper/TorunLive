@@ -9,8 +9,8 @@ namespace TorunLive.Application.Tests.Sip
         [Test]
         public void Parse_NewPageResponse_SucessfullyParse()
         {
-            var service = new LiveTimetableParser();
-            var response = service.Parse(Resource.liveNewResponse);
+            var service = new LiveTimetableAdapter();
+            var response = service.Adapt(Resource.liveNewResponse);
 
             response.ShouldNotBeNull();
             response.Lines.ShouldSatisfyAllConditions(x => x.Count.ShouldBe(4));

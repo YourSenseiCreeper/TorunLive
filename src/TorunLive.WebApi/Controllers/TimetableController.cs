@@ -12,18 +12,15 @@ namespace TorunLive.WebApi.Controllers
     {
         private readonly ILogger<TimetableController> _logger;
         private readonly IFullTimetableService _fullTimetableService;
-        private readonly ILineStopsService _lineStopsService;
         private readonly TorunLiveContext _dbContext;
 
         public TimetableController(
             ILogger<TimetableController> logger,
             IFullTimetableService fullTimetableService,
-            ILineStopsService lineStopsService,
             TorunLiveContext dbContext)
         {
             _logger = logger;
             _fullTimetableService = fullTimetableService;
-            _lineStopsService = lineStopsService;
             _dbContext = dbContext;
         }
 
@@ -34,16 +31,16 @@ namespace TorunLive.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<CompareLine> GetDelay(string lineNumber, int sipStopId, string direction)
+        public async Task<CompareLine> GetDelay(string lineNumber, string sipStopId, string direction)
         {
             return await _fullTimetableService.GetLiveForLine(lineNumber, sipStopId, direction);
         }
 
-        [HttpGet]
-        public async Task<List<LineDirection>> GetLineDirections(string sipStopId)
-        {
-            return await _lineStopsService.GetLineDirectionsForStop(sipStopId);
-        }
+        //[HttpGet]
+        //public async Task<List<LineDirection>> GetLineDirections(string sipStopId)
+        //{
+        //    return await _lineStopsService.GetLineDirectionsForStop(sipStopId);
+        //}
 
         [HttpGet]
         public async Task<List<Domain.EntitiesV2.Line>> GetLines()

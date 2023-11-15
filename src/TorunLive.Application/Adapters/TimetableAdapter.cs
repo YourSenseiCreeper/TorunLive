@@ -1,17 +1,12 @@
 ﻿using System.Text.RegularExpressions;
-using TorunLive.Application.Interfaces.Parsers;
+using TorunLive.Application.Interfaces.Adapters;
 using TorunLive.Domain.Entities;
 
-namespace TorunLive.Application.Parsers
+namespace TorunLive.Application.Adapters
 {
-    public static class Constants
+    public class TimetableAdapter : ITimetableAdapter
     {
-        public const string LINE_SEPARATOR = "|";
-    }
-
-    public class TimetableParser : ITimetableParser
-    {
-        public Timetable Parse(string data)
+        public Timetable Adapt(string data)
         {
             var parsedLines = new List<Line>();
             var lineDataAndArrivalsRegex = new Regex(@"(\d+);(\d+);(\d+)");
@@ -61,5 +56,10 @@ namespace TorunLive.Application.Parsers
             }
             return new Timetable { Lines = parsedLines };
         }
+    }
+
+    static class Constants
+    {
+        public const string LINE_SEPARATOR = "|";
     }
 }

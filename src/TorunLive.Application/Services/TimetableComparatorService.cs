@@ -5,6 +5,10 @@ namespace TorunLive.Application.Services
 {
     public class TimetableComparatorService : ITimetableComparatorService
     {
+        public TimetableComparatorService()
+        {
+        }
+
         public IEnumerable<CompareLine> Compare(Timetable baseTimetable, LiveTimetable liveTimetable)
         {
             foreach (var liveLine in liveTimetable.Lines)
@@ -32,7 +36,7 @@ namespace TorunLive.Application.Services
                         BaseDayMinute = baseArrival.DayMinute,
                         ActualBaseMinute = liveArrival.DayMinute,
                         Delay = baseArrival.DayMinute - liveArrival.DayMinute,
-                        StopId = baseArrival.PossibleStopNumber
+                        StopId = baseArrival.PossibleStopNumber.ToString()
                     };
                     comparedLine.Arrivals.Add(compareArrival);
                 }

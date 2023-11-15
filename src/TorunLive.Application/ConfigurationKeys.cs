@@ -1,6 +1,6 @@
 ﻿namespace TorunLive.Application
 {
-    public class Constants
+    public class ConfigurationKeys
     {
         public const string TimetablePath = "TimetablesPath";
         public const string SipTimetableUrl = "SipTimetableUrl";

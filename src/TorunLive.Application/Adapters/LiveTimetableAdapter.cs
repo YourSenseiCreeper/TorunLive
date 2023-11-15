@@ -1,13 +1,13 @@
 ﻿using System.Xml.Linq;
 using System.Xml.XPath;
-using TorunLive.Application.Interfaces.Parsers;
+using TorunLive.Application.Interfaces.Adapters;
 using TorunLive.Domain.Entities;
 
-namespace TorunLive.Application.Parsers
+namespace TorunLive.Application.Adapters
 {
-    public class LiveTimetableParser : ILiveTimetableParser
+    public class LiveTimetableAdapter : ILiveTimetableAdapter
     {
-        public LiveTimetable Parse(string data)
+        public LiveTimetable Adapt(string data)
         {
             //data = Example;
             //var panelName = "ctl00_ctl00_ContentPlaceHolderContenido_UpdatePanel1|";
