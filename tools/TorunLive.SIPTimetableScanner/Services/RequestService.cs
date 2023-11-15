@@ -1,15 +1,17 @@
-﻿using TorunLive.SIPTimetableScanner.Interfaces.Services;
+﻿using Microsoft.Extensions.Configuration;
+using TorunLive.SIPTimetableScanner.Interfaces.Services;
 
 namespace TorunLive.SIPTimetableScanner.Services
 {
     public class RequestService : IRequestService
     {
         private readonly HttpClient _httpClient;
-        public RequestService()
+        public RequestService(IConfiguration configuration)
         {
+            var url = configuration[Configuration.ServiceUrl] ?? throw new ArgumentException("Missing service url in configuration");
             _httpClient = new HttpClient
             {
-                BaseAddress = new Uri("https://rozklad.mzk-torun.pl/")
+                BaseAddress = new Uri(url)
             };
         }
 
