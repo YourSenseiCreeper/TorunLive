@@ -2,8 +2,7 @@
 {
     public class ConfigurationKeys
     {
-        public const string TimetablePath = "TimetablesPath";
         public const string SipTimetableUrl = "SipTimetableUrl";
-        public const string RozkladzikTimetableUrl = "RozkladzikTimetableUrl";
+        public const string ConnectionString = "TorunLive";
     }
 }

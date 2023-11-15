@@ -6,6 +6,8 @@ using System;
 using TorunLive.Application;
 using TorunLive.Application.Interfaces.Services;
 using TorunLive.Application.Extensions;
+using Microsoft.EntityFrameworkCore;
+using TorunLive.Persistance;
 
 namespace ConsoleDemo
 {
@@ -15,21 +17,23 @@ namespace ConsoleDemo
         {
             HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
             builder.Configuration.AddJsonFile("appsettings.json");
-            builder.Services.AddRepositories();
             builder.Services.AddServices();
-            using IHost host = builder.Build();
+            builder.Services.AddDbContext<TorunLiveContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString(ConfigurationKeys.ConnectionString))
+            );
 
+            using IHost host = builder.Build();
             using IServiceScope serviceScope = host.Services.CreateScope();
             IServiceProvider provider = serviceScope.ServiceProvider;
             var fullService = provider.GetRequiredService<IFullTimetableService>();
 
-            var defaultLineName = "N90";
+            var defaultLineName = "34";
             var defaultStartStopId = 64301;
             var defaultDirectionName = "UNIWERSYTET";
             var lineName = AskForString($"Podaj nazwę lini ({defaultLineName}): ") ?? defaultLineName;
             var startStopId = AskForInt($"Id przystanku startowego ({defaultStartStopId}): ") ?? defaultStartStopId;
             var directionName = AskForString($"Podaj nazwę kierunku dla lini ({defaultDirectionName}): ") ?? defaultDirectionName;
-            var result = fullService.GetLiveForLine(lineName, startStopId, directionName).GetAwaiter().GetResult();
+            var result = fullService.GetLiveForLine(lineName, startStopId.ToString(), directionName).GetAwaiter().GetResult();
 
             var table = new ConsoleTable("Przystanek", "Planowy", "Aktualny", "Opóźnienie");
             foreach(var arrival in result.Arrivals)
