@@ -38,7 +38,6 @@ namespace TorunLive.Tools.SIPTimetableScannerTests.Services
         public async Task ScanLineDirectionStopAndStopTimes_Success()
         {
             var services = new ServiceCollection();
-            var logger = new Mock<ILogger<TimetableService>>();
             var configuration = new Mock<IConfiguration>();
             configuration.Setup(c => c[ConfigurationKeys.RequestDelayBaseInMiliseconds]).Returns("0");
             services.AddSingleton(configuration.Object);

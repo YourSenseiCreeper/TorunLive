@@ -16,24 +16,27 @@ namespace TorunLive.Application.Services
         private readonly ITimetableComparatorService _timetableComparator;
         private readonly ILiveRequestService _liveRequestService;
         private readonly ILiveTimetableAdapter _liveTimetableAdapter;
+        private readonly IDateTimeService _dateTimeService;
 
         public FullTimetableService(
             TorunLiveContext dbContext,
             ITimetableComparatorService timetableComparator,
             ILiveRequestService liveRequestService,
-            ILiveTimetableAdapter liveTimetableAdapter
+            ILiveTimetableAdapter liveTimetableAdapter,
+            IDateTimeService dateTimeService
             )
         {
             _dbContext = dbContext;
             _timetableComparator = timetableComparator;
             _liveRequestService = liveRequestService;
             _liveTimetableAdapter = liveTimetableAdapter;
+            _dateTimeService = dateTimeService;
         }
 
         public async Task<IEnumerable<CompareLine>> GetFullTimetable(string sipStopId)
         {
             var stopId = int.Parse(sipStopId);
-            var now = DateTime.Now;
+            var now = _dateTimeService.Now;
             var polishDayOfWeek = (PolishDayOfWeek)Enum.Parse(typeof(PolishDayOfWeek), now.DayOfWeek.ToString());
             bool isWeekday = now.DayOfWeek <= DayOfWeek.Friday;
             bool isSaturdaySunday = now.DayOfWeek >= DayOfWeek.Saturday;
