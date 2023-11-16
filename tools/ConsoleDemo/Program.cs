@@ -36,13 +36,14 @@ namespace ConsoleDemo
             var result = fullService.GetLiveForLine(lineName, startStopId.ToString(), directionName).GetAwaiter().GetResult();
 
             var table = new ConsoleTable("Przystanek", "Planowy", "Aktualny", "Opóźnienie");
+            var now = DateTime.Now;
             foreach(var arrival in result.Arrivals)
             {
                 table.Rows.Add(new object[]
                 {
                     arrival.StopName,
-                    arrival.BaseDayMinute.GetDateTimeFromDayMinute(),
-                    arrival.ActualBaseMinute.HasValue ? arrival.ActualBaseMinute.Value.GetDateTimeFromDayMinute() : "brak",
+                    arrival.BaseDayMinute.GetDateTimeFromDayMinute(now),
+                    arrival.ActualBaseMinute.HasValue ? arrival.ActualBaseMinute.Value.GetDateTimeFromDayMinute(now) : "brak",
                     arrival.Delay.HasValue ? arrival.Delay : "-"
                 });
             }
