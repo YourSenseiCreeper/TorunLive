@@ -21,7 +21,10 @@ namespace TorunLive.Persistance
                 .HasKey(t => new { t.LineId, t.DirectionId });
 
             modelBuilder.Entity<LineStop>()
-                .HasIndex(t => new { t.Id }, "IX_LineStop_LineStop");
+                .HasIndex(t => new { t.Id });
+
+            modelBuilder.Entity<LineStop>()
+                .HasOne(ls => ls.Direction).WithMany().HasForeignKey(ls => new { LineId = ls.DirectionLineId, ls.DirectionId });
 
             modelBuilder.Entity<LineStop>()
                 .HasIndex(t => new { t.DirectionLineId, t.DirectionId, t.StopId });
