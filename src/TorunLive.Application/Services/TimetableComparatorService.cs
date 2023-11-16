@@ -9,7 +9,7 @@ namespace TorunLive.Application.Services
         {
         }
 
-        public IEnumerable<CompareLine> Compare(Timetable baseTimetable, LiveTimetable liveTimetable)
+        public IEnumerable<CompareLine> Compare(LiveTimetable baseTimetable, LiveTimetable liveTimetable)
         {
             foreach (var liveLine in liveTimetable.Lines)
             {
@@ -26,17 +26,17 @@ namespace TorunLive.Application.Services
                     continue;
                 }
 
-                var minEntries = Math.Min(liveLine.Arrivals.Count, baseLine.Arrivals.Count);
+                var minEntries = Math.Min(liveLine.ArrivalsInDayMinutes.Count, baseLine.ArrivalsInDayMinutes.Count);
                 for (int i = 0; i < minEntries; i++)
                 {
-                    var baseArrival = baseLine.Arrivals[i];
-                    var liveArrival = liveLine.Arrivals[i];
+                    var baseArrivalDayMinute = baseLine.ArrivalsInDayMinutes[i];
+                    var liveArrivalDayMinute = liveLine.ArrivalsInDayMinutes[i];
                     var compareArrival = new CompareArrival
                     {
-                        BaseDayMinute = baseArrival.DayMinute,
-                        ActualBaseMinute = liveArrival.DayMinute,
-                        Delay = baseArrival.DayMinute - liveArrival.DayMinute,
-                        StopId = baseArrival.PossibleStopNumber.ToString()
+                        BaseDayMinute = baseArrivalDayMinute,
+                        ActualBaseMinute = liveArrivalDayMinute,
+                        Delay = baseArrivalDayMinute - liveArrivalDayMinute,
+                        //StopId = baseArrival.PossibleStopNumber.ToString()
                     };
                     comparedLine.Arrivals.Add(compareArrival);
                 }

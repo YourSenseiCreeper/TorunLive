@@ -1,7 +1,7 @@
 ﻿using System.Xml.Linq;
 using System.Xml.XPath;
 using TorunLive.Common;
-using TorunLive.Domain.EntitiesV2;
+using TorunLive.Domain.Database;
 using TorunLive.SIPTimetableScanner.Entities;
 using TorunLive.SIPTimetableScanner.Interfaces.Adapters;
 

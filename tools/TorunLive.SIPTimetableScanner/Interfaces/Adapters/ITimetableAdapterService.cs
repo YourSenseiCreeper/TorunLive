@@ -1,4 +1,4 @@
-﻿using TorunLive.Domain.EntitiesV2;
+﻿using TorunLive.Domain.Database;
 using TorunLive.SIPTimetableScanner.Entities;
 
 namespace TorunLive.SIPTimetableScanner.Interfaces.Adapters

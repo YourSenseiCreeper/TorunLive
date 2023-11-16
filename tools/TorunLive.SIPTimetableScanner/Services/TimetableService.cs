@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using TorunLive.Domain.EntitiesV2;
+using TorunLive.Domain.Database;
 using TorunLive.Persistance;
 using TorunLive.SIPTimetableScanner.Entities;
 using TorunLive.SIPTimetableScanner.Interfaces.Adapters;
@@ -29,7 +29,7 @@ namespace TorunLive.SIPTimetableScanner.Services
             _requestService = requestService;
         }
 
-        public async Task ScanLineDirectionStopAndStopTimes(Entities.LineDirection direction, List<string> lineUrls)
+        public async Task ScanLineDirectionStopAndStopTimes(LineDirection direction, List<string> lineUrls)
         {
             _logger.LogInformation("Found '{directionName}', scanning stops...", direction.DirectionName);
             var lineStopNamesAndUrls = await GetLineStopsUrls(direction.Url);

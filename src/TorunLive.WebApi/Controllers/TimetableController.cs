@@ -43,7 +43,7 @@ namespace TorunLive.WebApi.Controllers
         //}
 
         [HttpGet]
-        public async Task<List<Domain.EntitiesV2.Line>> GetLines()
+        public async Task<List<Domain.Database.Line>> GetLines()
         {
             return await _dbContext.Lines.ToListAsync();
         }

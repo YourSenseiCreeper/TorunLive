@@ -2,7 +2,7 @@
 
 namespace TorunLive.Application.Interfaces.Adapters
 {
-    public interface ITimetableAdapter : IAdapter<Timetable>
+    public interface ITimetableAdapter : IAdapter<LiveTimetable>
     {
     }
 }

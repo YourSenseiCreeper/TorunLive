@@ -2,6 +2,6 @@
 {
     public class LiveTimetable
     {
-        public List<Line> Lines { get; set; }
+        public List<LiveLine> Lines { get; set; }
     }
 }

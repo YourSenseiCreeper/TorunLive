@@ -21,16 +21,4 @@
     <ProjectReference Include="..\TorunLive.Persistance\TorunLive.Persistance.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="SIP\stops.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="SIP\timetables - Copy.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="SIP\timetables.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>

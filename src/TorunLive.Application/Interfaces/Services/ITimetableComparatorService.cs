@@ -4,6 +4,6 @@ namespace TorunLive.Application.Interfaces.Services
 {
     public interface ITimetableComparatorService
     {
-        public IEnumerable<CompareLine> Compare(Timetable baseTimetable, LiveTimetable liveTimetable);
+        public IEnumerable<CompareLine> Compare(LiveTimetable baseTimetable, LiveTimetable liveTimetable);
     }
 }

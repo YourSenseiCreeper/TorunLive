@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TorunLive.Domain.EntitiesV2;
+using TorunLive.Domain.Database;
 
 namespace TorunLive.Persistance
 {
@@ -17,14 +17,14 @@ namespace TorunLive.Persistance
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Direction>()
-            //    .HasKey(t => new { t.LineId, t.DirectionId });
+            modelBuilder.Entity<Direction>()
+                .HasKey(t => new { t.LineId, t.DirectionId });
 
-            //modelBuilder.Entity<LineStop>()
-            //    .HasIndex(t => new { t.Id }, "IX_LineStop_LineStop");
+            modelBuilder.Entity<LineStop>()
+                .HasIndex(t => new { t.Id }, "IX_LineStop_LineStop");
 
-            //modelBuilder.Entity<LineStop>()
-            //    .HasIndex(t => new { t.DirectionLineId, t.DirectionId, t.StopId });
+            modelBuilder.Entity<LineStop>()
+                .HasIndex(t => new { t.DirectionLineId, t.DirectionId, t.StopId });
 
             base.OnModelCreating(modelBuilder);
         }

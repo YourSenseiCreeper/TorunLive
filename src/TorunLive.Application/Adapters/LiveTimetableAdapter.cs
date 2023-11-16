@@ -2,6 +2,7 @@
 using System.Xml.Linq;
 using System.Xml.XPath;
 using TorunLive.Application.Interfaces.Adapters;
+using TorunLive.Application.Interfaces.Services;
 using TorunLive.Common;
 using TorunLive.Domain.Entities;
 
@@ -10,21 +11,45 @@ namespace TorunLive.Application.Adapters
     public class LiveTimetableAdapter : ILiveTimetableAdapter
     {
         private readonly ILogger<LiveTimetableAdapter> _logger;
+        private readonly IDateTimeService _dateTimeService;
 
-        public LiveTimetableAdapter(ILogger<LiveTimetableAdapter> logger)
+        public LiveTimetableAdapter(
+            ILogger<LiveTimetableAdapter> logger,
+            IDateTimeService dateTimeService
+            )
         {
             _logger = logger;
+            _dateTimeService = dateTimeService;
         }
 
         public LiveTimetable Adapt(string data)
         {
             var substring = HtmlStringExctractor.GetTextBetweenAndClean(data, "<table class=\"tablePanel\"", "</table>");
             var document = XDocument.Parse(substring);
-            var arrivals = document.XPathSelectElements("table/tbody/tr");
-            var liveArrivals = new List<LiveArrival>();
-            foreach (var arrival in arrivals)
+            var htmlArrivals = document.XPathSelectElements("table/tbody/tr");
+
+            // possible two entries of the same line
+            var lines = AdaptArrivals(htmlArrivals)
+                .GroupBy(a => a.Number)
+                .Select(a =>
+                {
+                    var arrival = a.First();
+                    return new LiveLine
+                    {
+                        Name = arrival.Name,
+                        Number = arrival.Number,
+                        ArrivalsInDayMinutes = a.Select(la => la.DayMinute).ToList()
+                    };
+                }).ToList();
+
+            return new LiveTimetable { Lines = lines };
+        }
+
+        private IEnumerable<LiveArrival> AdaptArrivals(IEnumerable<XElement> htmlArrivals)
+        {
+            foreach (var htmlArrival in htmlArrivals)
             {
-                var cells = arrival.XPathSelectElements("td").ToList();
+                var cells = htmlArrival.XPathSelectElements("td").ToList();
                 if (cells.Count != 3)
                 {
                     _logger.LogWarning("Cell count is not 3! Found {count}", cells.Count);
@@ -34,35 +59,20 @@ namespace TorunLive.Application.Adapters
                 var lineNumber = cells[0].Value.Trim();
                 var lineName = cells[1].Value.Trim();
                 var time = cells[2].Value.Trim();
-                liveArrivals.Add(new LiveArrival
+                yield return new LiveArrival
                 {
                     Number = lineNumber,
                     Name = lineName,
                     DayMinute = ConvertArrivalTimeToDayMinute(time)
-                });
+                };
             }
-
-            // possible two entries of the same line
-            var lines = liveArrivals.GroupBy(k => k.Number)
-                .Select(k =>
-                {
-                    var arrival = k.First();
-                    return new Line
-                    {
-                        Name = arrival.Name,
-                        Number = arrival.Number,
-                        Arrivals = k.Select(la => new Arrival { DayMinute = la.DayMinute }).ToList()
-                    };
-                }).ToList();
-
-            return new LiveTimetable { Lines = lines };
         }
 
-        private static int ConvertArrivalTimeToDayMinute(string minutesOrHourMinute)
+        private int ConvertArrivalTimeToDayMinute(string minutesOrHourMinute)
         {
             if (minutesOrHourMinute == ">>")
             {
-                var now = DateTime.Now;
+                var now = _dateTimeService.Now;
                 var dayMinute = now.Hour * 60 + now.Minute;
                 return dayMinute;
             }
@@ -70,7 +80,7 @@ namespace TorunLive.Application.Adapters
             if (minutesOrHourMinute.Contains("min"))
             {
                 var value = int.Parse(minutesOrHourMinute.Replace("min", ""));
-                var arrivalDateTime = DateTime.Now.AddMinutes(value);
+                var arrivalDateTime = _dateTimeService.Now.AddMinutes(value);
                 var dayMinute = arrivalDateTime.Hour * 60 + arrivalDateTime.Minute;
                 return dayMinute;
             }

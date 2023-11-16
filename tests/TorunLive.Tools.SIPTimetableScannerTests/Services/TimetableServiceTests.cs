@@ -7,7 +7,6 @@ using NUnit.Framework;
 using Shouldly;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TorunLive.Domain.EntitiesV2;
 using TorunLive.Persistance;
 using TorunLive.SIPTimetableScanner;
 using TorunLive.SIPTimetableScanner.Adapters;

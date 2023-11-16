@@ -11,12 +11,10 @@ namespace TorunLive.Application
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddSingleton<ILiveRequestService, LiveRequestService>();
+            services.AddSingleton<ITimetableComparatorService, TimetableComparatorService>();
+            services.AddSingleton<IDateTimeService, DateTimeService>();
             services.AddScoped<IFullTimetableService, FullTimetableService>();
             services.AddScoped<ILiveTimetableAdapter, LiveTimetableAdapter>();
-            services.AddScoped<ITimetableAdapter, TimetableAdapter>();
-            services.AddScoped<ITimetableComparatorService, TimetableComparatorService>();
-            //services.AddScoped<ILineStopsService, LineStopsService>();
-            //services.AddSingleton<ILineStopsRepository, LineStopsRepository>();
             return services;
         }
     }

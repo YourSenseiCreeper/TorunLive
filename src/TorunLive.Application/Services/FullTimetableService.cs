@@ -3,8 +3,8 @@ using System.Collections.Concurrent;
 using TorunLive.Application.Extensions;
 using TorunLive.Application.Interfaces.Adapters;
 using TorunLive.Application.Interfaces.Services;
+using TorunLive.Domain.Database;
 using TorunLive.Domain.Entities;
-using TorunLive.Domain.EntitiesV2;
 using TorunLive.Domain.Enums;
 using TorunLive.Persistance;
 
@@ -55,7 +55,7 @@ namespace TorunLive.Application.Services
             var liveTimetableResponse = await _liveRequestService.GetTimetable(sipStopId);
             var liveTimetable = _liveTimetableAdapter.Adapt(liveTimetableResponse);
 
-            var result = _timetableComparator.Compare(new Timetable(), liveTimetable);
+            var result = _timetableComparator.Compare(new LiveTimetable(), liveTimetable); // todo: replace new object with timetable from db
 
             return result;
         }
@@ -106,14 +106,14 @@ namespace TorunLive.Application.Services
             var liveLineEntry = liveLineEntries.First();
             var diffTime = stop.TimeToNextStop ?? 0; // todo: not working right now;
                                                                          // pobieramy pierwsze, aby uniknąć pomylenia kolejnego przejazdu z przejazdem opóźnionym
-            var arrival = liveLineEntry.Arrivals.FirstOrDefault();
+            var arrivalDayMinute = liveLineEntry.ArrivalsInDayMinutes.FirstOrDefault();
             arrivals.Add(new CompareArrival
             {
                 Order = stop.StopOrder,
                 StopId = stop.StopId,
                 BaseDayMinute = diffTime,
                 StopName = stop.Stop.Name,
-                ActualBaseMinute = arrival?.DayMinute
+                ActualBaseMinute = arrivalDayMinute
             });
         }
     }

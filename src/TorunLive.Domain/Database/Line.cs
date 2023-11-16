@@ -1,4 +1,4 @@
-﻿namespace TorunLive.Domain.EntitiesV2
+﻿namespace TorunLive.Domain.Database
 {
     public class Line
     {
