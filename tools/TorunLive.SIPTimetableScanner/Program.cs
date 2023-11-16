@@ -26,15 +26,15 @@ using IHost host = builder.Build();
 using IServiceScope serviceScope = host.Services.CreateScope();
 IServiceProvider provider = serviceScope.ServiceProvider;
 
-string[] linesToScan = new[]
-{
+string[] linesToScan =
+[
     "1", "2", "3", "4", "5", "6", "7",
     "10", "11", "12", "13", "14", "15", "16", "17",
     "18", "19", "20", "24", "25", "26", "27", "28",
     "29", "30", "31", "32", "33", "34", "38", "39",
     "40", "41", "42", "44", "111", "112", "113", "115",
     "121", "122", "131", "N90", "N91", "N93", "N94", "N95"
-};
+];
 
 var service = provider.GetRequiredService<ITimetableScannerService>();
 service.ScanTimetablesAndLines(linesToScan).GetAwaiter().GetResult();

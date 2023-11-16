@@ -3,19 +3,13 @@ using TorunLive.SIPTimetableScanner.Interfaces.Services;
 
 namespace TorunLive.SIPTimetableScanner.Services
 {
-    public class LineDirectionsService : ILineDirectionsService
+    public class LineDirectionsService(
+        IRequestService requestService,
+        ILineDirectionsAdapterService parserService
+    ) : ILineDirectionsService
     {
-        private readonly IRequestService _requestService;
-        private readonly ILineDirectionsAdapterService _parserService;
-
-        public LineDirectionsService(
-            IRequestService requestService,
-            ILineDirectionsAdapterService parserService
-            )
-        {
-            _requestService = requestService;
-            _parserService = parserService;
-        }
+        private readonly IRequestService _requestService = requestService;
+        private readonly ILineDirectionsAdapterService _parserService = parserService;
 
         public async Task<IEnumerable<Entities.LineDirection>> GetLineDirections(string lineName)
         {

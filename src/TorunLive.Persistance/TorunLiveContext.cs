@@ -3,12 +3,8 @@ using TorunLive.Domain.Database;
 
 namespace TorunLive.Persistance
 {
-    public class TorunLiveContext : DbContext
+    public class TorunLiveContext(DbContextOptions<TorunLiveContext> options) : DbContext(options)
     {
-        public TorunLiveContext(DbContextOptions<TorunLiveContext> options) : base(options)
-        {
-        }
-
         public DbSet<Line> Lines { get; set; }
         public DbSet<Stop> Stops { get; set; }
         public DbSet<Direction> Directions { get; set; }

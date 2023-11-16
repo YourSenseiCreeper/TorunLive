@@ -10,28 +10,19 @@ using TorunLive.Persistance;
 
 namespace TorunLive.Application.Services
 {
-    public class FullTimetableService : IFullTimetableService
+    public class FullTimetableService(
+        TorunLiveContext dbContext,
+        ITimetableComparatorService timetableComparator,
+        ILiveRequestService liveRequestService,
+        ILiveTimetableAdapter liveTimetableAdapter,
+        IDateTimeService dateTimeService
+    ) : IFullTimetableService
     {
-        private readonly TorunLiveContext _dbContext;
-        private readonly ITimetableComparatorService _timetableComparator;
-        private readonly ILiveRequestService _liveRequestService;
-        private readonly ILiveTimetableAdapter _liveTimetableAdapter;
-        private readonly IDateTimeService _dateTimeService;
-
-        public FullTimetableService(
-            TorunLiveContext dbContext,
-            ITimetableComparatorService timetableComparator,
-            ILiveRequestService liveRequestService,
-            ILiveTimetableAdapter liveTimetableAdapter,
-            IDateTimeService dateTimeService
-            )
-        {
-            _dbContext = dbContext;
-            _timetableComparator = timetableComparator;
-            _liveRequestService = liveRequestService;
-            _liveTimetableAdapter = liveTimetableAdapter;
-            _dateTimeService = dateTimeService;
-        }
+        private readonly TorunLiveContext _dbContext = dbContext;
+        private readonly ITimetableComparatorService _timetableComparator = timetableComparator;
+        private readonly ILiveRequestService _liveRequestService = liveRequestService;
+        private readonly ILiveTimetableAdapter _liveTimetableAdapter = liveTimetableAdapter;
+        private readonly IDateTimeService _dateTimeService = dateTimeService;
 
         public async Task<IEnumerable<CompareLine>> GetFullTimetable(string sipStopId)
         {

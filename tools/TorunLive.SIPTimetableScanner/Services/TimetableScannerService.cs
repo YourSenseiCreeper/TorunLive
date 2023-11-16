@@ -3,25 +3,17 @@ using TorunLive.SIPTimetableScanner.Interfaces.Services;
 
 namespace TorunLive.SIPTimetableScanner.Services
 {
-    public class TimetableScannerService : ITimetableScannerService
+    public class TimetableScannerService(
+        ILogger<TimetableScannerService> logger,
+        IDelayService delayService,
+        ILineDirectionsService lineDirectionsService,
+        ITimetableService timetableService
+    ) : ITimetableScannerService
     {
-        private readonly ILogger _logger;
-        private readonly ITimetableService _timetableService;
-        private readonly ILineDirectionsService _lineDirectionsService;
-        private readonly IDelayService _delayService;
-
-        public TimetableScannerService(
-            ILogger<TimetableScannerService> logger,
-            IDelayService delayService,
-            ILineDirectionsService lineDirectionsService,
-            ITimetableService timetableService
-            )
-        {
-            _logger = logger;
-            _delayService = delayService;
-            _lineDirectionsService = lineDirectionsService;
-            _timetableService = timetableService;
-        }
+        private readonly ILogger _logger = logger;
+        private readonly ITimetableService _timetableService = timetableService;
+        private readonly ILineDirectionsService _lineDirectionsService = lineDirectionsService;
+        private readonly IDelayService _delayService = delayService;
 
         public async Task ScanTimetablesAndLines(string[] lines)
         {

@@ -7,27 +7,18 @@ using TorunLive.SIPTimetableScanner.Interfaces.Services;
 
 namespace TorunLive.SIPTimetableScanner.Services
 {
-    public class TimetableService : ITimetableService
+    public class TimetableService(
+        ILogger<TimetableService> logger,
+        TorunLiveContext dbContext,
+        ITimetableAdapterService timetableAdapterService,
+        IDelayService delayService,
+        IRequestService requestService) : ITimetableService
     {
-        private readonly TorunLiveContext _dbContext;
-        private readonly ILogger _logger;
-        private readonly ITimetableAdapterService _timetableAdapterService;
-        private readonly IDelayService _delayService;
-        private readonly IRequestService _requestService;
-
-        public TimetableService(
-            ILogger<TimetableService> logger,
-            TorunLiveContext dbContext,
-            ITimetableAdapterService timetableAdapterService,
-            IDelayService delayService,
-            IRequestService requestService)
-        {
-            _logger = logger;
-            _dbContext = dbContext;
-            _timetableAdapterService = timetableAdapterService;
-            _delayService = delayService;
-            _requestService = requestService;
-        }
+        private readonly TorunLiveContext _dbContext = dbContext;
+        private readonly ILogger _logger = logger;
+        private readonly ITimetableAdapterService _timetableAdapterService = timetableAdapterService;
+        private readonly IDelayService _delayService = delayService;
+        private readonly IRequestService _requestService = requestService;
 
         public async Task ScanLineDirectionStopAndStopTimes(LineDirection direction, List<string> lineUrls)
         {

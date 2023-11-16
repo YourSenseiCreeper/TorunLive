@@ -17,7 +17,7 @@ namespace TorunLive.Application.Services
                 {
                     Name = liveLine.Name,
                     Number = liveLine.Number,
-                    Arrivals = new List<CompareArrival>()
+                    Arrivals = []
                 };
                 var baseLine = baseTimetable.Lines.SingleOrDefault(l => l.Number == liveLine.Number);
                 if (baseLine == null)

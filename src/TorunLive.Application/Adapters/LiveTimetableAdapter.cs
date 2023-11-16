@@ -8,19 +8,13 @@ using TorunLive.Domain.Entities;
 
 namespace TorunLive.Application.Adapters
 {
-    public class LiveTimetableAdapter : ILiveTimetableAdapter
+    public class LiveTimetableAdapter(
+        ILogger<LiveTimetableAdapter> logger,
+        IDateTimeService dateTimeService
+    ) : ILiveTimetableAdapter
     {
-        private readonly ILogger<LiveTimetableAdapter> _logger;
-        private readonly IDateTimeService _dateTimeService;
-
-        public LiveTimetableAdapter(
-            ILogger<LiveTimetableAdapter> logger,
-            IDateTimeService dateTimeService
-            )
-        {
-            _logger = logger;
-            _dateTimeService = dateTimeService;
-        }
+        private readonly ILogger<LiveTimetableAdapter> _logger = logger;
+        private readonly IDateTimeService _dateTimeService = dateTimeService;
 
         public LiveTimetable Adapt(string data)
         {
