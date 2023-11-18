@@ -34,7 +34,7 @@ namespace TorunLive.Application.Services
                     var compareArrival = new CompareArrival
                     {
                         BaseDayMinute = baseArrivalDayMinute,
-                        ActualBaseMinute = liveArrivalDayMinute,
+                        LiveDayMinute = liveArrivalDayMinute,
                         Delay = baseArrivalDayMinute - liveArrivalDayMinute,
                         //StopId = baseArrival.PossibleStopNumber.ToString()
                     };

@@ -2,8 +2,8 @@
 {
     public class LineDirection
     {
-        public string LineId { get; set; }
-        public string DirectionName { get; set; }
-        public string? Url { get; set; }
+        public string LineId { get; set; } = string.Empty;
+        public string DirectionName { get; set; } = string.Empty;
+        public string Url { get; set; } = string.Empty;
     }
 }

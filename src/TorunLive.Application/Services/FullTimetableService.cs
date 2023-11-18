@@ -107,7 +107,7 @@ namespace TorunLive.Application.Services
                 StopId = stop.StopId,
                 BaseDayMinute = diffTime,
                 StopName = stop.Stop.Name,
-                ActualBaseMinute = arrivalDayMinute
+                LiveDayMinute = arrivalDayMinute
             });
         }
     }

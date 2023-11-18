@@ -43,7 +43,7 @@ namespace ConsoleDemo
                 {
                     arrival.StopName,
                     arrival.BaseDayMinute.GetDateTimeFromDayMinute(now),
-                    arrival.ActualBaseMinute.HasValue ? arrival.ActualBaseMinute.Value.GetDateTimeFromDayMinute(now) : "brak",
+                    arrival.LiveDayMinute.HasValue ? arrival.LiveDayMinute.Value.GetDateTimeFromDayMinute(now) : "brak",
                     arrival.Delay.HasValue ? arrival.Delay : "-"
                 });
             }
