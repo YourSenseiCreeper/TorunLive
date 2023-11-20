@@ -1,4 +1,4 @@
-# {{ name }}
+# TorunLive
 
 > Application showing buses delays utilizing timetables and live data from Torun MPK online services
 
@@ -13,9 +13,15 @@ Requirements
 dotnet build --no-incremental
 ```
 
+## Usage
+
+You can use it in two ways:
+1. By running `tools/ConsoleDemo` project
+2. Or by running WebApi and hit certain endpoint
+
 ## Contributing
 
-If you have suggestions for how {{ name }} could be improved, or want to report a bug, open an issue! We'd love all and any contributions.
+If you have suggestions for how TorunLive could be improved, or want to report a bug, open an issue! We'd love all and any contributions.
 
 For more, check out the [Contributing Guide](CONTRIBUTING.md).
 
