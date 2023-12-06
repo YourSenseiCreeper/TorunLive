@@ -9,7 +9,8 @@
         public string StopId { get; set; }
         public int StopOrder {  get; set; }
         public bool IsOnDemand { get; set; }
-        public int? TimeToNextStop { get; set; }
+
+        public string? TimetableVersionHash { get; set; }
 
         public Line Line { get; set; }
         public Stop Stop { get; set; }

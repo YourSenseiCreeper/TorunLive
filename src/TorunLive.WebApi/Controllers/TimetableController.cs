@@ -8,21 +8,14 @@ namespace TorunLive.WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]/[action]")]
-    public class TimetableController : ControllerBase
+    public class TimetableController(
+        ILogger<TimetableController> logger,
+        IFullTimetableService fullTimetableService,
+        TorunLiveContext dbContext) : ControllerBase
     {
-        private readonly ILogger<TimetableController> _logger;
-        private readonly IFullTimetableService _fullTimetableService;
-        private readonly TorunLiveContext _dbContext;
-
-        public TimetableController(
-            ILogger<TimetableController> logger,
-            IFullTimetableService fullTimetableService,
-            TorunLiveContext dbContext)
-        {
-            _logger = logger;
-            _fullTimetableService = fullTimetableService;
-            _dbContext = dbContext;
-        }
+        private readonly ILogger<TimetableController> _logger = logger;
+        private readonly IFullTimetableService _fullTimetableService = fullTimetableService;
+        private readonly TorunLiveContext _dbContext = dbContext;
 
         [HttpGet]
         public async Task<ActionResult> GetTimetable(string sipStopId)
@@ -31,9 +24,9 @@ namespace TorunLive.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<CompareLine> GetDelay(string lineNumber, string sipStopId, string direction)
+        public Task<CompareLine> GetDelay(string lineNumber, string sipStopId, int directionId)
         {
-            return await _fullTimetableService.GetLiveForLine(lineNumber, sipStopId, direction);
+            return _fullTimetableService.GetLiveForLine(lineNumber, sipStopId, directionId);
         }
 
         //[HttpGet]
@@ -43,9 +36,15 @@ namespace TorunLive.WebApi.Controllers
         //}
 
         [HttpGet]
-        public async Task<List<Domain.Database.Line>> GetLines()
+        public Task<IEnumerable<DateTime>> GetNextArrivals(string lineNumber, int directionId, string stopId)
         {
-            return await _dbContext.Lines.ToListAsync();
+            return _fullTimetableService.GetNextArrivals(lineNumber, directionId, stopId);
+        }
+
+        [HttpGet]
+        public Task<List<Domain.Database.Line>> GetLines()
+        {
+            return _dbContext.Lines.ToListAsync();
         }
     }
 }

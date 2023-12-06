@@ -16,7 +16,8 @@ namespace TorunLive.SIPTimetableScanner.Adapters
             var substring = HtmlStringExctractor.GetTextBetweenAndClean(
                 lineData,
                 "<table cellspacing=\"0\" cellpadding=\"0\" id=\"tab_roz_godz\" style=\"\">",
-                "</div></div><div class=\"timetable-footer\">"
+                "</div></div><div class=\"timetable-footer\">",
+                includeEnding: false
             );
             var document = XDocument.Parse(substring);
             var tableRows = document.XPathSelectElements("table/tbody/tr").ToList();
@@ -97,7 +98,7 @@ namespace TorunLive.SIPTimetableScanner.Adapters
             var minutes = minuteCell.Value.Split('.');
             foreach (var minute in minutes)
             {
-                var parsedMinute = int.Parse(minute.Replace("^", "").Replace("a", "").Replace("d", ""));
+                var parsedMinute = int.Parse(minute.ToLower().Replace("^", "").Replace("a", "").Replace("d", "").Replace("w", ""));
                 yield return parsedHour * 60 + parsedMinute;
             }
         }

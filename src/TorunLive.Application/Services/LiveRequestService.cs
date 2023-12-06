@@ -13,13 +13,15 @@ namespace TorunLive.Application.Services
             var url = configuration[ConfigurationKeys.SipTimetableUrl] ?? throw new ArgumentException("Missing service url in configuration");
             _httpClient = new HttpClient
             {
-                BaseAddress = new Uri(url)
+                BaseAddress = new Uri(url),
             };
         }
 
         public async Task<string> GetTimetable(string stopId)
         {
-            var response = await _httpClient.GetAsync($"?stopId={stopId}");
+            //_httpClient.DefaultRequestHeaders.Add("Referer", "http://sip.um.torun.pl:8080/panels/0/default.aspx");
+            //_httpClient.DefaultRequestHeaders.Add("Upgrade-Insecure-Requests", "1");
+            var response = await _httpClient.GetAsync($"?stop={stopId}");
             response.EnsureSuccessStatusCode();
             var htmlString = await response.Content.ReadAsStringAsync();
             return htmlString;

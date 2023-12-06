@@ -8,16 +8,17 @@
             { "&", "&amp;" }
         };
 
-        public static string GetTextBetweenAndClean(string text, string start, string end)
+        public static string GetTextBetweenAndClean(string text, string start, string end, bool includeEnding = true)
         {
-            return GetTextBetweenAndClean(text, start, end, XmlEscapeReplacements);
+            return GetTextBetweenAndClean(text, start, end, includeEnding, XmlEscapeReplacements);
         }
 
-        public static string GetTextBetweenAndClean(string text, string start, string end, Dictionary<string, string> elementsToReplace)
+        public static string GetTextBetweenAndClean(string text, string start, string end, bool includeEnding, Dictionary<string, string> elementsToReplace)
         {
             var startIndex = text.IndexOf(start);
             var endIndex = text.IndexOf(end);
-            var substring = text[startIndex..(endIndex + end.Length)];
+            var endWithEndingIndex = includeEnding ? endIndex + end.Length : endIndex;
+            var substring = text[startIndex..endWithEndingIndex];
             foreach (var replacement in elementsToReplace)
             {
                 substring = substring.Replace(replacement.Key, replacement.Value);

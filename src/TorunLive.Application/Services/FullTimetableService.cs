@@ -54,11 +54,15 @@ namespace TorunLive.Application.Services
             return result;
         }
 
-        public async Task<CompareLine> GetLiveForLine(string lineNumber, string stopId, string direction)
+        public async Task<CompareLine> GetLiveForLine(string lineNumber, string stopId, int directionId)
         {
             // tymczasowo niech directionId będzie z palca
-            var directionId = 1;
+            //var directionId = 1;
             var lastNStops = 5;
+            var now = _dateTimeService.Now;
+            var nowDayMinute = now.ToDayMinute();
+            var offset = nowDayMinute + 60;
+
             //var directionId = _dbContext.Directions.Single(d => d.LineId == lineNumber && )
             var stopsBefore = _dbContext.LineStops.Where(ls =>
                 ls.LineId == lineNumber &&
@@ -67,25 +71,50 @@ namespace TorunLive.Application.Services
                 .OrderBy(ls => ls.StopOrder)
                 .Take(lastNStops)
                 .Include(ls => ls.Stop)
-                //.Include(ls => ls.LineStopTimes.Where(lst => lst.DayMinute)) // todo: use lineStopTimes to tell if line is delayed
+                .Include(ls => ls.Direction)
+                .Include(ls => ls.LineStopTimes.Where(lst => lst.DayMinute >= nowDayMinute && lst.DayMinute <= offset))
                 .ToList();
             
             var startingStop = stopsBefore.Last();
             var stopName = startingStop.Stop.Name;
-            var timeFromLineStart = startingStop.TimeToNextStop ?? 0; // todo: not working right now
+            //var timeFromLineStart = startingStop.TimeToNextStop ?? 0; // todo: not working right now
 
             var arrivals = new ConcurrentBag<CompareArrival>();
-            await Parallel.ForEachAsync(stopsBefore, async (stop, cancellationToken)
-                => await ProcessStop(arrivals, stop));
+            foreach (var stop in stopsBefore)
+            {
+                await ProcessStop(arrivals, stop);
+            }
+
+            //var arrivals = new ConcurrentBag<CompareArrival>();
+            //await Parallel.ForEachAsync(stopsBefore, async (stop, cancellationToken)
+            //    => await ProcessStop(arrivals, stop));
 
             var result = new CompareLine
             {
                 Name = lineNumber,
-                Direction = direction,
+                Direction = startingStop.Direction.Name,
                 Arrivals = arrivals.OrderBy(x => x.Order).ToList()
             };
 
             return result;
+        }
+
+        public async Task<IEnumerable<DateTime>> GetNextArrivals(string lineNumber, int directionId, string stopId)
+        {
+            var now = _dateTimeService.Now;
+            var nowDayMinute = now.ToDayMinute();
+            var offset = nowDayMinute + 60;
+            var lineStopWithArrivals = await _dbContext.LineStops
+                .Include(ls => ls.LineStopTimes)
+                .FirstOrDefaultAsync(ls => ls.LineId == lineNumber && ls.DirectionId == directionId &&  ls.StopId == stopId);
+
+            if (lineStopWithArrivals == null)
+                return Array.Empty<DateTime>();
+
+            var arrivals = lineStopWithArrivals.LineStopTimes
+                .Where(lst => lst.DayMinute >= nowDayMinute && lst.DayMinute <= offset)
+                .Select(lst => lst.DayMinute.GetDateTimeFromDayMinute(now.DateTime));
+            return arrivals;
         }
 
         private async Task ProcessStop(ConcurrentBag<CompareArrival> arrivals, LineStop stop)
@@ -98,14 +127,17 @@ namespace TorunLive.Application.Services
                 return;
 
             var liveLineEntry = liveLineEntries.First();
-            var diffTime = stop.TimeToNextStop ?? 0; // todo: not working right now;
-                                                                         // pobieramy pierwsze, aby uniknąć pomylenia kolejnego przejazdu z przejazdem opóźnionym
+            //var diffTime = stop.TimeToNextStop ?? 0; // todo: not working right now;
+            // pobieramy pierwsze, aby uniknąć pomylenia kolejnego przejazdu z przejazdem opóźnionym
+
             var arrivalDayMinute = liveLineEntry.ArrivalsInDayMinutes.FirstOrDefault();
+            var closestMatchToBase = stop.LineStopTimes.MinBy(lst => lst.DayMinute - arrivalDayMinute);
             arrivals.Add(new CompareArrival
             {
                 Order = stop.StopOrder,
                 StopId = stop.StopId,
-                BaseDayMinute = diffTime,
+                BaseDayMinute = closestMatchToBase.DayMinute,
+                Delay = closestMatchToBase.DayMinute - arrivalDayMinute,
                 StopName = stop.Stop.Name,
                 LiveDayMinute = arrivalDayMinute
             });

@@ -64,28 +64,32 @@ namespace TorunLive.Application.Adapters
 
         private int ConvertArrivalTimeToDayMinute(string minutesOrHourMinute)
         {
+            var now = _dateTimeService.Now;
+            var hour = 0;
+            var minute = 0;
+
             if (minutesOrHourMinute == ">>")
             {
-                var now = _dateTimeService.Now;
-                var dayMinute = now.Hour * 60 + now.Minute;
-                return dayMinute;
+                hour = now.Hour;
+                minute = now.Minute;
             }
 
             if (minutesOrHourMinute.Contains("min"))
             {
                 var value = int.Parse(minutesOrHourMinute.Replace("min", ""));
-                var arrivalDateTime = _dateTimeService.Now.AddMinutes(value);
-                var dayMinute = arrivalDateTime.Hour * 60 + arrivalDateTime.Minute;
-                return dayMinute;
+                var arrivalAfterMinutes = _dateTimeService.Now.AddMinutes(value);
+                hour = arrivalAfterMinutes.Hour;
+                minute = arrivalAfterMinutes.Minute;
             }
             else
             {
                 var hourAndMinute = minutesOrHourMinute.Split(':');
-                var hour = int.Parse(hourAndMinute[0]);
-                var minute = int.Parse(hourAndMinute[1]);
-                var dayMinute = hour * 60 + minute;
-                return dayMinute;
+                hour = int.Parse(hourAndMinute[0]);
+                minute = int.Parse(hourAndMinute[1]);
             }
+
+            var dayMinute = hour * 60 + minute;
+            return dayMinute;
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using System.Security.Cryptography;
+using System.Text;
 using TorunLive.Domain.Database;
 using TorunLive.Persistance;
 using TorunLive.SIPTimetableScanner.Entities;
@@ -38,24 +41,33 @@ namespace TorunLive.SIPTimetableScanner.Services
                 var stopId = stopNameAndUrl.Url.Replace(".html", "");
                 AddStopIfNotExists(stopId, stopNameAndUrl.StopName);
 
-                var lineStop = _dbContext.LineStops.Add(new LineStop
+                var existingLineStop = await _dbContext.LineStops.FirstOrDefaultAsync(s => s.LineId == lineId && s.DirectionId == directionId && s.StopId == stopId);
+                if (existingLineStop == null)
                 {
-                    LineId = lineId,
-                    DirectionLineId = lineId,
-                    DirectionId = directionId,
-                    StopId = stopId,
-                    StopOrder = index++,
-                    IsOnDemand = stopNameAndUrl.StopName.Contains("nż.")
-                    //TimeToNextStop = 1
-                }).Entity;
-                _dbContext.SaveChanges();
+                    existingLineStop = _dbContext.LineStops.Add(new LineStop
+                    {
+                        LineId = lineId,
+                        DirectionLineId = lineId,
+                        DirectionId = directionId,
+                        StopId = stopId,
+                        StopOrder = index++,
+                        IsOnDemand = stopNameAndUrl.StopName.Contains("nż.")
+                    }).Entity;
+                    _dbContext.SaveChanges();
+                }
 
                 var httpString = await _requestService.GetTimetable(lineId, directionId, stopId);
-                await _delayService.Delay();
+                var stopTimesBytes = Encoding.UTF8.GetBytes(httpString);
+                var hash = Convert.ToHexString(SHA256.HashData(stopTimesBytes));
 
-                var lineStopTimes = _timetableAdapterService.ParseArrivals(lineStop.Id, httpString);
+                if (existingLineStop.TimetableVersionHash == hash)
+                    continue;
+
+                var lineStopTimes = _timetableAdapterService.ParseArrivals(existingLineStop.Id, httpString);
                 _dbContext.LineStopTimes.AddRange(lineStopTimes);
+                existingLineStop.TimetableVersionHash = hash;
                 _dbContext.SaveChanges();
+                await _delayService.Delay();
             }
 
             await _delayService.Delay();
@@ -69,7 +81,6 @@ namespace TorunLive.SIPTimetableScanner.Services
             parsed[0].Url = targetLineUrl.Split('/')[2];
             return parsed;
         }
-
 
         private void AddLineIfNotExists(string lineId)
         {
