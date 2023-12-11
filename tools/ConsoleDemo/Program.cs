@@ -27,23 +27,26 @@ namespace ConsoleDemo
             IServiceProvider provider = serviceScope.ServiceProvider;
             var fullService = provider.GetRequiredService<IFullTimetableService>();
 
-            var defaultLineName = "34";
-            var defaultStartStopId = 64301;
-            var defaultDirectionName = "UNIWERSYTET";
-            var lineName = AskForString($"Podaj nazwę lini ({defaultLineName}): ") ?? defaultLineName;
-            var startStopId = AskForInt($"Id przystanku startowego ({defaultStartStopId}): ") ?? defaultStartStopId;
-            var directionName = AskForString($"Podaj nazwę kierunku dla lini ({defaultDirectionName}): ") ?? defaultDirectionName;
-            var result = fullService.GetLiveForLine(lineName, startStopId.ToString(), directionName).GetAwaiter().GetResult();
+            var defaultLineName = "27";
+            var defaultStartStopId = 29001;
+            var defaultDirectionId = 2;
+            var lineName = defaultLineName;
+            var startStopId = defaultStartStopId;
+            var directionId = defaultDirectionId;
+            //var lineName = AskForString($"Podaj nazwę lini ({defaultLineName}): ") ?? defaultLineName;
+            //var startStopId = AskForInt($"Id przystanku startowego ({defaultStartStopId}): ") ?? defaultStartStopId;
+            //var directionId = AskForInt($"Podaj id kierunku dla lini ({defaultDirectionId}): ") ?? defaultDirectionId;
+            var result = fullService.GetLiveForLine(lineName, startStopId.ToString(), directionId).GetAwaiter().GetResult();
 
-            var table = new ConsoleTable("Przystanek", "Planowy", "Aktualny", "Opóźnienie");
+            var table = new ConsoleTable("Przystanek", "Planowany", "Aktualny", "Opóźnienie");
             var now = DateTime.Now;
             foreach(var arrival in result.Arrivals)
             {
                 table.Rows.Add(new object[]
                 {
                     arrival.StopName,
-                    arrival.BaseDayMinute.GetDateTimeFromDayMinute(now),
-                    arrival.LiveDayMinute.HasValue ? arrival.LiveDayMinute.Value.GetDateTimeFromDayMinute(now) : "brak",
+                    $"{arrival.BaseDayMinute.GetDateTimeFromDayMinute(now):HH:mm}",
+                    arrival.LiveDayMinute.HasValue ? $"{arrival.LiveDayMinute.Value.GetDateTimeFromDayMinute(now):HH:mm}" : "brak",
                     arrival.Delay.HasValue ? arrival.Delay : "-"
                 });
             }

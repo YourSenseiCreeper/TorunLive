@@ -56,43 +56,42 @@ namespace TorunLive.Application.Services
 
         public async Task<CompareLine> GetLiveForLine(string lineNumber, string stopId, int directionId)
         {
-            // tymczasowo niech directionId będzie z palca
-            //var directionId = 1;
+            var directStop = await _dbContext.LineStops.FirstOrDefaultAsync(ls =>
+                ls.LineId == lineNumber &&
+                ls.StopId == stopId &&
+                ls.DirectionId == directionId);
+
+            if (directStop == null)
+                return null; // to result
+
             var lastNStops = 5;
             var now = _dateTimeService.Now;
             var nowDayMinute = now.ToDayMinute();
             var offset = nowDayMinute + 60;
-
-            //var directionId = _dbContext.Directions.Single(d => d.LineId == lineNumber && )
             var stopsBefore = _dbContext.LineStops.Where(ls =>
                 ls.LineId == lineNumber &&
-                ls.StopId == stopId &&
                 ls.DirectionId == directionId)
+                .Where(ls => ls.StopOrder >= directStop.StopOrder - lastNStops && ls.StopOrder <= directStop.StopOrder)
                 .OrderBy(ls => ls.StopOrder)
-                .Take(lastNStops)
                 .Include(ls => ls.Stop)
                 .Include(ls => ls.Direction)
                 .Include(ls => ls.LineStopTimes.Where(lst => lst.DayMinute >= nowDayMinute && lst.DayMinute <= offset))
                 .ToList();
             
-            var startingStop = stopsBefore.Last();
-            var stopName = startingStop.Stop.Name;
-            //var timeFromLineStart = startingStop.TimeToNextStop ?? 0; // todo: not working right now
+            //var arrivals = new ConcurrentBag<CompareArrival>();
+            //foreach (var stop in stopsBefore)
+            //{
+            //    await CompareStop(arrivals, stop);
+            //}
 
             var arrivals = new ConcurrentBag<CompareArrival>();
-            foreach (var stop in stopsBefore)
-            {
-                await ProcessStop(arrivals, stop);
-            }
-
-            //var arrivals = new ConcurrentBag<CompareArrival>();
-            //await Parallel.ForEachAsync(stopsBefore, async (stop, cancellationToken)
-            //    => await ProcessStop(arrivals, stop));
+            await Parallel.ForEachAsync(stopsBefore, async (stop, cancellationToken)
+                => await CompareStop(arrivals, stop));
 
             var result = new CompareLine
             {
                 Name = lineNumber,
-                Direction = startingStop.Direction.Name,
+                Direction = directStop.Direction.Name,
                 Arrivals = arrivals.OrderBy(x => x.Order).ToList()
             };
 
@@ -106,7 +105,10 @@ namespace TorunLive.Application.Services
             var offset = nowDayMinute + 60;
             var lineStopWithArrivals = await _dbContext.LineStops
                 .Include(ls => ls.LineStopTimes)
-                .FirstOrDefaultAsync(ls => ls.LineId == lineNumber && ls.DirectionId == directionId &&  ls.StopId == stopId);
+                .FirstOrDefaultAsync(ls => 
+                    ls.LineId == lineNumber &&
+                    ls.DirectionId == directionId &&
+                    ls.StopId == stopId);
 
             if (lineStopWithArrivals == null)
                 return Array.Empty<DateTime>();
@@ -114,10 +116,11 @@ namespace TorunLive.Application.Services
             var arrivals = lineStopWithArrivals.LineStopTimes
                 .Where(lst => lst.DayMinute >= nowDayMinute && lst.DayMinute <= offset)
                 .Select(lst => lst.DayMinute.GetDateTimeFromDayMinute(now.DateTime));
+
             return arrivals;
         }
 
-        private async Task ProcessStop(ConcurrentBag<CompareArrival> arrivals, LineStop stop)
+        private async Task CompareStop(ConcurrentBag<CompareArrival> arrivals, LineStop stop)
         {
             var liveTimetableResponse = await _liveRequestService.GetTimetable(stop.StopId.ToString());
             var liveTimetable = _liveTimetableAdapter.Adapt(liveTimetableResponse);
@@ -126,9 +129,8 @@ namespace TorunLive.Application.Services
             if (!liveLineEntries.Any())
                 return;
 
-            var liveLineEntry = liveLineEntries.First();
-            //var diffTime = stop.TimeToNextStop ?? 0; // todo: not working right now;
             // pobieramy pierwsze, aby uniknąć pomylenia kolejnego przejazdu z przejazdem opóźnionym
+            var liveLineEntry = liveLineEntries.First();
 
             var arrivalDayMinute = liveLineEntry.ArrivalsInDayMinutes.FirstOrDefault();
             var closestMatchToBase = stop.LineStopTimes.MinBy(lst => lst.DayMinute - arrivalDayMinute);

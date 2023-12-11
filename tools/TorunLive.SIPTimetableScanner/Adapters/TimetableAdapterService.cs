@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using System.Text.RegularExpressions;
+using System.Xml.Linq;
 using System.Xml.XPath;
 using TorunLive.Common;
 using TorunLive.Domain.Database;
@@ -9,6 +10,8 @@ namespace TorunLive.SIPTimetableScanner.Adapters
 {
     public class TimetableAdapterService : ITimetableAdapterService
     {
+        private static readonly Regex LineStopTimeRegex = new("[\\^a-zA-Z]+");
+
         public TimetableAdapterService() { }
 
         public IEnumerable<LineStopTime> ParseArrivals(int lineStopId, string lineData)
@@ -98,7 +101,8 @@ namespace TorunLive.SIPTimetableScanner.Adapters
             var minutes = minuteCell.Value.Split('.');
             foreach (var minute in minutes)
             {
-                var parsedMinute = int.Parse(minute.ToLower().Replace("^", "").Replace("a", "").Replace("d", "").Replace("w", ""));
+                var clearedMinute = LineStopTimeRegex.Replace(minute, string.Empty);
+                var parsedMinute = int.Parse(clearedMinute);
                 yield return parsedHour * 60 + parsedMinute;
             }
         }

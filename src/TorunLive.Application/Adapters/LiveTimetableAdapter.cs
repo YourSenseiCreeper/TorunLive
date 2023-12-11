@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using System.Xml.XPath;
 using TorunLive.Application.Interfaces.Adapters;
@@ -15,6 +16,10 @@ namespace TorunLive.Application.Adapters
     {
         private readonly ILogger<LiveTimetableAdapter> _logger = logger;
         private readonly IDateTimeService _dateTimeService = dateTimeService;
+
+        private static readonly Regex ArrivingRegex = new(">>");
+        private static readonly Regex ArrivalInMinutesRegex = new("[0-9]{1,2}min");
+        private static readonly Regex ArrivalAtRegex = new("[0-9]{1,2}:[0-9]{1,2}");
 
         public LiveTimetable Adapt(string data)
         {
@@ -68,24 +73,27 @@ namespace TorunLive.Application.Adapters
             var hour = 0;
             var minute = 0;
 
-            if (minutesOrHourMinute == ">>")
+            if (ArrivingRegex.Match(minutesOrHourMinute).Success)
             {
                 hour = now.Hour;
                 minute = now.Minute;
             }
-
-            if (minutesOrHourMinute.Contains("min"))
+            else if (ArrivalInMinutesRegex.Match(minutesOrHourMinute).Success)
             {
                 var value = int.Parse(minutesOrHourMinute.Replace("min", ""));
-                var arrivalAfterMinutes = _dateTimeService.Now.AddMinutes(value);
+                var arrivalAfterMinutes = now.AddMinutes(value);
                 hour = arrivalAfterMinutes.Hour;
                 minute = arrivalAfterMinutes.Minute;
             }
-            else
+            else if (ArrivalAtRegex.Match(minutesOrHourMinute).Success)
             {
                 var hourAndMinute = minutesOrHourMinute.Split(':');
                 hour = int.Parse(hourAndMinute[0]);
                 minute = int.Parse(hourAndMinute[1]);
+            }
+            else
+            {
+                throw new ArgumentException($"Input string '{minutesOrHourMinute}' not matching any time pattern");
             }
 
             var dayMinute = hour * 60 + minute;
