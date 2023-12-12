@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TorunLive.Application;
 using TorunLive.Persistance;
+using TorunLive.WebApi.Authentication;
 
 namespace TorunLive.WebApi
 {
@@ -19,7 +20,8 @@ namespace TorunLive.WebApi
                 options.UseSqlServer(builder.Configuration.GetConnectionString("TorunLive"))
             );
             builder.Services.AddServices();
-
+            builder.Services.AddSingleton<IApiKeyValidation, ApiKeyValidation>();
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -29,6 +31,7 @@ namespace TorunLive.WebApi
                 app.UseSwaggerUI();
             }
 
+            app.UseMiddleware<ApiKeyMiddleware>();
             app.UseHttpsRedirection();
             app.UseAuthorization();
             app.MapControllers();

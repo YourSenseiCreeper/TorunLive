@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TorunLive.Application.Interfaces.Services;
-using TorunLive.Domain.Entities;
 using TorunLive.Persistance;
 
 namespace TorunLive.WebApi.Controllers
@@ -49,9 +48,10 @@ namespace TorunLive.WebApi.Controllers
         [HttpGet]
         public async Task<List<Domain.Database.LineStop>> GetLineStops(string lineNumber, int directionId)
         {
-            var lineStops = await _dbContext.LineStops.Where(ls => 
-                ls.LineId == lineNumber && 
+            var lineStops = await _dbContext.LineStops.Where(ls =>
+                ls.LineId == lineNumber &&
                 ls.DirectionId == directionId)
+                .Include(ls => ls.Stop)
                 .OrderBy(ls => ls.StopOrder)
                 .ToListAsync();
 
