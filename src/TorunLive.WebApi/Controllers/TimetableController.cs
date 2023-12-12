@@ -24,16 +24,15 @@ namespace TorunLive.WebApi.Controllers
         }
 
         [HttpGet]
-        public Task<CompareLine> GetDelay(string lineNumber, string sipStopId, int directionId)
+        public async Task<IActionResult> GetDelay(string lineNumber, string sipStopId, int directionId)
         {
-            return _fullTimetableService.GetLiveForLine(lineNumber, sipStopId, directionId);
-        }
+            var result = await _fullTimetableService.GetLiveForLine(lineNumber, sipStopId, directionId);
+            if (result.IsSuccess)
+                return new OkObjectResult(result.ResultObject);
 
-        //[HttpGet]
-        //public async Task<List<LineDirection>> GetLineDirections(string sipStopId)
-        //{
-        //    return await _lineStopsService.GetLineDirectionsForStop(sipStopId);
-        //}
+            _logger.LogError(result.ErrorMessage);
+            return new BadRequestObjectResult(result.ErrorMessage);
+        }
 
         [HttpGet]
         public Task<IEnumerable<DateTime>> GetNextArrivals(string lineNumber, int directionId, string stopId)
@@ -44,7 +43,19 @@ namespace TorunLive.WebApi.Controllers
         [HttpGet]
         public Task<List<Domain.Database.Line>> GetLines()
         {
-            return _dbContext.Lines.ToListAsync();
+            return _dbContext.Lines.Include(l => l.Directions).ToListAsync();
+        }
+
+        [HttpGet]
+        public async Task<List<Domain.Database.LineStop>> GetLineStops(string lineNumber, int directionId)
+        {
+            var lineStops = await _dbContext.LineStops.Where(ls => 
+                ls.LineId == lineNumber && 
+                ls.DirectionId == directionId)
+                .OrderBy(ls => ls.StopOrder)
+                .ToListAsync();
+
+            return lineStops;
         }
     }
 }

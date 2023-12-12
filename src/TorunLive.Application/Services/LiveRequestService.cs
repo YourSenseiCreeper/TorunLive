@@ -6,22 +6,22 @@ namespace TorunLive.Application.Services
     public class LiveRequestService : ILiveRequestService
     {
         private readonly HttpClient _httpClient;
+        private readonly string TimetableArg;
+
         public LiveRequestService(
             IConfiguration configuration
             )
         {
-            var url = configuration[ConfigurationKeys.SipTimetableUrl] ?? throw new ArgumentException("Missing service url in configuration");
             _httpClient = new HttpClient
             {
-                BaseAddress = new Uri(url),
+                BaseAddress = new Uri(configuration[ConfigurationKeys.SipTimetableUrl] ?? throw new ArgumentException("Missing service url in configuration")),
             };
+            TimetableArg = configuration[ConfigurationKeys.SipTimetableArg] ?? throw new ArgumentException("Missing service url in configuration");
         }
 
         public async Task<string> GetTimetable(string stopId)
         {
-            //_httpClient.DefaultRequestHeaders.Add("Referer", "http://sip.um.torun.pl:8080/panels/0/default.aspx");
-            //_httpClient.DefaultRequestHeaders.Add("Upgrade-Insecure-Requests", "1");
-            var response = await _httpClient.GetAsync($"?stop={stopId}");
+            var response = await _httpClient.GetAsync(TimetableArg.Replace(ConfigurationKeys.SipTimetableArgReplacement, stopId));
             response.EnsureSuccessStatusCode();
             var htmlString = await response.Content.ReadAsStringAsync();
             return htmlString;

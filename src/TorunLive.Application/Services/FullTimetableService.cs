@@ -55,7 +55,7 @@ namespace TorunLive.Application.Services
             return result;
         }
 
-        public async Task<Result<CompareLine>> GetLiveForLine(string lineNumber, string stopId, int directionId)
+        public async Task<Result<CompareLine>> GetLiveForLine(string lineNumber, string stopId, int directionId, int previousStopsNumber = 5)
         {
             var directStop = await _dbContext.LineStops.FirstOrDefaultAsync(ls =>
                 ls.LineId == lineNumber &&
@@ -63,16 +63,15 @@ namespace TorunLive.Application.Services
                 ls.DirectionId == directionId);
 
             if (directStop == null)
-                return Result<CompareLine>.Failure($"Not found stop");
+                return Result<CompareLine>.Failure($"Not found line stop for lineId: {lineNumber}, directionId: {directionId}, stopId: {stopId}");
 
-            var lastNStops = 5;
             var now = _dateTimeService.Now;
             var nowDayMinute = now.ToDayMinute();
             var offset = nowDayMinute + 60;
             var stopsBefore = _dbContext.LineStops.Where(ls =>
                 ls.LineId == lineNumber &&
                 ls.DirectionId == directionId)
-                .Where(ls => ls.StopOrder >= directStop.StopOrder - lastNStops && ls.StopOrder <= directStop.StopOrder)
+                .Where(ls => ls.StopOrder >= directStop.StopOrder - previousStopsNumber && ls.StopOrder <= directStop.StopOrder)
                 .OrderBy(ls => ls.StopOrder)
                 .Include(ls => ls.Stop)
                 .Include(ls => ls.Direction)

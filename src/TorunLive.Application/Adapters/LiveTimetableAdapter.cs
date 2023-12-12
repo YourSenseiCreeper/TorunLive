@@ -27,6 +27,9 @@ namespace TorunLive.Application.Adapters
             var document = XDocument.Parse(substring);
             var htmlArrivals = document.XPathSelectElements("table/tbody/tr");
 
+            //todo: skanować nagłówki tabel, aby dobrze przydzielać czasy przyjazdów
+            // czasami są tylko dwie kolumny!
+
             // possible two entries of the same line
             var lines = AdaptArrivals(htmlArrivals)
                 .GroupBy(a => a.Number)
