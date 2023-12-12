@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using TorunLive.Application.Extensions;
 using TorunLive.Application.Interfaces.Adapters;
 using TorunLive.Application.Interfaces.Services;
+using TorunLive.Common;
 using TorunLive.Domain.Database;
 using TorunLive.Domain.Entities;
 using TorunLive.Domain.Enums;
@@ -26,22 +27,22 @@ namespace TorunLive.Application.Services
 
         public async Task<IEnumerable<CompareLine>> GetFullTimetable(string sipStopId)
         {
-            var stopId = int.Parse(sipStopId);
             var now = _dateTimeService.Now;
             var polishDayOfWeek = (PolishDayOfWeek)Enum.Parse(typeof(PolishDayOfWeek), now.DayOfWeek.ToString());
             bool isWeekday = now.DayOfWeek <= DayOfWeek.Friday;
             bool isSaturdaySunday = now.DayOfWeek >= DayOfWeek.Saturday;
             bool isHolidays = false;
 
+            var stopId = int.Parse(sipStopId);
             var lineStopsForStop = _dbContext.LineStops.Where(ls => ls.StopId == sipStopId).ToList();
             // lista lini
             var currentDayMinute = now.ToDayMinute();
-            var timeTreshold = currentDayMinute + 60;
+            var offset = currentDayMinute + 60;
             foreach(var lineStop in lineStopsForStop)
             {
                 var lineStopTimeForStops = _dbContext.LineStopTimes.Where(lst => 
                     lst.LineStopId == lineStop.Id && 
-                    lst.DayMinute >= currentDayMinute && lst.DayMinute <= timeTreshold &&
+                    lst.DayMinute >= currentDayMinute && lst.DayMinute <= offset &&
                     lst.IsWeekday == isWeekday && lst.IsSaturdaySundays == isSaturdaySunday && lst.IsHolidays == isHolidays)
                     .ToList();
             }
@@ -54,7 +55,7 @@ namespace TorunLive.Application.Services
             return result;
         }
 
-        public async Task<CompareLine> GetLiveForLine(string lineNumber, string stopId, int directionId)
+        public async Task<Result<CompareLine>> GetLiveForLine(string lineNumber, string stopId, int directionId)
         {
             var directStop = await _dbContext.LineStops.FirstOrDefaultAsync(ls =>
                 ls.LineId == lineNumber &&
@@ -62,7 +63,7 @@ namespace TorunLive.Application.Services
                 ls.DirectionId == directionId);
 
             if (directStop == null)
-                return null; // to result
+                return Result<CompareLine>.Failure($"Not found stop");
 
             var lastNStops = 5;
             var now = _dateTimeService.Now;
@@ -95,7 +96,7 @@ namespace TorunLive.Application.Services
                 Arrivals = arrivals.OrderBy(x => x.Order).ToList()
             };
 
-            return result;
+            return Result<CompareLine>.Success(result);
         }
 
         public async Task<IEnumerable<DateTime>> GetNextArrivals(string lineNumber, int directionId, string stopId)
@@ -133,7 +134,7 @@ namespace TorunLive.Application.Services
             var liveLineEntry = liveLineEntries.First();
 
             var arrivalDayMinute = liveLineEntry.ArrivalsInDayMinutes.FirstOrDefault();
-            var closestMatchToBase = stop.LineStopTimes.MinBy(lst => lst.DayMinute - arrivalDayMinute);
+            var closestMatchToBase = stop.LineStopTimes.MinBy(lst => Math.Abs(lst.DayMinute - arrivalDayMinute));
             arrivals.Add(new CompareArrival
             {
                 Order = stop.StopOrder,

@@ -28,8 +28,8 @@ namespace ConsoleDemo
             var fullService = provider.GetRequiredService<IFullTimetableService>();
 
             var defaultLineName = "27";
-            var defaultStartStopId = 29001;
-            var defaultDirectionId = 2;
+            var defaultStartStopId = 29102;
+            var defaultDirectionId = 1;
             var lineName = defaultLineName;
             var startStopId = defaultStartStopId;
             var directionId = defaultDirectionId;
@@ -38,9 +38,16 @@ namespace ConsoleDemo
             //var directionId = AskForInt($"Podaj id kierunku dla lini ({defaultDirectionId}): ") ?? defaultDirectionId;
             var result = fullService.GetLiveForLine(lineName, startStopId.ToString(), directionId).GetAwaiter().GetResult();
 
+            if (result.IsFailure)
+            {
+                Console.WriteLine(result.ErrorMessage);
+                return;
+            }
+
             var table = new ConsoleTable("Przystanek", "Planowany", "Aktualny", "Opóźnienie");
+            table.Configure(options => options.EnableCount = false);
             var now = DateTime.Now;
-            foreach(var arrival in result.Arrivals)
+            foreach(var arrival in result.ResultObject.Arrivals)
             {
                 table.Rows.Add(new object[]
                 {
