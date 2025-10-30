@@ -17,12 +17,16 @@ namespace TorunLive.WebApi.Controllers
         private readonly TorunLiveContext _dbContext = dbContext;
 
         [HttpGet]
-        public async Task<ActionResult> GetTimetable(string sipStopId)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetTimetable(string sipStopId)
         {
             return new OkObjectResult(await _fullTimetableService.GetFullTimetable(sipStopId));
         }
 
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<IActionResult> GetDelay(string lineNumber, string sipStopId, int directionId)
         {
             var result = await _fullTimetableService.GetLiveForLine(lineNumber, sipStopId, directionId);

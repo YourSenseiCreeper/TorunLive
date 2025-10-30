@@ -35,13 +35,13 @@ namespace TorunLive.Application.Services
 
             var stopId = int.Parse(sipStopId);
             var lineStopsForStop = _dbContext.LineStops.Where(ls => ls.StopId == sipStopId).ToList();
-            // lista lini
             var currentDayMinute = now.ToDayMinute();
             var offset = currentDayMinute + 60;
-            foreach(var lineStop in lineStopsForStop)
+
+            foreach (var lineStop in lineStopsForStop)
             {
-                var lineStopTimeForStops = _dbContext.LineStopTimes.Where(lst => 
-                    lst.LineStopId == lineStop.Id && 
+                var lineStopTimeForStops = _dbContext.LineStopTimes.Where(lst =>
+                    lst.LineStopId == lineStop.Id &&
                     lst.DayMinute >= currentDayMinute && lst.DayMinute <= offset &&
                     lst.IsWeekday == isWeekday && lst.IsSaturdaySundays == isSaturdaySunday && lst.IsHolidays == isHolidays)
                     .ToList();
@@ -77,7 +77,7 @@ namespace TorunLive.Application.Services
                 .Include(ls => ls.Direction)
                 .Include(ls => ls.LineStopTimes.Where(lst => lst.DayMinute >= nowDayMinute && lst.DayMinute <= offset))
                 .ToList();
-            
+
             //var arrivals = new ConcurrentBag<CompareArrival>();
             //foreach (var stop in stopsBefore)
             //{
@@ -105,7 +105,7 @@ namespace TorunLive.Application.Services
             var offset = nowDayMinute + 60;
             var lineStopWithArrivals = await _dbContext.LineStops
                 .Include(ls => ls.LineStopTimes)
-                .FirstOrDefaultAsync(ls => 
+                .FirstOrDefaultAsync(ls =>
                     ls.LineId == lineNumber &&
                     ls.DirectionId == directionId &&
                     ls.StopId == stopId);

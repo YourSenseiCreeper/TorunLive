@@ -72,15 +72,16 @@ namespace TorunLive.Application.Tests
             var direction = new Direction { LineId = lineId, DirectionId = directionId, Name = directionName };
             dbContext.Directions.Add(direction);
 
-            var lineStop = new LineStop
+
+          var lineStop = new LineStop
             {
-                DirectionId = directionId,
+               DirectionId = directionId,
                 DirectionLineId = line.Id,
-                LineId = line.Id,
+               LineId = line.Id,
                 StopId = stopId,
-                StopOrder = 5,
+               StopOrder = 5,
                 IsOnDemand = false,
-            };
+          };
             dbContext.LineStops.Add(lineStop);
 
             dbContext.LineStopTimes.AddRange(arrivalDayMintues.Select(arrival => new LineStopTime

@@ -31,7 +31,7 @@ namespace TorunLive.WebApi
                 app.UseSwaggerUI();
             }
 
-            app.UseMiddleware<ApiKeyMiddleware>();
+            //app.UseMiddleware<ApiKeyMiddleware>();
             app.UseHttpsRedirection();
             app.UseAuthorization();
             app.MapControllers();

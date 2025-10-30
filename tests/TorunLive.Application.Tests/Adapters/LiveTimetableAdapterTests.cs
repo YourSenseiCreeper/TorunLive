@@ -16,7 +16,6 @@ namespace TorunLive.Application.Tests.Adapters
         {
             var testDateTime = new DateTimeOffset(2023, 11, 15, 21, 0, 0, TimeSpan.Zero);
             var dateTimeServiceMock = new Mock<IDateTimeService>();
-            dateTimeServiceMock.SetupGet(dt => dt.Now).Returns(testDateTime);
             var service = new LiveTimetableAdapter(
                 Mock.Of<ILogger<LiveTimetableAdapter>>(),
                 dateTimeServiceMock.Object);

@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TorunLive.Tools.SIPTimetabl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TorunLive.Common", "src\TorunLive.Common\TorunLive.Common.csproj", "{0303D0C9-F137-4679-8A1F-4530635B05DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorunLive.WebApi.IntegrationTests", "tests\TorunLive.WebApi.IntegrationTests\TorunLive.WebApi.IntegrationTests.csproj", "{03BD9DD1-01D4-4F35-AF3F-099D0F60C1C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{0303D0C9-F137-4679-8A1F-4530635B05DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0303D0C9-F137-4679-8A1F-4530635B05DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0303D0C9-F137-4679-8A1F-4530635B05DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03BD9DD1-01D4-4F35-AF3F-099D0F60C1C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03BD9DD1-01D4-4F35-AF3F-099D0F60C1C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03BD9DD1-01D4-4F35-AF3F-099D0F60C1C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03BD9DD1-01D4-4F35-AF3F-099D0F60C1C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +89,7 @@ Global
 		{5921B6AE-A78E-44CC-A7BB-B8B5C3501D3D} = {3ADE245F-AA5C-4385-AB80-D70089B4259B}
 		{11F59698-305F-4507-B31E-AEF0AA303F7F} = {088D53CF-875A-4189-872A-C74CBEE07805}
 		{0303D0C9-F137-4679-8A1F-4530635B05DE} = {3ADE245F-AA5C-4385-AB80-D70089B4259B}
+		{03BD9DD1-01D4-4F35-AF3F-099D0F60C1C1} = {088D53CF-875A-4189-872A-C74CBEE07805}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93B5D77C-55A8-4FD3-B02E-A7782C8367E5}
